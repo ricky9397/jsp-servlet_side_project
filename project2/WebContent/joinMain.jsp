@@ -60,7 +60,7 @@
 
 
 		<!-- 센터 -->
-		<form action="" id="join_form">
+		<form action="index.jsp" id="join_form">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>
@@ -94,7 +94,7 @@
 						<td>
 							<div class="add_wrap">
 								<input type="text" class="add userAdd" id="zip" name="address">
-								<input type="button" id="btnAdd" name="btnAdd">
+								<input type="button" id="btnAdd" name="address">
 							</div> <input type="text" class="add1 userAdd" id="addr1"
 							name="address"><span>기본주소</span> <input type="text"
 							class="add2 userAdd" id="addr2" name="address"><span>나머지주소(선택입력가능)</span>
@@ -104,11 +104,11 @@
 					<tr>
 						<th>휴대전화</th>
 						<td><select>
-								<option>010</option>
-								<option>011</option>
-								<option>016</option>
-						</select> - <input type="text" class="p_size userPhone" name="phone">
-							- <input type="text" class="p_size userPhone" name="phone">
+								<option name="phoneNum">010</option>
+								<option name="phoneNum">011</option>
+								<option name="phoneNum">016</option>
+						</select> - <input type="text" class="p_size userPhone" name="phoneNum">
+							- <input type="text" class="p_size userPhone" name="phoneNum">
 							<div class="msg"></div></td>
 					</tr>
 					<tr>

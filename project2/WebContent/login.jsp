@@ -25,7 +25,7 @@
 			<!-- 로고 -->
 			<header>
 				<h1>
-					<a href="../index/index.html">OH MY SHOP</a>
+					<a href="index.jsp">OH MY SHOP</a>
 				</h1>
 			</header>
 			<!-- 로고 끝 -->
@@ -63,7 +63,7 @@
 		<div>
 			<h2>L O G I N</h2>
 		</div>
-		<form action="" id="login_form">
+		<form action="index.jsp" id="login_form">
 			<div>
 				<input type="text" placeholder="아이디" id="userId" name="id">
 				<div class="msg"></div>
