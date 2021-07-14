@@ -6,14 +6,11 @@
 <meta charset="UTF-8">
 <title>OHMYGOT</title>
 <link rel="stylesheet" href="./css/join_main.css">
-<!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous">
-	
 </script>
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
-<!-- js -->
 <script src="./js/join_main.js"></script>
 </head>
 
@@ -60,7 +57,7 @@
 
 
 		<!-- 센터 -->
-		<form action="index.jsp" id="join_form">
+		<form action="joinMainAction.jsp" id="join_form">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>

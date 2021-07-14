@@ -330,8 +330,6 @@ $(document).ready(function () {
             $('#email').css('border', '1px solid green');
         }
 
-        alert('환영합니다! 가입되었습니다.');
-
     });
 
     $(id).focus(function () {

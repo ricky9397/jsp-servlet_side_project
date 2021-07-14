@@ -25,8 +25,8 @@
 	if(request.getParameter("name") != null){
 		name = request.getParameter("name");
 	}
-	if(request.getParameter("address") != null){
-		address = request.getParameter("address");
+	if(request.getParameter("address4") != null){
+		address = request.getParameter("address4");
 	}
 	if(request.getParameter("phone") != null){
 		phoneNum = request.getParameter("phoneNum");
