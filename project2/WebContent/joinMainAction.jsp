@@ -25,11 +25,15 @@
 	if(request.getParameter("name") != null){
 		name = request.getParameter("name");
 	}
-	if(request.getParameter("address4") != null){
-		address = request.getParameter("address4");
+	if(request.getParameter("address") != null){
+		address = request.getParameter("address") 
+				+ request.getParameter("address1") 
+				+ request.getParameter("address2");
 	}
-	if(request.getParameter("phone") != null){
-		phoneNum = request.getParameter("phoneNum");
+	if(request.getParameter("phoneNum1") != null){
+		phoneNum = request.getParameter("phoneNum")
+				+ request.getParameter("phoneNum1")
+				+ request.getParameter("phoneNum2");
 	}
 	if(request.getParameter("email") != null){
 		email = request.getParameter("email");
@@ -51,7 +55,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('회원가입에 성공했습니다.');");
-		script.println("location.href = 'index.jsp';");
+		script.println("location.href = 'indexOut.jsp';");
 		script.println("</script>");
 		script.close();
 		return;
@@ -69,7 +73,7 @@
 		session.setAttribute("id", id);
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("location.href = 'index.jsp';");
+		script.println("location.href = 'indexOut.jsp';");
 		script.println("</script>");
 		script.close();
 		return;

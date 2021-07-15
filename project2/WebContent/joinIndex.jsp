@@ -24,7 +24,7 @@
 			<!-- 로고 -->
 			<header>
 				<h1>
-					<a href="../index/index.html">OH MY SHOP</a>
+					<a href="index.jsp">OH MY SHOP</a>
 				</h1>
 			</header>
 			<!-- 로고 끝 -->
@@ -33,8 +33,8 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="../login/login.html">LOGIN</a></li>
-						<li><a href="../join/join.html">JOIN</a></li>
+						<li><a href="login.jsp">LOGIN</a></li>
+						<li><a href="joinIndex.jsp">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -46,7 +46,7 @@
 					</ul>
 				</div>
 				<ul class="nav2">
-					<li><a href="../index/index.html">MAIN</a></li>
+					<li><a href="index.jsp">MAIN</a></li>
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>
@@ -59,7 +59,7 @@
 
 
 		<!-- 센터 -->
-		<form action="">
+		<form action="joinIndexAction.jsp">
 			<div>
 				<h3 class="all_check">전체동의</h3>
 			</div>
@@ -241,7 +241,7 @@
 						있습니다. 카카오톡을 통해 발송되는 알림톡 수신을 원치 않으실 경우 반드시 알림톡을 차단하여 주시기 바랍니다.</p>
 					<div class="check_v">
 						<span> 이용약관에 동의하십니까? </span> <input type="checkbox"
-							class="checkItem"> <label for="check1">동의함</label>
+							class="checkItem" name="check1"> <label for="check1">동의함</label>
 					</div>
 				</div>
 				<div class="check">
@@ -269,7 +269,7 @@
 						거부할 수 있으나 거부시 회원 가입이 불가능합니다.</p>
 					<div class="check_v">
 						<span> 개인정보 수집 및 이용에 동의하십니까? </span> <input type="checkbox"
-							class="checkItem"> <label for="check1">동의함</label>
+							class="checkItem" name="check2"> <label for="check1">동의함</label>
 					</div>
 				</div>
 				<div class="join">

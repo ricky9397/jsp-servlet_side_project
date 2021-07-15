@@ -26,7 +26,7 @@
 			<!-- 로고 -->
 			<header>
 				<h1>
-					<a href="index.jsp">OH MY SHOP</a>
+					<a href="indexOut.jsp">OH MY SHOP</a>
 				</h1>
 			</header>
 			<!-- 로고 끝 -->
@@ -35,8 +35,7 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joinIndex.jsp">JOIN</a></li>
+						<li><a href="index.jsp">LOGOUT</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -48,7 +47,7 @@
 					</ul>
 				</div>
 				<ul class="nav2">
-					<li><a href="index.jsp">MAIN</a></li>
+					<li><a href="indexOut.jsp">MAIN</a></li>
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>

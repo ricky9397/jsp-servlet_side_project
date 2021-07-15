@@ -22,9 +22,9 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select pw from members where id = ?";
 
 		try {
+			String sql = "select pw from members where id = ?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -68,18 +68,17 @@ public class MemberDao {
 	public int join(MemberDto dto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-
 		String sql = "insert into members values(?, ?, ?, ?, ?, ?)";
-		try {
 
+		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getId());
-			pstmt.setString(1, dto.getPw());
-			pstmt.setString(1, dto.getName());
-			pstmt.setString(1, dto.getAddress());
-			pstmt.setString(1, dto.getPhoneNum());
-			pstmt.setString(1, dto.getEmail());
+			pstmt.setString(2, dto.getPw());
+			pstmt.setString(3, dto.getName());
+			pstmt.setString(4, dto.getAddress());
+			pstmt.setString(5, dto.getPhoneNum());
+			pstmt.setString(6, dto.getEmail());
 			return pstmt.executeUpdate();
 
 		} catch (SQLException e) {

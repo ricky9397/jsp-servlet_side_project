@@ -34,8 +34,8 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="../login/login.html">LOGIN</a></li>
-						<li><a href="../join/join_index.html">JOIN</a></li>
+						<li><a href="login.jsp">LOGIN</a></li>
+						<li><a href="joinIndex.jsp">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -47,7 +47,7 @@
 					</ul>
 				</div>
 				<ul class="nav2">
-					<li><a href="../index/index.html">MAIN</a></li>
+					<li><a href="index.jsp">MAIN</a></li>
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>
@@ -63,7 +63,7 @@
 		<div>
 			<h2>L O G I N</h2>
 		</div>
-		<form action="index.jsp" id="login_form">
+		<form action="loginAction.jsp" id="login_form" method="post">
 			<div>
 				<input type="text" placeholder="아이디" id="userId" name="id">
 				<div class="msg"></div>

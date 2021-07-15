@@ -22,7 +22,7 @@
 			<!-- 로고 -->
 			<header>
 				<h1>
-					<a href="../index/index.html">OH MY SHOP</a>
+					<a href="index.jsp">OH MY SHOP</a>
 				</h1>
 			</header>
 			<!-- 로고 끝 -->
@@ -31,8 +31,8 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="../login/login.html">LOGIN</a></li>
-						<li><a href="../join/join.html">JOIN</a></li>
+						<li><a href="login.jsp">LOGIN</a></li>
+						<li><a href="joinIndex.jsp">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -44,7 +44,7 @@
 					</ul>
 				</div>
 				<ul class="nav2">
-					<li><a href="../index/index.html">MAIN</a></li>
+					<li><a href="index.jsp">MAIN</a></li>
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>
@@ -57,7 +57,7 @@
 
 
 		<!-- 센터 -->
-		<form action="joinMainAction.jsp" id="join_form">
+		<form action="joinMainAction.jsp" id="join_form" method="post">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>
@@ -91,21 +91,21 @@
 						<td>
 							<div class="add_wrap">
 								<input type="text" class="add userAdd" id="zip" name="address">
-								<input type="button" id="btnAdd" name="address">
+								<input type="button" id="btnAdd" name="btnAdd">
 							</div> <input type="text" class="add1 userAdd" id="addr1"
-							name="address"><span>기본주소</span> <input type="text"
-							class="add2 userAdd" id="addr2" name="address"><span>나머지주소(선택입력가능)</span>
+							name="address1"><span>기본주소</span> <input type="text"
+							class="add2 userAdd" id="addr2" name="address2"><span>나머지주소</span>
 							<div class="msg"></div>
 						</td>
 					</tr>
 					<tr>
 						<th>휴대전화</th>
-						<td><select>
-								<option name="phoneNum">010</option>
-								<option name="phoneNum">011</option>
-								<option name="phoneNum">016</option>
-						</select> - <input type="text" class="p_size userPhone" name="phoneNum">
-							- <input type="text" class="p_size userPhone" name="phoneNum">
+						<td><select name="phoneNum">
+								<option>010</option>
+								<option>011</option>
+								<option>016</option>
+						</select> - <input type="text" class="p_size userPhone" name="phoneNum1">
+							- <input type="text" class="p_size userPhone" name="phoneNum2">
 							<div class="msg"></div></td>
 					</tr>
 					<tr>

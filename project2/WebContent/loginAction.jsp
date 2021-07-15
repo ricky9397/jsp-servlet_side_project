@@ -35,7 +35,7 @@
 		session.setAttribute("id", id);
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("location.href = 'index.jsp';");
+		script.println("location.href = 'indexOut.jsp';");
 		script.println("</script>");
 		script.close();
 		return;

@@ -287,11 +287,6 @@ $(document).ready(function () {
             $('.userAdd+div.msg').css({ 'display': 'block', 'color': 'red' });
             $('.userAdd').css('border', '1px solid red');
             return false;
-        } else if (!(phoneck.test($(phone).val()))) {
-            $('.userAdd+div.msg').html('잘못입력하셨습니다.');
-            $('.userAdd+div.msg').css({ 'display': 'block', 'color': 'red' });
-            $('.userAdd').css('border', '1px solid red');
-            return false;
         } else {
             $('.userAdd+div.msg').html('');
             $('.userAdd+div.msg').css({ 'display': 'block', 'color': 'green' });
