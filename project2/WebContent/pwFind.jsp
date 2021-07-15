@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>OHMYGOT</title>
-<link rel="stylesheet" href="pw_find.css">
+<link rel="stylesheet" href="./css/pw_find.css">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
@@ -13,7 +13,7 @@
 	
 </script>
 <!-- js -->
-<script src="pw_find.js"></script>
+<script src="./js/pw_find.js"></script>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 			<!-- 로고 -->
 			<header>
 				<h1>
-					<a href="../index/index.html">OH MY SHOP</a>
+					<a href="index.jsp">OH MY SHOP</a>
 				</h1>
 			</header>
 			<!-- 로고 끝 -->
@@ -33,15 +33,15 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="../login/login.html">LOGIN</a></li>
-						<li><a href="../join/join_index.html">JOIN</a></li>
+						<li><a href="login.jsp">LOGIN</a></li>
+						<li><a href="joinIndex.jsp">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
 				<div>
 					<ul>
 						<li class="serch_li"><a href="#" class="serch"> <img
-								src="../img/header_ico_search.png">
+								src="./img/header_ico_search.png">
 						</a></li>
 					</ul>
 				</div>

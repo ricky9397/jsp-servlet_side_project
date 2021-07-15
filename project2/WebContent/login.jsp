@@ -77,8 +77,8 @@
 			</div>
 			<div class="login_footer">
 				<ul>
-					<li><a href="id_find/id_find.html">아이디찾기 </a></li>
-					<li><a href="pw_find/pw_find.html">비밀번호 찾기 </a></li>
+					<li><a href="idFind.jsp">아이디찾기 </a></li>
+					<li><a href="pwFind.jsp">비밀번호 찾기 </a></li>
 					<li><a href="joinIndex.jsp">회원가입</a></li>
 				</ul>
 			</div>
