@@ -79,7 +79,7 @@
 				<ul>
 					<li><a href="id_find/id_find.html">아이디찾기 </a></li>
 					<li><a href="pw_find/pw_find.html">비밀번호 찾기 </a></li>
-					<li><a href="../join/join_index.html">회원가입</a></li>
+					<li><a href="joinIndex.jsp">회원가입</a></li>
 				</ul>
 			</div>
 		</form>

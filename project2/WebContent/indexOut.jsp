@@ -80,7 +80,7 @@
 		<div class="swiper-container mySwiper2">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
-					<a href=""> <img src="./img/item1.jpg" alt=""> s
+					<a href=""> <img src="./img/item1.jpg" alt=""> 
 					</a>
 				</div>
 				<div class="swiper-slide">

@@ -22,7 +22,7 @@
 	if(check1 == null || check2 == null){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('전체동의 하셔야합니다.!');");
+		script.println("alert('전체동의 하셔야합니다.');");
 		script.println("history.back();");
 		script.println("</script>");
 		return;
