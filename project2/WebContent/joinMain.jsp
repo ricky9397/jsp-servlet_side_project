@@ -57,7 +57,7 @@
 
 
 		<!-- 센터 -->
-		<form action="joinMainAction.jsp" id="join_form" method="post">
+		<form action="" id="join_form" method="post">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>
