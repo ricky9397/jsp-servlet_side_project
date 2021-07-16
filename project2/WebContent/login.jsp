@@ -63,7 +63,7 @@
 		<div>
 			<h2>L O G I N</h2>
 		</div>
-		<form action="loginAction.jsp" id="login_form" method="post">
+		<form action="Login" id="login_form" method="post">
 			<div>
 				<input type="text" placeholder="아이디" id="userId" name="id">
 				<div class="msg"></div>
