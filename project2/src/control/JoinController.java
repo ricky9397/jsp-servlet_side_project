@@ -14,18 +14,26 @@ import javax.servlet.http.HttpSession;
 import member.MemberDao;
 import member.MemberDto;
 
-@WebServlet("/join")
-public class JoinControl extends HttpServlet {
-	@Override
+@WebServlet("/Join")
+public class JoinController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/joinMain.jsp");
-		rd.forward(request, response);
+		join(request, response);
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		join(request, response);
+	}
+
+	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 사용자가 전달한 값 db에 한글이 깨지지 않게 하기위함
+		request.setCharacterEncoding("UTF-8");
+		// 사용자에게 전달할때 깨지지 않게하기위한 것
+		response.setContentType("txet/html; charset=UTF-8");
+		
 		
 		MemberDao dao = MemberDao.getInstance();
 
@@ -46,11 +54,13 @@ public class JoinControl extends HttpServlet {
 			name = request.getParameter("name");
 		}
 		if (request.getParameter("address") != null) {
-			address = request.getParameter("address") + request.getParameter("address1")
+			address = request.getParameter("address") 
+					+ request.getParameter("address1")
 					+ request.getParameter("address2");
 		}
-		if (request.getParameter("phoneNum1") != null) {
-			phoneNum = request.getParameter("phoneNum") + request.getParameter("phoneNum1")
+		if (request.getParameter("phoneNum1") != null && request.getParameter("phoneNum2") != null) {
+			phoneNum = request.getParameter("phoneNum") 
+					+ request.getParameter("phoneNum1")
 					+ request.getParameter("phoneNum2");
 		}
 		if (request.getParameter("email") != null) {
@@ -59,32 +69,19 @@ public class JoinControl extends HttpServlet {
 
 		int result = dao.join(new MemberDto(id, pw, name, address, phoneNum, email));
 
-		
-
 		if (result == 1) {
-			PrintWriter script = response.getWriter();
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
-			script.println("<script>");
-			script.println("alert('회원가입에 성공했습니다.');");
-			script.println("location.href = 'indexOut.jsp';");
-			script.println("</script>");
-			RequestDispatcher rd = request.getRequestDispatcher("/joinMain.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/indexOut.jsp");
 			rd.forward(request, response);
-			script.close();
 		}
 
 		if (result == -1) {
 			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('이미 존재하는 아이디입니다.');");
-			script.println("history.back();");
-			script.println("</script>");
-			script.close();
+			RequestDispatcher rd = request.getRequestDispatcher("/joinMain.jsp");
+			rd.forward(request, response);
 		}
 		
-		
-
 	}
 
 }

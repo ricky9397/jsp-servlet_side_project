@@ -8,16 +8,13 @@ import java.sql.SQLException;
 import Database.DBconn;
 
 public class MemberDao {
-
-	private MemberDao() {
-	}
-
+	
+	// 싱글톤
+	private MemberDao() {}
 	static private MemberDao dao = new MemberDao();
+	public static MemberDao getInstance() { return dao; }
 
-	public static MemberDao getInstance() {
-		return dao;
-	}
-
+	// 로그인
 	public int login(String id, String pw) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -64,7 +61,8 @@ public class MemberDao {
 		}
 		return -2; // 데이터베이스 오류
 	}
-
+	
+	// 회원가입
 	public int join(MemberDto dto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

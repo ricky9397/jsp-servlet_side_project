@@ -57,7 +57,7 @@
 
 
 		<!-- 센터 -->
-		<form action="" id="join_form" method="post">
+		<form action="Join" id="join_form" method="post">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>
