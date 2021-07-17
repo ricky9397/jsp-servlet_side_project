@@ -30,7 +30,7 @@ public class MemberDao {
 			pstmt.setString(2, pw);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				if (rs.getString(1).equals(pw)) {
+				if (rs.getString(1).equals(rs.getString(2))) {
 					return 1; // 로그인 성공
 				} else {
 					return 0;

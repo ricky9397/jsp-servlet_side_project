@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>OHMYGOT</title>
 <!-- css -->
-<link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/write.css">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
@@ -14,36 +14,8 @@
 	
 </script>
 <!-- js -->
-<script src="./js/login.js"></script>
-<script type="text/javascript">
-	// 로그인 없는 아이디, 비밀번호 틀렷음 체크 ajax
-$(document).ready(function(){
-	$('#login_btn').on('click', function(){
-		var userId = $('#userId').val();
-		var userPw = $('#userPw').val();
-		$.ajax({
-			type : 'POST',
-			url : 'LoginCheck.do',
-			data : {
-				userId : userId,
-				userPw : userPw
-			},
-			success : function(data) {
-				if($('#userId').val().trim() == '') {
-					alert('아이디를 입력해주세요.');
-			    } else if($('#userPw').val().trim() == ''){
-			    	alert('비밀번호를 입력해주세요.')
-			    } else if(data == -1){
-			    	alert('잘못 입력 하셨습니다.')
-			    } else if(data == 0){
-			    	alert('비밀번호 틀렸습니다.')
-			    }
-			}
-		})
-	});
-});	
+<script src="./js/write.js"></script>
 
-</script>
 </head>
 
 <body>
@@ -89,28 +61,29 @@ $(document).ready(function(){
 
 
 		<!-- 센터 -->
-		<div>
-			<h2>L O G I N</h2>
-		</div>
-		<form action="Login.do" id="login_form" method="post">
-			<div>
-				<input type="text" placeholder="아이디" id="userId" name="id">
-				<div class="msg"></div>
+		<form action="">
+			<div class="center_wrap">
+				<div class="center_font">
+					<h2>Q & A</h2>
+				</div>
+				<div>
+					<h2>COMMUNITY</h2>
+				</div>
+				<div class="title">
+					<span>WRITER</span> <input type="text">
+				</div>
+				<div>
+					<textarea class="bbs"></textarea>
+					<div class="count_size">
+						문자 : <span id="count">0</span>
+					</div>
+				</div>
+				<div class="bbs_btn_size">
+					<input type="submit" value="REGISTER"> <input type="button"
+						value="CANCLE" onclick="history.back(-1)">
+				</div>
 			</div>
-			<div>
-				<input type="password" placeholder="비밀번호" id="userPw" name="pw">
-				<div class="msg"></div>
-			</div>
-			<div>
-				<input type="submit" value="로그인" id="login_btn">
-			</div>
-			<div class="login_footer">
-				<ul>
-					<li><a href="idFind.jsp">아이디찾기 </a></li>
-					<li><a href="pwFind.jsp">비밀번호 찾기 </a></li>
-					<li><a href="joinIndex.jsp">회원가입</a></li>
-				</ul>
-			</div>
+
 		</form>
 		<!-- 센터끝 -->
 
