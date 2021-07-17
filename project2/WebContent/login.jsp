@@ -15,6 +15,33 @@
 </script>
 <!-- js -->
 <script src="./js/login.js"></script>
+<script type="text/javascript">
+	// 로그인 없는 아이디, 비밀번호 틀렷음 체크 ajax
+$(document).ready(function(){
+	$('#login_btn').on('click', function(){
+		var userId = $('#userId').val();
+		var userPw = $('#userPw').val();
+		$.ajax({
+			type : 'POST',
+			url : 'LoginCheck.do',
+			data : {
+				userId : userId,
+				userPw : userPw
+			},
+			success : function(data) {
+				if($('#userId').val().trim() == '') {
+					alert('아이디를 입력해주세요.');
+			    } else if($('#userPw').val().trim() == ''){
+			    	alert('비밀번호를 입력해주세요.')
+			    } else if(data == -1){
+			    	alert('잘못 입력 하셨습니다.')
+			    } 
+			}
+		})
+	});
+});	
+
+</script>
 </head>
 
 <body>
@@ -35,7 +62,7 @@
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joinIndex.jsp">JOIN</a></li>
+						<li><a href="joincheck.do">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -63,7 +90,7 @@
 		<div>
 			<h2>L O G I N</h2>
 		</div>
-		<form action="Login" id="login_form" method="post">
+		<form action="Login.do" id="login_form" method="post">
 			<div>
 				<input type="text" placeholder="아이디" id="userId" name="id">
 				<div class="msg"></div>
@@ -73,7 +100,7 @@
 				<div class="msg"></div>
 			</div>
 			<div>
-				<input type="submit" value="로그인">
+				<input type="submit" value="로그인" id="login_btn">
 			</div>
 			<div class="login_footer">
 				<ul>

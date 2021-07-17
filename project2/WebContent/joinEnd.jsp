@@ -29,10 +29,9 @@
             <nav>
                 <div>
                     <ul class="nav1">
-                        <li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joinIndex.jsp">JOIN</a></li>
+						<li><a href="index.jsp">LOGOUT</a></li>
 						<li><a href="#">MY PAGE</a></li>
-                    </ul>
+					</ul>
                 </div>
                 <div>
                     <ul>
@@ -69,9 +68,9 @@
                     </tr>
                     <tr class="table2">
                         <th class="table_size"><img src="./img/사진첩.png"></th>
-                        <td>아이디 <span class="s_s"></span></td>
-                        <td>이름 <span class="s_s ss"></span></td>
-                        <td>이메일 <span class="s_s"></span></td>
+                        <td>아이디 <span class="s_s"><%= session.getAttribute("id") %></span></td>
+                        <td>이름 <span class="s_s ss"><%= session.getAttribute("name") %></span></td>
+                        <td>이메일 <span class="s_s"><%= session.getAttribute("email") %></span></td>
                     </tr>
                 </table>
             </div>

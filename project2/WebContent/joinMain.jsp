@@ -20,7 +20,7 @@
 		var userId = $('#userId').val();
 		$.ajax({
 			type : 'POST',
-			url : 'JoinCheckServlet',
+			url : 'join_idcheck.do',
 			data : {
 				userId : userId
 			},
@@ -36,6 +36,7 @@
 
 		})
 	}
+	
 	$('#goBtn').on('click', function() {
 		document.join_form.submit();
 	});
@@ -60,7 +61,7 @@
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joinIndex.jsp">JOIN</a></li>
+						<li><a href="joincheck.do">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -85,7 +86,7 @@
 
 
 		<!-- 센터 -->
-		<form action="Join" id="join_form" method="post">
+		<form action="join.do" id="join_form" method="post">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>

@@ -1,7 +1,6 @@
 package loginController;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,8 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import member.MemberDao;
 
-@WebServlet("/Login")
+@WebServlet("/Login.do")
 public class LoginController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -27,56 +28,37 @@ public class LoginController extends HttpServlet {
 	}
 
 	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		// 사용자가 전달한 값 db에 한글이 깨지지 않게 하기위함
+		System.out.println("login");
 		request.setCharacterEncoding("UTF-8");
-		// 사용자에게 전달할때 깨지지 않게하기위한 것
-		response.setContentType("txet/html; charset=UTF-8");
-
+		
 		MemberDao dao = MemberDao.getInstance();
-
-		String id = null;
-		String pw = null;
-		if (request.getParameter("id") != null) {
-			id = request.getParameter("id");
-		}
-		if (request.getParameter("pw") != null) {
-			pw = request.getParameter("pw");
-		}
-
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		System.out.println(id);
+		System.out.println(pw);
+		
 		int result = dao.login(id, pw);
-
-		if (result == 1) {
+		
+		if(result == 1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
 			RequestDispatcher rd = request.getRequestDispatcher("/indexOut.jsp");
 			rd.forward(request, response);
-		}
-//		} else if (result == 0) {
-//			PrintWriter script = response.getWriter();
-//			script.println("<script>");
-//			script.println("alert('비밀번호가 틀렸습니다.')");
-//			script.println("history.back();");
-//			script.println("</script>");
-//			script.close();
-//			return;
-//		} else if (result == -1) {
-//			PrintWriter script = response.getWriter();
-//			script.println("<script>");
-//			script.println("alert('존재하지 않는 아이디입니다.')");
-//			script.println("history.back();");
-//			script.println("</script>");
-//			script.close();
-//			return;
-//		} else if (result == -2) {
-//			PrintWriter script = response.getWriter();
-//			script.println("<script>");
-//			script.println("alert('데이터베이스 오류가 발생했습니다.')");
-//			script.println("history.back();");
-//			script.println("</script>");
-//			script.close();
-//			return;
-//		}
+			System.out.println(id);
+			System.out.println(pw);
+			
+		} else if(result == 0){
+			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+			rd.forward(request, response);
+			System.out.println("비밀번호 땡");
+			
+		} else if(result == -1){
+			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+			rd.forward(request, response);
+			System.out.println("아이디 없음");
+			
+		} 
 	}
 
 }

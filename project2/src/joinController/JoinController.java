@@ -1,7 +1,6 @@
 package joinController;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import member.MemberDao;
 import member.MemberDto;
 
-@WebServlet("/Join")
+@WebServlet("/join.do")
 public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,24 +29,24 @@ public class JoinController extends HttpServlet {
 
 	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("회원가입 시작");
+		
 		// 사용자가 전달한 값 db에 한글이 깨지지 않게 하기위함
 		request.setCharacterEncoding("UTF-8");
-		// 사용자에게 전달할때 깨지지 않게하기위한 것
-		response.setContentType("txet/html; charset=UTF-8");
-		
 		
 		MemberDao dao = MemberDao.getInstance();
 
-		String id = request.getParameter("id");
+		String id = null;
 		String pw = null;
 		String name = null;
 		String address = null;
 		String phoneNum = null;
 		String email = null;
 		
-//		if (request.getParameter("id") != null) {
-//			id = request.getParameter("id");
-//		}
+		if (request.getParameter("id") != null) {
+			id = request.getParameter("id");
+			System.out.println(id);
+		}
 		
 		if (request.getParameter("pw") != null) {
 			pw = request.getParameter("pw");
@@ -75,8 +74,9 @@ public class JoinController extends HttpServlet {
 		if (result == 1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
-			
-			RequestDispatcher rd = request.getRequestDispatcher("/indexOut.jsp");
+			session.setAttribute("name", name);
+			session.setAttribute("email", email);
+			RequestDispatcher rd = request.getRequestDispatcher("/joinEnd.jsp");
 			rd.forward(request, response);
 		}
 

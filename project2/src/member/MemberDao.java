@@ -23,19 +23,19 @@ public class MemberDao {
 		ResultSet rs = null;
 
 		try {
-			String sql = "select pw from member where id = ?";
+			String sql = "select * from member where id=? and pw=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				if (rs.getString(1).equals(pw)) {
 					return 1; // 로그인 성공
 				} else {
-					return 0; // 비밀번호 틀림
-				}
-			}
-			return -1; // 아이디 없음
+					return 0;
+				} 
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -61,7 +61,7 @@ public class MemberDao {
 				}
 			}
 		}
-		return -2; // 데이터베이스 오류
+		return -1; 
 	}
 	
 	// 회원가입
