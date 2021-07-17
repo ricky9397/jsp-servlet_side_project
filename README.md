@@ -6,5 +6,6 @@
  - HTML,CSS,JS,JQuery,java,jsp,db(oracle)
 
 2021/7/13
-1.쇼핑몰 따라만들기
- - HTML,CSS,JS,JQuery
+1.쇼핑몰 만들기
+ - HTML,CSS,JS,JQuery,ajax,jsp,servlet,java,db(oracle)
+ 
