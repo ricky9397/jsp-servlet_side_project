@@ -17,15 +17,14 @@
   	<res-auth>Container</res-auth>
   </resource-ref> -->
   
-  <!-- bbs 맵핑 -->
-<!--   <servlet>
+  <servlet>
   	<servlet-name>BbsFrontController</servlet-name>
   	<servlet-class>bbsController.BbsFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>BbsFrontController</servlet-name>
-  	<url-pattern>*.bbs</url-pattern>
-  </servlet-mapping> -->
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>

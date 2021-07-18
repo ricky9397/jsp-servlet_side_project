@@ -34,7 +34,7 @@
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joincheck.do">JOIN</a></li>
+						<li><a href="joincheck">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -59,7 +59,7 @@
 
 
 		<!-- 센터 -->
-		<form action="join.do" method="get" id="form_check">
+		<form action="join" method="get" id="form_check">
 			<div>
 				<h3 class="all_check">전체동의</h3>
 			</div>

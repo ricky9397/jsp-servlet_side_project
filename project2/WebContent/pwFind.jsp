@@ -34,7 +34,7 @@
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joincheck.do">JOIN</a></li>
+						<li><a href="joincheck">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>

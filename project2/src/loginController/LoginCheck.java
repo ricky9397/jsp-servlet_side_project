@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import member.MemberDao;
 
-@WebServlet("/LoginCheck.do")
+@WebServlet("/LoginCheck")
 public class LoginCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

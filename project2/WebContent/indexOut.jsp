@@ -35,7 +35,7 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="LogOut.do">LOGOUT</a></li>
+						<li><a href="LogOut">LOGOUT</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>

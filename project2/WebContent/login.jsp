@@ -64,7 +64,7 @@ $(document).ready(function(){
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joincheck.do">JOIN</a></li>
+						<li><a href="joincheck">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -92,7 +92,7 @@ $(document).ready(function(){
 		<div>
 			<h2>L O G I N</h2>
 		</div>
-		<form action="Login.do" id="login_form" method="post">
+		<form action="Login" id="login_form" method="post">
 			<div>
 				<input type="text" placeholder="아이디" id="userId" name="id">
 				<div class="msg"></div>

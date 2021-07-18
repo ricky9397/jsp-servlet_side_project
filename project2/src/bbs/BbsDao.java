@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import Database.DBClose;
 import Database.DBconn;
@@ -85,6 +87,46 @@ public class BbsDao {
 			DBClose.dbClose(pstmt);
 		}
 		return 0; // 데이터베이스 오류
+	}
+	
+	// 전체리스트
+	public ArrayList<BbsDto> getList(){
+		ArrayList<BbsDto> list = new ArrayList<BbsDto>();
+		Statement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		String sql = "select * from bbs";
+		
+		try {
+			conn = DBconn.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			
+			
+			while(rs.next()) {
+				int bbsNum = rs.getInt("bbsNum");
+				String bbsTitle = rs.getString("bbsTitle");
+				String id = rs.getString("id");
+				String bbsDate = rs.getString("bbsDate");
+				int bbsHit = rs.getInt("bbsHit");
+				String bbsContent = rs.getString("bbsContent");
+//				int bbsGroup = rs.getInt("bbsGroup");
+//				int bbsStep = rs.getInt("bbsStep");
+//				int bbsIndent = rs.getInt("bbsIndent");
+				
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit);
+				list.add(bDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(stmt);
+			DBClose.dbClose(rs);
+		}
+		
+		return list;
 	}
 	
 }

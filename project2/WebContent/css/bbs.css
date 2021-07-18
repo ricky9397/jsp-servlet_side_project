@@ -108,7 +108,7 @@ th{
     text-align: right;
     margin-right: 35px;
 }
-.butto_write input[type="button"]{
+.butto_write input[type="submit"]{
     width: 100px;
     padding: 8px 20px;
     background-color: #000;

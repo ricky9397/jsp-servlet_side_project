@@ -36,7 +36,7 @@
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joincheck.do">JOIN</a></li>
+						<li><a href="joincheck">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -61,7 +61,7 @@
 
 
 		<!-- 센터 -->
-		<form action="BbsWrite.bbs">
+		<form action="./bbswrite.do">
 			<div class="center_wrap">
 				<div class="center_font">
 					<h2>Q & A</h2>

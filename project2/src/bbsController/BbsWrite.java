@@ -14,7 +14,6 @@ public class BbsWrite implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("게시글 작성"); // 서버오류체크용
 
 		request.setCharacterEncoding("UTF-8");
 		
@@ -23,17 +22,12 @@ public class BbsWrite implements Action {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
-		if(id == null) {
-			id = "비회원";
-		}
-		
 		String bbsTitle = request.getParameter("bbsTitle");
 		String bbsContent = request.getParameter("bbsContent");
 		
 		dao.write(bbsTitle, id, bbsContent);
 		
+		System.out.println("게시글 작성완료");
+		
 	}
-
-	
-
 }

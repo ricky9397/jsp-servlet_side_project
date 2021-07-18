@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/*.bbs")
+@WebServlet("/bbsFront")
 public class BbsFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,11 +38,22 @@ public class BbsFrontController extends HttpServlet {
 		String viewPage = null;
 		Action action = null;
 		
-		if(com.equals("BbsWrite.bbs")) {
+		if(com.equals("/write.do")) {
 			viewPage = "write.jsp";
-		} else if(com.equals("BbsWrite.bbs")) {
-			
+		} else if(com.equals("/bbswrite.do")) {
+			action = new BbsWrite();
+			action.execute(request, response);
+			viewPage = "bbsList.do";
+			System.out.println("글작성페이지");
+		} 
+		else if(com.equals("/bbsList.do")) {
+			action = new BbsMain();
+			action.execute(request, response);
+			viewPage = "bbs.jsp";
+		} else if(com.equals("/bbs.do")) {
+			viewPage = "bbs.jsp";
 		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

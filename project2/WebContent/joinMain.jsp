@@ -61,7 +61,7 @@
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joincheck.do">JOIN</a></li>
+						<li><a href="joincheck">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -86,7 +86,7 @@
 
 
 		<!-- 센터 -->
-		<form action="join.do" id="join_form" method="post">
+		<form action="join" id="join_form" method="post">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>

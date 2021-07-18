@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import member.MemberDao;
 import member.MemberDto;
 
-@WebServlet("/join.do")
+@WebServlet("/join")
 public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

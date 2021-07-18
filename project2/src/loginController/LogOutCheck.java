@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/LogOut.do")
+@WebServlet("/LogOut")
 public class LogOutCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -17,7 +17,7 @@ public class LogOutCheck extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		response.sendRedirect("Login.do");
+		response.sendRedirect("Login");
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

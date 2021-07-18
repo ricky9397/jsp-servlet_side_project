@@ -6,16 +6,25 @@ public class BbsDto {
 	private String bbsTitle;
 	private String id;
 	private String bbsDate;
-	private String bbsHit;
+	private int bbsHit;
 	private String bbsContent;
-	public BbsDto(int bbsNum, String bbsTitle, String id, String bbsDate, String bbsHit, String bbsContent) {
-		super();
+//	private int bbsGroup;
+//	private int bbsStep;
+//	private int bbsIndent;
+	public BbsDto(int bbsNum, String bbsTitle, String id, String bbsDate, int bbsHit, String bbsContent) {
 		this.bbsNum = bbsNum;
 		this.bbsTitle = bbsTitle;
 		this.id = id;
 		this.bbsDate = bbsDate;
 		this.bbsHit = bbsHit;
 		this.bbsContent = bbsContent;
+	}
+	public BbsDto(int bbsNum, String bbsTitle, String id, String bbsDate, int bbsHit) {
+		this.bbsNum = bbsNum;
+		this.bbsTitle = bbsTitle;
+		this.id = id;
+		this.bbsDate = bbsDate;
+		this.bbsHit = bbsHit;
 	}
 	public int getBbsNum() {
 		return bbsNum;
@@ -41,10 +50,10 @@ public class BbsDto {
 	public void setBbsDate(String bbsDate) {
 		this.bbsDate = bbsDate;
 	}
-	public String getBbsHit() {
+	public int getBbsHit() {
 		return bbsHit;
 	}
-	public void setBbsHit(String bbsHit) {
+	public void setBbsHit(int bbsHit) {
 		this.bbsHit = bbsHit;
 	}
 	public String getBbsContent() {
@@ -53,5 +62,5 @@ public class BbsDto {
 	public void setBbsContent(String bbsContent) {
 		this.bbsContent = bbsContent;
 	}
-
+	
 }

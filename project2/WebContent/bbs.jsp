@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +52,7 @@
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>
-					<li><a href="#">COMMUNITY</a></li>
+					<li><a href="bbs.jsp">COMMUNITY</a></li>
 				</ul>
 			</nav>
 			<!-- 메뉴 끝 -->
@@ -60,7 +61,7 @@
 
 
 		<!-- 센터 -->
-		<form action="BbsFrontController.bbs">
+		<form action="./write.do">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -75,16 +76,18 @@
                             <th class="bb_size">작성일</th>
                             <th class="bb_size">조회수</th>
                         </tr>
+                        <c:forEach items="${list}" var="list">
                         <tr>
-                            <th class="bb_size">1</th>
-                            <th class="bb_size2">반갑습니다. 배송문의합니다.</th>
-                            <th class="bb_size">test</th>
-                            <th class="bb_size">2021.07.18</th>
-                            <th class="bb_size">20</th>
+                            <th class="bb_size">${list.bbsNum}</th>
+                            <th class="bb_size2">${list.bbsTitle}</th>
+                            <th class="bb_size">${list.id}</th>
+                            <th class="bb_size">${list.bbsDate}</th>
+                            <th class="bb_size">${list.bbsHit}</th>
                         </tr>
+                        </c:forEach>
                     </table>
                     <div class="butto_write">
-                        <input type="button" value="WRITE">
+                        <input type="submit" value="WRITE">
                     </div>
                 </div>
             </div>
