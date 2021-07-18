@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import Database.DBClose;
 import Database.DBconn;
 
 public class MemberDao {
@@ -23,43 +24,24 @@ public class MemberDao {
 		ResultSet rs = null;
 
 		try {
-			String sql = "select * from member where id=? and pw=?";
+			String sql = "select pw from member where id=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				if (rs.getString(1).equals(rs.getString(2))) {
+				if (rs.getString(1).equals(pw)) {
 					return 1; // 로그인 성공
 				} else {
-					return 0;
+					return 0; // 비밀번호 틀림
 				} 
 			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
 		}
 		return -1; 
 	}
@@ -85,20 +67,8 @@ public class MemberDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
 		}
 		return result; // 회원가입 실패
 	}
@@ -123,27 +93,9 @@ public class MemberDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
 		}
 		
 		return -1; // 오류
@@ -172,32 +124,13 @@ public class MemberDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			DBClose.dbClose(conn);
+			DBClose.dbClose(stmt);
+			DBClose.dbClose(rs);
 		}
-		
 		return list;
 	}
-	
+
 	
 
 }

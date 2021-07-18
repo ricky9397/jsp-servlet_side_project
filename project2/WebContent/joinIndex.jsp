@@ -241,7 +241,7 @@
 						있습니다. 카카오톡을 통해 발송되는 알림톡 수신을 원치 않으실 경우 반드시 알림톡을 차단하여 주시기 바랍니다.</p>
 					<div class="check_v">
 						<span> 이용약관에 동의하십니까? </span> <input type="checkbox"
-							class="checkItem check_1" name="check1"> <label for="check1">동의함</label>
+							class="checkItem check_1" name="check"> <label for="check1">동의함</label>
 					</div>
 				</div>
 				<div class="check">
@@ -269,7 +269,7 @@
 						거부할 수 있으나 거부시 회원 가입이 불가능합니다.</p>
 					<div class="check_v">
 						<span> 개인정보 수집 및 이용에 동의하십니까? </span> <input type="checkbox"
-							class="checkItem check_2" name="check2"> <label for="check1">동의함</label>
+							class="checkItem check_2" name="check"> <label for="check1">동의함</label>
 					</div>
 				</div>
 				<div class="join">

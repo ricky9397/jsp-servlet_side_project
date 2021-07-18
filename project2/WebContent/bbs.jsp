@@ -35,8 +35,7 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joincheck.do">JOIN</a></li>
+						<li><a href="LogOut.do">LOGOUT</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
@@ -61,7 +60,7 @@
 
 
 		<!-- 센터 -->
-		<form action="">
+		<form action="BbsFrontController.bbs">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -70,11 +69,18 @@
                 <div class="bbs">
                     <table class="bbs_table">
                         <tr>
-                            <th>번호</th>
-                            <th>제목</th>
-                            <th>작성자</th>
-                            <th>작성일</th>
-                            <th>조회수</th>
+                            <th class="bb_size">번호</th>
+                            <th class="bb_size2">제목</th>
+                            <th class="bb_size">작성자</th>
+                            <th class="bb_size">작성일</th>
+                            <th class="bb_size">조회수</th>
+                        </tr>
+                        <tr>
+                            <th class="bb_size">1</th>
+                            <th class="bb_size2">반갑습니다. 배송문의합니다.</th>
+                            <th class="bb_size">test</th>
+                            <th class="bb_size">2021.07.18</th>
+                            <th class="bb_size">20</th>
                         </tr>
                     </table>
                     <div class="butto_write">

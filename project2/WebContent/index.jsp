@@ -35,7 +35,7 @@
 			<nav>
 				<div>
 					<ul class="nav1">
-						<li><a href="login.jsp">LOGIN</a></li>
+						<li><a href="Login.do">LOGIN</a></li>
 						<li><a href="joincheck.do">JOIN</a></li>
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
@@ -52,7 +52,7 @@
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>
-					<li><a href="#">COMMUNITY</a></li>
+					<li><a href="Login.do">COMMUNITY</a></li>
 				</ul>
 			</nav>
 			<!-- 메뉴 끝 -->

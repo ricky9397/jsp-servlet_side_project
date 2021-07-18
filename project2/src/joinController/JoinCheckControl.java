@@ -13,16 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 public class JoinCheckControl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String check1 = null;
-		String check2 = null;
-
-		if (request.getParameter("check1") != null) {
-			check1 = request.getParameter("check1");
-		}
-
-		if (request.getParameter("check2") != null) {
-			check2 = request.getParameter("check2");
-		}
+		
+		String[] check = request.getParameterValues("check");
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/joinIndex.jsp");
 		rd.forward(request, response);

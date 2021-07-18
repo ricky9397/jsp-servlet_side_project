@@ -34,7 +34,7 @@ $(document).ready(function(){
 			    } else if($('#userPw').val().trim() == ''){
 			    	alert('비밀번호를 입력해주세요.')
 			    } else if(data == -1){
-			    	alert('잘못 입력 하셨습니다.')
+			    	alert('아이디가 존재하지 않습니다.')
 			    } else if(data == 0){
 			    	alert('비밀번호 틀렸습니다.')
 			    }
