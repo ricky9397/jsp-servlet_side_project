@@ -20,7 +20,7 @@
 		var userId = $('#userId').val();
 		$.ajax({
 			type : 'POST',
-			url : 'join_idcheck.do',
+			url : 'join_idcheck',
 			data : {
 				userId : userId
 			},

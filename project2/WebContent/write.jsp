@@ -78,6 +78,22 @@
 						문자 : <span id="count">0</span>
 					</div>
 				</div>
+				
+				<table class="file_tb">
+                    <tr>
+                        <th>FILE1</th>
+                        <td><input type="file"></td>
+                    </tr>
+                    <tr>
+                        <th>FILE2</th>
+                        <td><input type="file"></td>
+                    </tr>
+                    <tr>
+                        <th>FILE3</th>
+                        <td><input type="file"></td>
+                    </tr>
+                </table>
+				
 				<div class="bbs_btn_size">
 					<input type="submit" value="REGISTER"> <input type="button"
 						value="CANCLE" onclick="history.back(-1)">

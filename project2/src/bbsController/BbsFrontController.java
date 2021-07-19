@@ -26,7 +26,6 @@ public class BbsFrontController extends HttpServlet {
 		bbsAction(request, response);
 	}
 	
-	
 	public void bbsAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("프론트 컨트롤러 시작");
@@ -45,13 +44,14 @@ public class BbsFrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "bbsList.do";
 			System.out.println("글작성페이지");
-		} 
-		else if(com.equals("/bbsList.do")) {
+		} else if(com.equals("/bbsList.do")) {
 			action = new BbsMain();
 			action.execute(request, response);
 			viewPage = "bbs.jsp";
-		} else if(com.equals("/bbs.do")) {
-			viewPage = "bbs.jsp";
+		} else if(com.equals("/content.do")) {
+			action = new BbsContent();
+			action.execute(request, response);
+			viewPage = "content.jsp";
 		}
 		
 		

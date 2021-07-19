@@ -95,14 +95,12 @@ public class BbsDao {
 		Statement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
-		String sql = "select * from bbs";
+		String sql = "select * from bbs order by bbsnum desc";
 		
 		try {
 			conn = DBconn.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			
-			
 			
 			while(rs.next()) {
 				int bbsNum = rs.getInt("bbsNum");
@@ -127,6 +125,39 @@ public class BbsDao {
 		}
 		
 		return list;
+	}
+	
+	// content
+	public BbsDto getContent(String bbNum) {
+		BbsDto bdto = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select * from bbs where bbsnum=?";
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(bbNum));
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int bbsNum = rs.getInt("bbsNum");
+				String bbsTitle = rs.getString("bbsTitle");
+				String id = rs.getString("id");
+				String bbsDate = rs.getString("bbsDate");
+				int bbsHit = rs.getInt("bbsHit");
+				String bbsContent = rs.getString("bbsContent");
+				
+				bdto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
+		}
+		return bdto; 
 	}
 	
 }
