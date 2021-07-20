@@ -51,6 +51,10 @@ public class BbsFrontController extends HttpServlet {
 			action = new BbsContent();
 			action.execute(request, response);
 			viewPage = "content.jsp";
+		} else if(com.equals("/delete.do")) {
+			action = new BbsDelete();
+			action.execute(request, response);
+			viewPage = "bbsList.do";
 		}
 		
 		

@@ -83,9 +83,10 @@
                         <p>${content.bbsContent}</p>
                     </div>
                     <div class="button1">
-                        <a href="#" >
+                    
+                        <a href="delete.do?bbsNum=${delete.bbsNum}" >
                             <input type="button" value="DELETE" class="con_dm">
-                        </a>
+                       </a>
                         <a href="#" >
                             <input type="button" value="MODIFY" class="con_dm">
                         </a>
