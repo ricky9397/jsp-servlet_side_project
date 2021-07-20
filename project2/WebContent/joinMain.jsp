@@ -124,10 +124,10 @@
 						<th>주소</th>
 						<td>
 							<div class="add_wrap">
-								<input type="text" class="add userAdd" id="zip" name="address">
+								<input type="text" class="add userAdd" id="zip" name="address" readonly>
 								<input type="button" id="btnAdd" name="btnAdd">
 							</div> <input type="text" class="add1 userAdd" id="addr1"
-							name="address1"><span>기본주소</span> <input type="text"
+							name="address1" readonly><span>기본주소</span> <input type="text"
 							class="add2 userAdd" id="addr2" name="address2"><span>나머지주소</span>
 							<div class="msg"></div>
 						</td>
