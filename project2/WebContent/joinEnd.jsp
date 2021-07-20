@@ -21,7 +21,7 @@
         <div>
             <!-- 로고 -->
             <header>
-                <h1><a href="../index/index.html">OH MY SHOP</a></h1>
+                <h1><a href="indexOut.jsp">OH MY SHOP</a></h1>
             </header>
             <!-- 로고 끝 -->
 
@@ -43,11 +43,11 @@
                     </ul>
                 </div>
                 <ul class="nav2">
-                    <li><a href="index.jsp">MAIN</a></li>
+                    <li><a href="indexOut.jsp">MAIN</a></li>
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>
-					<li><a href="#">COMMUNITY</a></li>
+					<li><a href="bbsList.do">COMMUNITY</a></li>
                 </ul>
             </nav>
             <!-- 메뉴 끝 -->

@@ -27,7 +27,7 @@
 			<!-- 로고 -->
 			<header>
 				<h1>
-					<a href="index.jsp">OH MY SHOP</a>
+					<a href="indexOut.jsp">OH MY SHOP</a>
 				</h1>
 			</header>
 			<!-- 로고 끝 -->

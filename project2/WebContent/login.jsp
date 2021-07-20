@@ -80,7 +80,7 @@ $(document).ready(function(){
 					<li><a href="#">OUTWEAR</a></li>
 					<li><a href="#">TOP</a></li>
 					<li><a href="#">BOTTOM</a></li>
-					<li><a href="#">COMMUNITY</a></li>
+					<li><a href="Login">COMMUNITY</a></li>
 				</ul>
 			</nav>
 			<!-- 메뉴 끝 -->

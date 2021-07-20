@@ -165,9 +165,11 @@ footer p{
     border: 1px solid #ddd;
 }
 textarea{
-    width: 800px;
+    width: 780px;
     height: 70px;
+    padding: 10px;
 }
+
 .content_footer input{
     background-color: #000;
     color: white;
