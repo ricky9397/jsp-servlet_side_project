@@ -14,16 +14,13 @@ public class BbsDelete implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("글삭제 시작");
-		
 		request.setCharacterEncoding("UTF-8");
 
 		BbsDao dao = BbsDao.getInstance();
 		
 		String bbsNum = request.getParameter("bbsNum"); 
 		
-		
-		request.setAttribute("delete", bbsNum);
+		dao.delete(bbsNum);
 		
 	}
 

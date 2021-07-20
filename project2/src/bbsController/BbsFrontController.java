@@ -39,20 +39,33 @@ public class BbsFrontController extends HttpServlet {
 		
 		if(com.equals("/write.do")) {
 			viewPage = "write.jsp";
+			
 		} else if(com.equals("/bbswrite.do")) {
 			action = new BbsWrite();
 			action.execute(request, response);
 			viewPage = "bbsList.do";
+			
 		} else if(com.equals("/bbsList.do")) {
 			action = new BbsMain();
 			action.execute(request, response);
 			viewPage = "bbs.jsp";
+			
 		} else if(com.equals("/content.do")) {
 			action = new BbsContent();
 			action.execute(request, response);
 			viewPage = "content.jsp";
+			
 		} else if(com.equals("/delete.do")) {
 			action = new BbsDelete();
+			action.execute(request, response);
+			viewPage = "bbsList.do";
+			
+		} else if(com.equals("/update.do")) {
+			viewPage = "bbs_update.jsp";
+			
+		} else if(com.equals("/bbsUpdate.do")) {
+			System.out.println("게시글 시작");
+			action = new BbsUpdate();
 			action.execute(request, response);
 			viewPage = "bbsList.do";
 		}

@@ -163,26 +163,47 @@ public class BbsDao {
 		}
 		return null;
 	}
+	
+	public int update(String bbsNum, String bbsTitle, String bbsContent) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "update bbs set bbstitle=?, bbscontent=? where bbsnum=?";
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bbsTitle);
+			pstmt.setString(2, bbsContent);
+			pstmt.setInt(3, Integer.parseInt(bbsNum));
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+		}
+		return -1; // 데이터베이스 오류
+	}
+	
 
-//	public BbsDto delete(String num) {
-//		
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		try {
-//			String sql = "delete from bbs where bbsnum=?";
-//			conn = DBconn.getConnection();
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, Integer.parseInt(num));
-//
-//			return pstmt.executeUpdate(); // 삭제
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			DBClose.dbClose(conn);
-//			DBClose.dbClose(pstmt);
-//		}
-//		return 0; // 오류
-//	}
+	public int delete(String num) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "delete from bbs where bbsnum=?";
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(num));
+
+			return pstmt.executeUpdate(); // 삭제
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+		}
+		return 0; // 오류
+	}
 
 }

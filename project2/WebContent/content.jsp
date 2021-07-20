@@ -84,10 +84,10 @@
                     </div>
                     <div class="button1">
                     
-                        <a href="delete.do?bbsNum=${delete.bbsNum}" >
+                        <a href="delete.do?bbsNum=${content.bbsNum}" >
                             <input type="button" value="DELETE" class="con_dm">
                        </a>
-                        <a href="#" >
+                        <a href="bbs_update.jsp?bbsNum=${content.bbsNum}">
                             <input type="button" value="MODIFY" class="con_dm">
                         </a>
                         <div class="button2">
