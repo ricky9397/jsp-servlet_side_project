@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+header{
+    padding: 40px 0;
+    text-align: center;
+}
+
+.nav1{
+    display: flex;
+    margin-left: 50px;
+    list-style: none;
+}
+.nav1 a {
+    padding: 15px;
+    font-size: 0.5em;
+}
+.nav2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 280px;
+    list-style: none;
+    font-size: 0.8em;
+}
+.nav2 li{
+    margin-left: 80px;
+}
+
+.serch{
+    float: right;
+    margin-right: 100px;
+    text-decoration: none;
+}
+.serch_li{
+    list-style: none;
+}
+
+h2{
+    text-align: center;
+    padding: 50px;
+    font-size: 2.0em;
+    margin-top: 30px;
+}
+
+li:hover{
+    text-decoration: underline;
+}
+
+footer{
+    padding: 10px 30px;
+    text-align: center;
+}
+footer h2{
+    font-size: 1.0em;
+    margin-bottom: 10px;
+
+}
+
+footer p{
+    font-size: 0.5em;
+    margin-bottom: 5px;
+}
+
+.id_find{
+    padding: 10px;
+    margin: 0 auto;
+}
+
+th{
+    text-align: left;
+}
+
+.id-find_check input{
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+}
+
+.submit_check{
+    text-align: center;
+}
+.submit_check input{
+    background-color: #000;
+    color: white;
+    padding: 10px 50px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+header{
+    padding: 40px 0;
+    text-align: center;
+}
+
+.nav1{
+    display: flex;
+    margin-left: 50px;
+    list-style: none;
+}
+.nav1 a {
+    padding: 15px;
+    font-size: 0.5em;
+}
+.nav2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 280px;
+    list-style: none;
+    font-size: 0.8em;
+}
+.nav2 li{
+    margin-left: 80px;
+}
+
+.serch{
+    float: right;
+    margin-right: 100px;
+    text-decoration: none;
+}
+.serch_li{
+    list-style: none;
+}
+li:hover{
+    text-decoration: underline;
+}
+.center_wrap{
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.all_check{
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+.all_check2{
+    padding: 10px;
+    text-align: center;
+    margin: 0px auto;
+}
+.check p{
+    width: 500px;
+    height: 200px;
+    overflow: scroll;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.check{
+    text-align: center;
+}
+
+.check h3{
+    text-align: center;
+    padding: 10px;
+    font-size: 1.0em;
+    margin-bottom: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.check_v{
+    padding: 10px;
+    text-align: left;
+    margin-left: 85px;
+}
+
+.center_wrap input[type="submit"]{
+    width: 200px;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.join{
+    text-align: center;
+}
+
+footer{
+    padding: 10px 30px;
+    text-align: center;
+}
+footer h2{
+    font-size: 1.0em;
+    margin-bottom: 10px;
+
+}
+
+footer p{
+    font-size: 0.5em;
+    margin-bottom: 5px;
+}
