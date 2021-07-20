@@ -49,6 +49,7 @@ public class BbsFrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "bbs.jsp";
 		} else if(com.equals("/content.do")) {
+			System.out.println("글상세보기 시작1");
 			action = new BbsContent();
 			action.execute(request, response);
 			viewPage = "content.jsp";

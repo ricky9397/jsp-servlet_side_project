@@ -113,7 +113,7 @@ public class BbsDao {
 //				int bbsStep = rs.getInt("bbsStep");
 //				int bbsIndent = rs.getInt("bbsIndent");
 				
-				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit);
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
 				list.add(bDto);
 			}
 		} catch (SQLException e) {
@@ -128,8 +128,8 @@ public class BbsDao {
 	}
 	
 	// content
-	public BbsDto getContent(String bbNum) {
-		BbsDto bdto = null;
+	public BbsDto getContent(int num) {
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -137,18 +137,17 @@ public class BbsDao {
 			String sql = "select * from bbs where bbsnum=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, Integer.parseInt(bbNum));
+			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int bbsNum = rs.getInt("bbsNum");
-				String bbsTitle = rs.getString("bbsTitle");
-				String id = rs.getString("id");
-				String bbsDate = rs.getString("bbsDate");
-				int bbsHit = rs.getInt("bbsHit");
-				String bbsContent = rs.getString("bbsContent");
-				
-				bdto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
-				
+				BbsDto bdto = new BbsDto();
+				bdto.setBbsNum(rs.getInt("bbsNum"));
+				bdto.setBbsTitle(rs.getString("bbsTitle"));
+				bdto.setId(rs.getString("id"));
+				bdto.setBbsDate(rs.getString("bbsDate"));
+				bdto.setBbsHit(rs.getInt("bbsHit"));
+				bdto.setBbsContent(rs.getString("bbsContent"));
+				return bdto;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -157,7 +156,7 @@ public class BbsDao {
 			DBClose.dbClose(pstmt);
 			DBClose.dbClose(rs);
 		}
-		return bdto; 
+		return null; 
 	}
 	
 }

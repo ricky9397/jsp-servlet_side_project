@@ -72,7 +72,7 @@
                     <table>
                         <tr>
                             <th>제목</th>
-                            <td>${content.title}</td>
+                            <td>${content.bbsTitle}</td>
                         </tr>
                         <tr>
                             <th>작성자</th>
@@ -80,9 +80,7 @@
                         </tr>
                     </table> 
                     <div class="content_m">
-                        <p>
-                           	 게시글
-                        </p>
+                        <p>${content.bbsContent}</p>
                     </div>
                     <div class="button1">
                         <a href="#" >

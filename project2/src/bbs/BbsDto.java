@@ -11,6 +11,7 @@ public class BbsDto {
 //	private int bbsGroup;
 //	private int bbsStep;
 //	private int bbsIndent;
+	public BbsDto() { }
 	public BbsDto(int bbsNum, String bbsTitle, String id, String bbsDate, int bbsHit, String bbsContent) {
 		this.bbsNum = bbsNum;
 		this.bbsTitle = bbsTitle;
@@ -19,13 +20,7 @@ public class BbsDto {
 		this.bbsHit = bbsHit;
 		this.bbsContent = bbsContent;
 	}
-	public BbsDto(int bbsNum, String bbsTitle, String id, String bbsDate, int bbsHit) {
-		this.bbsNum = bbsNum;
-		this.bbsTitle = bbsTitle;
-		this.id = id;
-		this.bbsDate = bbsDate;
-		this.bbsHit = bbsHit;
-	}
+
 	public int getBbsNum() {
 		return bbsNum;
 	}

@@ -86,7 +86,7 @@
                         <c:forEach items="${list}" var="list">
                         <tr class="bb_sizes">
                             <th class="bb_size">${list.bbsNum}</th>
-                            <th class="bb_size2 bb_ss"><a href="content.do">${list.bbsTitle}</a></th>
+                            <th class="bb_size2 bb_ss"><a href="content.do?bbsNum=${list.bbsNum}" name="bbsNum">${list.bbsTitle}</a></th>
                             <th class="bb_size">${list.id}</th>
                             <th class="bb_size">${list.bbsDate}</th>
                             <th class="bb_size">${list.bbsHit}</th>

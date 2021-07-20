@@ -37,8 +37,6 @@ public class LoginController extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		System.out.println(id);
-		System.out.println(pw);
 		
 		int result = dao.login(id, pw);
 		

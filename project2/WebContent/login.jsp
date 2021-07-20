@@ -23,7 +23,7 @@ $(document).ready(function(){
 		var userPw = $('#userPw').val();
 		$.ajax({
 			type : 'POST',
-			url : 'LoginCheck.do',
+			url : 'LoginCheck',
 			data : {
 				userId : userId,
 				userPw : userPw
