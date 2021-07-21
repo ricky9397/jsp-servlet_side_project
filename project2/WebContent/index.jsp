@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +34,7 @@
 
 			<!-- 메뉴 -->
 			<nav>
+			<c:if test="${id == null}">
 				<div>
 					<ul class="nav1">
 						<li><a href="Login">LOGIN</a></li>
@@ -40,6 +42,15 @@
 						<li><a href="#">MY PAGE</a></li>
 					</ul>
 				</div>
+			</c:if>
+			<c:if test="${id != null}">
+			<div>
+				<ul class="nav1">
+					<li><a href="LogOut">LOGOUT</a></li>
+					<li><a href="#">MY PAGE</a></li>
+				</ul>
+			</div>
+			</c:if>
 				<div>
 					<ul>
 						<li class="serch_li"><a href="#" class="serch"> <img
