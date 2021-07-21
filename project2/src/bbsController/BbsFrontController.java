@@ -61,6 +61,8 @@ public class BbsFrontController extends HttpServlet {
 			viewPage = "bbsList.do";
 			
 		} else if(com.equals("/update.do")) {
+			action = new BbsUpdateForm();
+			action.execute(request, response);
 			viewPage = "bbs_update.jsp";
 			
 		} else if(com.equals("/bbsUpdate.do")) {

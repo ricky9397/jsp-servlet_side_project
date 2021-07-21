@@ -21,46 +21,25 @@ public class BbsDao {
 		return dao;
 	}
 
-	// 시간 함수
-	// public String getDate() {
-	// Connection conn = null;
-	// PreparedStatement pstmt = null;
-	// ResultSet rs = null;
-	// try {
-	// String sql = "SELECT SYSDATE FROM DUAL";
-	// conn = DBconn.getConnection();
-	// pstmt = conn.prepareStatement(sql);
-	// rs = pstmt.executeQuery();
-	//
-	// if(rs.next()) {
-	// return rs.getString(1);
-	// }
-	//
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// } finally {
-	// DBClose.dbClose(conn);
-	// DBClose.dbClose(pstmt);
-	// DBClose.dbClose(rs);
-	// }
-	// return ""; // 데이터베이스 오류
-	// }
-
 	// 게시글번호 늘어나게 하는 함수
 	public int getNext() {
+		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT bbsnum from bbs order by bbsnum desc";
+			String sql = "select max(bbsnum) from bbs";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				return rs.getInt(1) + 1; // 게시글 1씩증가
+			
+			while(rs.next()) {
+				result = rs.getInt("max(bbsnum)");
 			}
-			return 1; // 첫번째 게시물인 경우
+//			if (rs.next()) {
+//				return rs.getInt(1) + 1; // 게시글 1씩증가
+//			}
+//			return 1; // 첫번째 게시물인 경우
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -69,21 +48,21 @@ public class BbsDao {
 			DBClose.dbClose(pstmt);
 			DBClose.dbClose(rs);
 		}
-		return -1; // 데이터베이스 오류
+		return result;
 	}
 
 	// 글 작성
-	public int write(String bbsTitle, String id, String bbsContent) {
+	public int write(BbsDto dto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			String sql = "insert into bbs values(?, ?, ?, sysdate, 0, ?)";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, getNext());
-			pstmt.setString(2, bbsTitle);
-			pstmt.setString(3, id);
-			pstmt.setString(4, bbsContent);
+			pstmt.setInt(1, dto.getBbsNum());
+			pstmt.setString(2, dto.getBbsTitle());
+			pstmt.setString(3, dto.getId());
+			pstmt.setString(4, dto.getBbsContent());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -91,7 +70,7 @@ public class BbsDao {
 			DBClose.dbClose(conn);
 			DBClose.dbClose(pstmt);
 		}
-		return 0; // 데이터베이스 오류
+		return 0; // 오류
 	}
 
 	// 전체리스트
@@ -114,9 +93,6 @@ public class BbsDao {
 				String bbsDate = rs.getString("bbsDate");
 				int bbsHit = rs.getInt("bbsHit");
 				String bbsContent = rs.getString("bbsContent");
-				// int bbsGroup = rs.getInt("bbsGroup");
-				// int bbsStep = rs.getInt("bbsStep");
-				// int bbsIndent = rs.getInt("bbsIndent");
 
 				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
 				list.add(bDto);
@@ -131,9 +107,32 @@ public class BbsDao {
 
 		return list;
 	}
-
+	
+	
+	// 조회수증가
+	public int hitUp(String bbsNum) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update bbs set bbshit=bbshit+1 where bbsnum=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(bbsNum));
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+		}
+		return result;
+	}
+	
+	
 	// content
-	public BbsDto getContent(int num) {
+	public BbsDto selectByNum(String bbsNum) {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -142,7 +141,7 @@ public class BbsDao {
 			String sql = "select * from bbs where bbsnum=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, num);
+			pstmt.setInt(1, Integer.parseInt(bbsNum));
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				BbsDto bdto = new BbsDto();
@@ -164,27 +163,34 @@ public class BbsDao {
 		return null;
 	}
 	
-	public int update(String bbsNum, String bbsTitle, String bbsContent) {
+	// 유니크번호 체크용
+//	public BbsDto 
+	
+	
+	// 게시글 수정
+	public int update(BbsDto dto) {
+		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			String sql = "update bbs set bbstitle=?, bbscontent=? where bbsnum=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bbsTitle);
-			pstmt.setString(2, bbsContent);
-			pstmt.setInt(3, Integer.parseInt(bbsNum));
-			return pstmt.executeUpdate();
+			pstmt.setString(1, dto.getBbsTitle());
+			pstmt.setString(2, dto.getBbsContent());
+			pstmt.setInt(3, dto.getBbsNum()	);
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBClose.dbClose(conn);
 			DBClose.dbClose(pstmt);
 		}
-		return -1; // 데이터베이스 오류
+		return result; // 오류
 	}
 	
-
+	
+	// 게시판글 삭제
 	public int delete(String num) {
 		
 		Connection conn = null;
@@ -205,5 +211,6 @@ public class BbsDao {
 		}
 		return 0; // 오류
 	}
+	
 
 }

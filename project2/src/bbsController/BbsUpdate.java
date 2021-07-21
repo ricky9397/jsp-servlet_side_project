@@ -22,15 +22,11 @@ public class BbsUpdate implements Action {
 		String bbsTitle = request.getParameter("bbsTitle");
 		String bbsContent = request.getParameter("bbsContent");
 
-		System.out.println("에러3");
-		
-		dao.update(bbsNum, bbsContent, bbsTitle);
-		
-		request.setAttribute("content", bbsNum);
-		System.out.println("에러4");
-
-		
-		System.out.println("게시글 수정 완료");
+		BbsDto dto = new BbsDto();
+		dto.setBbsNum(Integer.parseInt(bbsNum));
+		dto.setBbsTitle(bbsTitle);
+		dto.setBbsContent(bbsContent);
+		dao.update(dto);
 		
 	}
 	

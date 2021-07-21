@@ -62,8 +62,9 @@
 		<!-- 상단 끝 -->
 
 
-		<!-- 센터 -->
-		<form action="./bbsUpdate.do?bbsNum=${content.bbsNum}">
+		<!-- 센터 -->	
+		<form action="./bbsUpdate.do">
+			<input type="hidden" name="bbsNum" value="${update.bbsNum}">
 			<div class="center_wrap">
 				<div class="center_font">
 					<h2>Q & A</h2>
@@ -72,10 +73,10 @@
 					<h2>COMMUNITY</h2>
 				</div>
 				<div class="title">
-					<span>WRITER</span> <input type="text" name="bbsTitle">
+					<span>WRITER</span> <input type="text" name="bbsTitle" value="${update.bbsTitle}">
 				</div>
 				<div>
-					<textarea class="bbs" name="bbsContent"></textarea>
+					<textarea class="bbs" name="bbsContent">${update.bbsContent}</textarea>
 					<div class="count_size">
 						문자 : <span id="count">0</span>
 					</div>

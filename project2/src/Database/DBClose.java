@@ -8,40 +8,30 @@ import java.sql.Statement;
 
 public class DBClose {
 	
-	public static void dbClose(Statement statement){
-        if (statement != null){
+	public static void dbClose(Statement stmt){
+        if (stmt != null){
             try {
-                statement.close();
+            	stmt.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
     }
  
-    public static void dbClose(PreparedStatement preparedStatement){
-        if (preparedStatement != null){
+    public static void dbClose(ResultSet rs){
+        if (rs != null){
             try {
-                preparedStatement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void dbClose(ResultSet resultSet){
-        if (resultSet != null){
-            try {
-                resultSet.close();
+            	rs.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
     }
     
-    public static void dbClose(Connection connection){
-        if (connection != null){
+    public static void dbClose(Connection conn){
+        if (conn != null){
             try {
-            	connection.close();
+            	conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

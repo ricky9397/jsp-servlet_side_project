@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bbs.BbsDao;
+import bbs.BbsDto;
 
 public class BbsWrite implements Action {
 
@@ -25,7 +26,14 @@ public class BbsWrite implements Action {
 		String bbsTitle = request.getParameter("bbsTitle");
 		String bbsContent = request.getParameter("bbsContent");
 		
-		dao.write(bbsTitle, id, bbsContent);
+		// 사용자에게 전달받은 값들을 db에 저장하기위한 객체
+		BbsDto dto = new BbsDto();
+		dto.setBbsNum(dao.getNext() + 1);
+		dto.setBbsTitle(bbsTitle);
+		dto.setBbsContent(bbsContent);
+		dto.setId(id);
+		
+		dao.write(dto);
 		
 		System.out.println("게시글 작성완료");
 		

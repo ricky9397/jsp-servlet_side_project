@@ -16,13 +16,15 @@ public class BbsContent implements Action {
 
 		request.setCharacterEncoding("UTF-8");
 		
+		
 		BbsDao dao = BbsDao.getInstance();
 		
-		int bbsNum = Integer.parseInt(request.getParameter("bbsNum"));
+		String bbsNum = request.getParameter("bbsNum");
 		
-		BbsDto bbs = dao.getContent(bbsNum);
+		BbsDto dto = dao.selectByNum(bbsNum);
+		dao.hitUp(bbsNum);
 		
-		request.setAttribute("content", bbs);
+		request.setAttribute("content", dto);
 		
 	}
 }

@@ -8,9 +8,7 @@ public class BbsDto {
 	private String bbsDate;
 	private int bbsHit;
 	private String bbsContent;
-//	private int bbsGroup;
-//	private int bbsStep;
-//	private int bbsIndent;
+
 	public BbsDto() { }
 	public BbsDto(int bbsNum, String bbsTitle, String id, String bbsDate, int bbsHit, String bbsContent) {
 		this.bbsNum = bbsNum;
