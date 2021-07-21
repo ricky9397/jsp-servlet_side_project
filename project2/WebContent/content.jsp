@@ -60,6 +60,7 @@
         
         <!-- 센터 -->
         <form action="./bbsList.do">
+        	<input type="hidden" name="bbsNum" value="${pram.bbsNum}">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -87,7 +88,7 @@
                         <a href="delete.do?bbsNum=${content.bbsNum}" >
                             <input type="button" value="DELETE" class="con_dm">
                        </a>
-                        <a href="bbs_update.jsp?bbsNum=${content.bbsNum}">
+                        <a href="update.do?bbsNum=${content.bbsNum}">
                             <input type="button" value="MODIFY" class="con_dm">
                         </a>
                         <div class="button2">
