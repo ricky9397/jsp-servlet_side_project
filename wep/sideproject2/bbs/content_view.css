@@ -151,11 +151,8 @@ footer p{
 }
 
 .button1{
-    text-align: left;
-}
-.button2{
-    margin-top: -25px;
     text-align: right;
+
 }
 
 /* 댓글 */

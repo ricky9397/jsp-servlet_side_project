@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,20 +84,24 @@
                     <div class="content_m">
                         <p>${content.bbsContent}</p>
                     </div>
-                    <div class="button1">
                     
+                    
+                    
+                    <div class="button1">
+                    <!-- 접속자가 작성한글이면 삭제,수정가능 -->
+                    <c:if test="${id != null && id == content.id}">
                         <a href="delete.do?bbsNum=${content.bbsNum}" >
                             <input type="button" value="DELETE" class="con_dm">
                        </a>
                         <a href="update.do?bbsNum=${content.bbsNum}">
                             <input type="button" value="MODIFY" class="con_dm">
                         </a>
-                        <div class="button2">
-                            <a href="bbsList.do">
+                    </c:if>
+                        <a href="bbsList.do">
                                 <input type="button" value="LIST"  class="con_dm con_dm3">
-                            </a>
-                        </div>
+                        </a>
                     </div> 
+                    
                     <div class="content_footer">
                         <table>
                             <tr>
