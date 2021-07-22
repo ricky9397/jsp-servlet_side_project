@@ -5,42 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>OHMYGOT</title>
-<link rel="stylesheet" href="./css/join_main.css">
+<link rel="stylesheet" href="./css/member.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous">
 	
 </script>
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
-<script src="./js/join_main.js"></script>
-<script type="text/javascript">
-	/* 아이디 중복 체크하기위한 ajax */
-	function id_check() {
-
-		var userId = $('#userId').val();
-		$.ajax({
-			type : 'POST',
-			url : 'join_idcheck',
-			data : {
-				userId : userId
-			},
-			success : function(data) {
-				if ($('#userId').val().trim() == '') {
-					alert('아이디를 입력해주세요.');
-				} else if (data == 1) {
-					alert('사용가능한 아이디입니다.');
-				} else {
-					alert('이미 사용중인 아이디입니다.');
-				}
-			}
-
-		})
-	}
-	
-	$('#goBtn').on('click', function() {
-		document.join_form.submit();
-	});
-</script>
+<script src="./js/member.js"></script>
 </head>
 
 <body>
@@ -71,11 +43,9 @@
 						<th>아이디</th>
 						<td>
 							<div>
-								<input type="text" id="userId" name="id">
+								<input type="text" id="userId" name="id" readonly>
 								<div class="msg"></div>
-							</div> <input type="button" value="아이디 중복 확인" id="idCheck"
-							onclick="id_check();"> <span>아이디는 영문소문자 또는 숫자
-								4~16자로 입력해주세요.(영문소문자/숫자,4~16자)</span>
+							</div> 
 						</td>
 
 					</tr>
@@ -123,8 +93,12 @@
 					</tr>
 				</table>
 				<div class="s_size">
-					<input type="submit" id="goBtn" value="회원가입">
+					<input type="submit" id="goBtn" value="수정">
+					<input type="button" value="취소">
 				</div>
+				<div class="s_size2">
+                    <input type="button" value="회원탈퇴">
+                </div>
 			</div>
 		</form>
 		<!-- 센터끝 -->

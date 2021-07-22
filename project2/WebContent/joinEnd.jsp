@@ -20,37 +20,14 @@
         <!-- 상단 -->
         <div>
             <!-- 로고 -->
-            <header>
-                <h1><a href="indexOut.jsp">OH MY SHOP</a></h1>
-            </header>
+            <%@ include file="../frame/header.jsp" %>
             <!-- 로고 끝 -->
 
             <!-- 메뉴 -->
-            <nav>
-                <div>
-                    <ul class="nav1">
-						<li><a href="index.jsp">LOGOUT</a></li>
-						<li><a href="#">MY PAGE</a></li>
-					</ul>
-                </div>
-                <div>
-                    <ul>
-                        <li class="serch_li">
-                            <a href="#" class="serch">
-                                <img src="../img/header_ico_search.png">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="nav2">
-                    <li><a href="indexOut.jsp">MAIN</a></li>
-					<li><a href="#">OUTWEAR</a></li>
-					<li><a href="#">TOP</a></li>
-					<li><a href="#">BOTTOM</a></li>
-					<li><a href="bbsList.do">COMMUNITY</a></li>
-                </ul>
-            </nav>
+            <%@ include file="../frame/nav.jsp" %>
             <!-- 메뉴 끝 -->
+            
+            
         </div>
         <!-- 상단 끝 -->
 

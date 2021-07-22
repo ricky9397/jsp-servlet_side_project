@@ -28,7 +28,6 @@ public class JoinEndController extends HttpServlet {
 	public void joinEnd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("txet/html; charset=UTF-8");
 		
 		MemberDao dao = MemberDao.getInstance();
 		

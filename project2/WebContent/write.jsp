@@ -11,10 +11,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous">
-	
 </script>
-<!-- js -->
-<script src="./js/write.js"></script>
 
 </head>
 
@@ -24,15 +21,11 @@
 		<!-- 상단 -->
 		<div>
 			<!-- 로고 -->
-			<header>
-				<h1>
-					<a href="index.jsp">OH MY SHOP</a>
-				</h1>
-			</header>
+			<%@ include file="../frame/header.jsp" %>
 			<!-- 로고 끝 -->
 
 			<!-- 메뉴 -->
-			<nav>
+			<!-- <nav>
 				<div>
 					<ul class="nav1">
 						<li><a href="login.jsp">LOGIN</a></li>
@@ -54,7 +47,8 @@
 					<li><a href="#">BOTTOM</a></li>
 					<li><a href="Login">COMMUNITY</a></li>
 				</ul>
-			</nav>
+			</nav> -->
+			<%@ include file="../frame/nav.jsp" %>
 			<!-- 메뉴 끝 -->
 		</div>
 		<!-- 상단 끝 -->
@@ -115,6 +109,29 @@
 		</footer>
 		<!-- 하단끝 -->
 	</div>
+	
+	
+<script>
+$(document).ready(function(){
+    $('textarea').keyup(function(){
+
+        var cnt = $(this).val().length;
+        var remain = 10000 - cnt;
+
+        console.log(cnt, remain);
+
+        if(remain < 0){
+            /* 150자 이상되면 뒤에 글자를 짤라줘서 더이상 들어가지 않게 해준다. */
+            alert('글작성은 10000자 까지만 가능합니다.');
+            var str = $(this).val().substr(0, 10000);
+            $(this).val(str);
+            $('#count').text('10000');
+            return false;
+        }
+        $('#count').text(cnt);
+    });
+});
+</script>
 
 </body>
 

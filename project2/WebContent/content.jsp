@@ -22,38 +22,11 @@
         <!-- 상단 -->
         <div>
             <!-- 로고 -->
-            <header>
-                <h1><a href="../index/index.html">OH MY SHOP</a></h1>
-            </header>
+            <%@ include file="../frame/header.jsp" %>
             <!-- 로고 끝 -->
 
             <!-- 메뉴 -->
-            <nav>
-                <div>
-                    <ul class="nav1">
-                        <ul class="nav1">
-						<li><a href="LogOut">LOGOUT</a></li>
-						<li><a href="#">MY PAGE</a></li>
-					</ul>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li class="serch_li">
-                            <a href="#" class="serch">
-                                <img src="../img/header_ico_search.png">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="nav2">
-                    <li><a href="indexOut.jsp">MAIN</a></li>
-					<li><a href="#">OUTWEAR</a></li>
-					<li><a href="#">TOP</a></li>
-					<li><a href="#">BOTTOM</a></li>
-					<li><a href="bbsList.do">COMMUNITY</a></li>
-                </ul>
-            </nav>
+            <%@ include file="../frame/nav.jsp" %>
             <!-- 메뉴 끝 -->
         </div>
         <!-- 상단 끝 -->
@@ -90,7 +63,7 @@
                     <div class="button1">
                     <!-- 접속자가 작성한글이면 삭제,수정가능 -->
                     <c:if test="${id != null && id == content.id}">
-                        <a href="delete.do?bbsNum=${content.bbsNum}" >
+                        <a href="delete.do?bbsNum=${content.bbsNum}" id="delete">
                             <input type="button" value="DELETE" class="con_dm">
                        </a>
                         <a href="update.do?bbsNum=${content.bbsNum}">
@@ -134,9 +107,23 @@
         </footer>
         <!-- 하단끝 -->
     </div>
-
-
     
+<script>
+
+/* 삭제 여부 물어보기~ */
+$(document).ready(function(){
+	
+	$("#delete").click(function(){
+		var result = confirm('삭제 하시겠습니까?');
+		if(result == true){
+			alert('삭제되었습니다.');
+		} else {
+			return false;
+		}
+	});
+});
+</script>
+
 </body>
 
 </html>

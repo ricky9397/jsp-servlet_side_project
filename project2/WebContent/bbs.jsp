@@ -12,10 +12,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous">
-	
 </script>
-<!-- js -->
-<script src="./js/bbs.js"></script>
 
 </head>
 
@@ -25,37 +22,13 @@
 		<!-- 상단 -->
 		<div>
 			<!-- 로고 -->
-			<header>
-				<h1>
-					<a href="indexOut.jsp">OH MY SHOP</a>
-				</h1>
-			</header>
+			<%@ include file="../frame/header.jsp" %>
 			<!-- 로고 끝 -->
 
 			<!-- 메뉴 -->
-			<nav>
-				<div>
-					<ul class="nav1">
-						<li><a href="LogOut">LOGOUT</a></li>
-						<li><a href="#">MY PAGE</a></li>
-					</ul>
-				</div>
-				<div>
-					<ul>
-						<li class="serch_li"><a href="#" class="serch"> <img
-								src="./img/header_ico_search.png">
-						</a></li>
-					</ul>
-				</div>
-				<ul class="nav2">
-					<li><a href="indexOut.jsp">MAIN</a></li>
-					<li><a href="#">OUTWEAR</a></li>
-					<li><a href="#">TOP</a></li>
-					<li><a href="#">BOTTOM</a></li>
-					<li><a href="bbsList.do">COMMUNITY</a></li>
-				</ul>
-			</nav>
+			<%@ include file="../frame/nav.jsp" %>
 			<!-- 메뉴 끝 -->
+			
 		</div>
 		<!-- 상단 끝 -->
 
@@ -97,7 +70,7 @@
                         
                     </table>
                     <div class="butto_write">
-                        <input type="submit" value="WRITE">
+                        <input type="submit" value="WRITE" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>">
                     </div>
                 	</div>
                 	<div>

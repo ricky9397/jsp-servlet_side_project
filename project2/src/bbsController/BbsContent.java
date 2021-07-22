@@ -21,8 +21,11 @@ public class BbsContent implements Action {
 		
 		String bbsNum = request.getParameter("bbsNum");
 		
-		BbsDto dto = dao.selectByNum(bbsNum);
 		dao.hitUp(bbsNum);
+		
+		
+		
+		BbsDto dto = dao.selectByNum(bbsNum);
 		
 		request.setAttribute("content", dto);
 		

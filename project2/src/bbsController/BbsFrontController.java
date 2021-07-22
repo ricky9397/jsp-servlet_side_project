@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/bbsFront")
@@ -30,6 +31,9 @@ public class BbsFrontController extends HttpServlet {
 		
 		System.out.println("프론트 컨트롤러 시작");
 		
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
 		String com = uri.substring(conPath.length());
@@ -38,7 +42,13 @@ public class BbsFrontController extends HttpServlet {
 		Action action = null;
 		
 		if(com.equals("/write.do")) {
-			viewPage = "write.jsp";
+			// 게시글 작성
+			// 로그인한사람만 작성가능하게 한다.
+			if(id == null) {
+				viewPage = "login.jsp";
+			} else {
+				viewPage = "write.jsp";
+			}
 			
 		} else if(com.equals("/bbswrite.do")) {
 			action = new BbsWrite();
@@ -66,7 +76,6 @@ public class BbsFrontController extends HttpServlet {
 			viewPage = "bbs_update.jsp";
 			
 		} else if(com.equals("/bbsUpdate.do")) {
-			System.out.println("게시글 시작");
 			action = new BbsUpdate();
 			action.execute(request, response);
 			viewPage = "bbsList.do";
