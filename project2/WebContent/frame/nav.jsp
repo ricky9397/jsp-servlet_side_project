@@ -7,7 +7,7 @@
 			<ul class="nav1">
 				<li><a href="Login">LOGIN</a></li>
 				<li><a href="joincheck">JOIN</a></li>
-				<li><a href="#">MY PAGE</a></li>
+				<li><a href="mypage.jsp">MY PAGE</a></li>
 			</ul>
 		</div>
 	</c:if>
@@ -15,7 +15,7 @@
 		<div>
 			<ul class="nav1">
 				<li><a href="LogOut">LOGOUT</a></li>
-				<li><a href="#">MY PAGE</a></li>
+				<li><a href="mypage.jsp">MY PAGE</a></li>
 			</ul>
 		</div>
 	</c:if>

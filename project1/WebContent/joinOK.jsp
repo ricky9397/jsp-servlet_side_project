@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="member.MemberDao"%>
 <%@ page import="member.MemberDto"%>
-<%@ page import="java.io.PrintWriter"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <%
 	MemberDao dao = MemberDao.getInstance();

@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="member.MemberDao"%>
 <%@ page import="member.MemberDto"%>
-<%@ page import="java.io.PrintWriter"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <%
 
