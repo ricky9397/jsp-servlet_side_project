@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Noto+Sans+KR:wght@300&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +8,8 @@
 
 body {
     background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;

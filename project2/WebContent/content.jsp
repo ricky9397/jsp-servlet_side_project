@@ -75,6 +75,22 @@
                         </a>
                     </div> 
                     
+                    <div>
+                        <table  class="comment_size">
+                            <tr>
+                                <th>홍길동</th>
+                                <td>안녕하세요.답글입니다.
+                                    <p class="p_size">2021.7.19
+                                    <span>
+                                        <a href="#" class="p_size2">수정</a>
+                                        <a href="#" class="p_size2">삭제</a>
+                                    </span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
                     <div class="content_footer">
                         <table>
                             <tr>
