@@ -13,7 +13,6 @@
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous">
 </script>
-
 </head>
 
 <body>

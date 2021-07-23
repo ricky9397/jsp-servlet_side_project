@@ -1,7 +1,9 @@
 drop table iorder;
 drop table member;
 drop table product;
+update member set pw='1234', name='홍길순', address='서울 신촌', phonenum='01056789088', email='bbb@bbb.com' where id='test';
 
+select * from member;
 CREATE TABLE  MEMBER (
                                 ID VARCHAR2(40) CONSTRAINT MEMBER_ID_NN PRIMARY KEY,
                                 PW VARCHAR2(20)CONSTRAINT MEMBER_PW_NN NOT NULL,

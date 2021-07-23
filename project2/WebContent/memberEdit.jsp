@@ -32,7 +32,7 @@
 
 
 		<!-- 센터 -->
-		<form action="join" id="join_form" method="post">
+		<form action="memberEdit.do" id="join_form" method="post">
 			<div class="center_wrap">
 				<div>
 					<h2>J O I N</h2>
@@ -43,7 +43,7 @@
 						<th>아이디</th>
 						<td>
 							<div>
-								<input type="text" id="userId" name="id" readonly>
+								<input type="text" id="userId" name="id" readonly value="">
 								<div class="msg"></div>
 							</div> 
 						</td>
@@ -61,7 +61,7 @@
 					</tr>
 					<tr>
 						<th>이름</th>
-						<td><input type="text" id="userName" name="name">
+						<td><input type="text" id="userName" name="name" value="${member.name}">
 							<div class="msg"></div></td>
 					</tr>
 					<tr>
@@ -88,13 +88,13 @@
 					</tr>
 					<tr>
 						<th>이메일</th>
-						<td><input type="text" id="userEmail" name="email">
+						<td><input type="text" id="userEmail" name="email" value="${email.email}">
 							<div class="msg"></div></td>
 					</tr>
 				</table>
 				<div class="s_size">
 					<input type="submit" id="goBtn" value="수정">
-					<input type="button" value="취소">
+					<input type="button" value="취소" onclick="history.back(-1)">
 				</div>
 				<div class="s_size2">
                     <input type="button" value="회원탈퇴">

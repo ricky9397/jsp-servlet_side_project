@@ -45,7 +45,6 @@ public class JoinController extends HttpServlet {
 		
 		if (request.getParameter("id") != null) {
 			id = request.getParameter("id");
-			System.out.println(id);
 		}
 		
 		if (request.getParameter("pw") != null) {

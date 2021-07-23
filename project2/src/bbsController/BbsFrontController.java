@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import memberController.MemberUpdateForm;
+import memberController.MemeberUpdate;
+
 
 @WebServlet("/bbsFront")
 public class BbsFrontController extends HttpServlet {
@@ -79,7 +82,21 @@ public class BbsFrontController extends HttpServlet {
 			action = new BbsUpdate();
 			action.execute(request, response);
 			viewPage = "bbsList.do";
-		}
+		} else if(com.equals("/memberShip.do")) {
+			// 회원만 회원정보 수정 가능
+			if(id == null) {
+				viewPage = "login.jsp";
+			} else {
+				action = new MemberUpdateForm();
+				action.execute(request, response);
+				viewPage = "memberEdit.jsp";
+			}
+		} else if(com.equals("/memberEdit.do")) {
+			action = new MemeberUpdate();
+			action.execute(request, response);
+			viewPage = "mypage.jsp";
+		} 
+		
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

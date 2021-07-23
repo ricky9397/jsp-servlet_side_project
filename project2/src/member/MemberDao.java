@@ -130,7 +130,63 @@ public class MemberDao {
 		}
 		return list;
 	}
-
 	
-
+	// 회원정보수정 아이디 체크
+	public MemberDto selectById(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from member where id=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				MemberDto dto = new MemberDto();
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("name"));
+				dto.setAddress(rs.getString("address"));
+				dto.setPhoneNum(rs.getString("phoneNum"));
+				dto.setEmail(rs.getString("email"));
+				return dto;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
+		}
+		return null; 
+	}
+	
+	
+	// 회원정보 수정
+	public int MemberEdit(MemberDto dto) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update member set pw=?, name=?, address=?', phonenum=?, email=? where id=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getPw());
+			pstmt.setString(2, dto.getName());
+			pstmt.setString(3, dto.getAddress());
+			pstmt.setString(4, dto.getPhoneNum());
+			pstmt.setString(5, dto.getEmail());
+			pstmt.setString(6, dto.getId());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+		}
+		return result;
+	}
+	
 }
