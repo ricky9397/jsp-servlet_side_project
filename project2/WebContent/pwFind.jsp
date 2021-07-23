@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>OHMYGOT</title>
+<title>OHMYSHOP</title>
 <link rel="stylesheet" href="./css/pw_find.css">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"

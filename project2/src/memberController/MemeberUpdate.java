@@ -14,9 +14,8 @@ public class MemeberUpdate implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("UTF-8");
-
+		
+		System.out.println("회원정보 서블릿 시작");
 		request.setCharacterEncoding("UTF-8");
 
 		MemberDao dao = MemberDao.getInstance();
@@ -34,6 +33,7 @@ public class MemeberUpdate implements Action {
 		
 		dao.MemberEdit(new MemberDto(idx, id, pw, name, post, address, addresss, phoneNum, email));
 		
+		System.out.println("회원정보 서블릿 완성");
 	}
 
 }

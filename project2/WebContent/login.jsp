@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>OHMYGOT</title>
+<title>OHMYSHOP</title>
 <!-- css -->
 <link rel="stylesheet" href="./css/login.css">
 <!-- jquery -->

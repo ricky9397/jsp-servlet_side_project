@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>OHMYGOT</title>
+<title>OHMYSHOP</title>
     <link rel="stylesheet" href="./css/content_view.css">
 
     <!-- jquery -->
