@@ -27,8 +27,8 @@
 		<div id="center_wrap">
             <div id="center_a">
                 <div class="center_b">
-                    <a href="memberShip.do" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>"><strong>PROFILE</strong> 회원정보</a>
-                    <p class="a_size"><a href="memberShip.do">회원이신 고객님의 개인정보를 관리하는 공간입니다.<br>
+                    <a href="memberShip.do?id=${id}" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>"><strong>PROFILE</strong> 회원정보</a>
+                    <p class="a_size"><a href="memberShip.do?id=${id}">회원이신 고객님의 개인정보를 관리하는 공간입니다.<br>
                     개인정보를 최신 정보로 유지하시면 보다 간편히 쇼핑을 즐기실 수 있습니다.</a></p>
                 </div>
     

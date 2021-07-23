@@ -35,28 +35,37 @@ public class JoinController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		MemberDao dao = MemberDao.getInstance();
-
+		
+		int idx = 0;
 		String id = null;
 		String pw = null;
 		String name = null;
+		int post = 0;
 		String address = null;
+		String addresss = null;
 		String phoneNum = null;
 		String email = null;
 		
+		if(request.getParameter("idx") != null) {
+			idx = Integer.parseInt(request.getParameter("idx"));
+		}
 		if (request.getParameter("id") != null) {
 			id = request.getParameter("id");
 		}
-		
 		if (request.getParameter("pw") != null) {
 			pw = request.getParameter("pw");
 		}
 		if (request.getParameter("name") != null) {
 			name = request.getParameter("name");
 		}
+		if (request.getParameter("post") != null){
+			post = Integer.parseInt(request.getParameter("post"));
+		}
 		if (request.getParameter("address") != null) {
-			address = request.getParameter("address") 
-					+ request.getParameter("address1")
-					+ request.getParameter("address2");
+			address = request.getParameter("address");
+		}
+		if (request.getParameter("addresss") != null) {
+			addresss = request.getParameter("addresss");
 		}
 		if (request.getParameter("phoneNum1") != null && request.getParameter("phoneNum2") != null) {
 			phoneNum = request.getParameter("phoneNum")
@@ -68,7 +77,7 @@ public class JoinController extends HttpServlet {
 			email = request.getParameter("email");
 		}
 
-		int result = dao.join(new MemberDto(id, pw, name, address, phoneNum, email));
+		int result = dao.join(new MemberDto(idx, id, pw, name, post, address , addresss, phoneNum, email));
 		
 		if (result == 1) {
 			HttpSession session = request.getSession();

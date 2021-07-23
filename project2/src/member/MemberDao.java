@@ -51,7 +51,7 @@ public class MemberDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into member values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert into member values(member_idx_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			conn = DBconn.getConnection();
@@ -59,9 +59,11 @@ public class MemberDao {
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPw());
 			pstmt.setString(3, dto.getName());
-			pstmt.setString(4, dto.getAddress());
-			pstmt.setString(5, dto.getPhoneNum());
-			pstmt.setString(6, dto.getEmail());
+			pstmt.setInt(4, dto.getPost());
+			pstmt.setString(5, dto.getAddress());
+			pstmt.setString(6, dto.getAddresss());
+			pstmt.setString(7, dto.getPhoneNum());
+			pstmt.setString(8, dto.getEmail());
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -107,7 +109,7 @@ public class MemberDao {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		String sql = "select id, name, email from member";
+		String sql = "select * from member";
 		
 		try {
 			stmt = conn.createStatement();
@@ -116,8 +118,8 @@ public class MemberDao {
 			list = new ArrayList<>();
 			
 			while(rs.next()) {
-				list.add(new MemberDto(rs.getString(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getString(5), rs.getString(6)));
+				list.add(new MemberDto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
 			}
 			
 			
@@ -144,10 +146,13 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				MemberDto dto = new MemberDto();
+				dto.setIdx(rs.getInt("idx"));
 				dto.setId(rs.getString("id"));
 				dto.setPw(rs.getString("pw"));
 				dto.setName(rs.getString("name"));
+				dto.setPost(rs.getInt("post"));
 				dto.setAddress(rs.getString("address"));
+				dto.setAddresss(rs.getString("addresss"));
 				dto.setPhoneNum(rs.getString("phoneNum"));
 				dto.setEmail(rs.getString("email"));
 				return dto;
@@ -169,16 +174,18 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member set pw=?, name=?, address=?', phonenum=?, email=? where id=?";
+		String sql = "update member set pw=?, name=?, post=?, address=?, addresss=?, phonenum=?, email=? where id=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getPw());
 			pstmt.setString(2, dto.getName());
-			pstmt.setString(3, dto.getAddress());
-			pstmt.setString(4, dto.getPhoneNum());
-			pstmt.setString(5, dto.getEmail());
-			pstmt.setString(6, dto.getId());
+			pstmt.setInt(3, dto.getPost());
+			pstmt.setString(4, dto.getAddress());
+			pstmt.setString(5, dto.getAddresss());
+			pstmt.setString(6, dto.getPhoneNum());
+			pstmt.setString(7, dto.getEmail());
+			pstmt.setString(8, dto.getId());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

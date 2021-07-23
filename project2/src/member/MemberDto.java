@@ -1,21 +1,34 @@
 package member;
 
 public class MemberDto {
+	private int idx;
 	private String id;
 	private String pw;
 	private String name;
+	private int post;
 	private String address;
+	private String addresss;
 	private String phoneNum;
 	private String email;
 	public MemberDto() {
 	}
-	public MemberDto(String id, String pw, String name, String address, String phoneNum, String email) {
+	public MemberDto(int idx, String id, String pw, String name, int post, String address, String addresss,
+			String phoneNum, String email) {
+		this.idx = idx;
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
+		this.post = post;
 		this.address = address;
+		this.addresss = addresss;
 		this.phoneNum = phoneNum;
 		this.email = email;
+	}
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
 	public String getId() {
 		return id;
@@ -35,11 +48,23 @@ public class MemberDto {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public int getPost() {
+		return post;
+	}
+	public void setPost(int post) {
+		this.post = post;
+	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getAddresss() {
+		return addresss;
+	}
+	public void setAddresss(String addresss) {
+		this.addresss = addresss;
 	}
 	public String getPhoneNum() {
 		return phoneNum;
@@ -53,6 +78,5 @@ public class MemberDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+		
 }

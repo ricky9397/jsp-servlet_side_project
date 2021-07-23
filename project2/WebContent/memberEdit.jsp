@@ -43,7 +43,7 @@
 						<th>아이디</th>
 						<td>
 							<div>
-								<input type="text" id="userId" name="id" readonly value="">
+								<input type="text" id="userId" name="id" readonly value="${member.id}">
 								<div class="msg"></div>
 							</div> 
 						</td>
@@ -68,11 +68,10 @@
 						<th>주소</th>
 						<td>
 							<div class="add_wrap">
-								<input type="text" class="add userAdd" id="zip" name="address" readonly>
+								<input type="text" class="add userAdd" id="zip" name="post" readonly value="${member.post}">
 								<input type="button" id="btnAdd" name="btnAdd">
-							</div> <input type="text" class="add1 userAdd" id="addr1"
-							name="address1" readonly><span>기본주소</span> <input type="text"
-							class="add2 userAdd" id="addr2" name="address2"><span>나머지주소</span>
+							</div> <input type="text" class="add1 userAdd" id="addr1" name="address" readonly value="${member.address}"><span>기본주소</span> 
+							<input type="text" class="add2 userAdd" id="addr2" name="addresss" value="${member.addresss}"><span>나머지주소</span>
 							<div class="msg"></div>
 						</td>
 					</tr>
@@ -88,7 +87,7 @@
 					</tr>
 					<tr>
 						<th>이메일</th>
-						<td><input type="text" id="userEmail" name="email" value="${email.email}">
+						<td><input type="text" id="userEmail" name="email" value="${member.email}">
 							<div class="msg"></div></td>
 					</tr>
 				</table>

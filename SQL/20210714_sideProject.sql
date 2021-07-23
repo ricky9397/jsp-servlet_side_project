@@ -1,15 +1,18 @@
 drop table iorder;
 drop table member;
 drop table product;
-update member set pw='1234', name='홍길순', address='서울 신촌', phonenum='01056789088', email='bbb@bbb.com' where id='test';
-
+update member set pw='1234', name='홍길순', post=3030, address='서울 신촌', addresss='먹자골목', phonenum='01056789088', email='bbb@bbb.com' where id='test';
+insert into member values(member_idx_seq.nextval, 'test', '1111', '홍길동', 330, '신촌', '로데오', '01055550000', 'asd@asd.com');
 select * from member;
 CREATE TABLE  MEMBER (
-                                ID VARCHAR2(40) CONSTRAINT MEMBER_ID_NN PRIMARY KEY,
+                                IDX NUMBER CONSTRAINT MEMBER_IDX_PK PRIMARY KEY,
+                                ID VARCHAR2(40) CONSTRAINT MEMBER_ID_NN NOT NULL,
                                 PW VARCHAR2(20)CONSTRAINT MEMBER_PW_NN NOT NULL,
                                 NAME  VARCHAR2(20)CONSTRAINT MEMBER_NAME_NN NOT NULL ,
-                                ADDRESS VARCHAR2(200)CONSTRAINT MEMBER_ADDRESS_NN NOT NULL,
-                                PHONENUM  VARCHAR2(20)CONSTRAINT MEMBER_NUM_NN NOT NULL,
+                                POST NUMBER CONSTRAINT MEMBER_POST_NN NOT NULL,
+                                ADDRESS VARCHAR2(100)CONSTRAINT MEMBER_ADDRESS1_NN NOT NULL,
+                                ADDRESSS VARCHAR2(100)CONSTRAINT MEMBER_ADDRESS2_NN NOT NULL,
+                                PHONENUM  VARCHAR2(40)CONSTRAINT MEMBER_NUM_NN NOT NULL,
                                 EMAIL VARCHAR2(100)CONSTRAINT MEMBER_EMAIL_NN NOT NULL
                               ) ;
           

@@ -20,18 +20,19 @@ public class MemeberUpdate implements Action {
 		request.setCharacterEncoding("UTF-8");
 
 		MemberDao dao = MemberDao.getInstance();
-
+		int idx = 0;
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
-		String address = request.getParameter("address") 
-						+ request.getParameter("address1")
-						+ request.getParameter("address2");
-		String phoneNum = request.getParameter("phoneNum") + request.getParameter("phoneNum1")
+		int post = Integer.parseInt(request.getParameter("post"));
+		String address = request.getParameter("address");
+		String addresss = request.getParameter("addresss");
+		String phoneNum = request.getParameter("phoneNum") 
+						+ request.getParameter("phoneNum1")
 						+ request.getParameter("phoneNum2");
 		String email = request.getParameter("email");
 		
-		dao.MemberEdit(new MemberDto(id, pw, name, address, phoneNum, email));
+		dao.MemberEdit(new MemberDto(idx, id, pw, name, post, address, addresss, phoneNum, email));
 		
 	}
 

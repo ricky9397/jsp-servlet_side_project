@@ -84,12 +84,12 @@ public class BbsFrontController extends HttpServlet {
 			viewPage = "bbsList.do";
 		} else if(com.equals("/memberShip.do")) {
 			// 회원만 회원정보 수정 가능
-			if(id == null) {
-				viewPage = "login.jsp";
-			} else {
+			if(id != null) {
 				action = new MemberUpdateForm();
 				action.execute(request, response);
 				viewPage = "memberEdit.jsp";
+			} else {
+				viewPage = "login.jsp";
 			}
 		} else if(com.equals("/memberEdit.do")) {
 			action = new MemeberUpdate();
