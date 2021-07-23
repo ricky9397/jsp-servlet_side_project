@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>OHMYSHOP</title>
-    <link rel="stylesheet" href="./css/content_view.css">
+<link rel="stylesheet" href="./css/content_view.css">
 
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
         </script>
-    <!-- js -->
-    <script src="./js/content_view.js"></script>
+<!-- js -->
+<script src="./js/content_view.js"></script>
 </head>
 
 <body>
@@ -33,8 +33,7 @@
 
         
         <!-- 센터 -->
-        <form action="./bbsList.do">
-        	<input type="hidden" name="bbsNum" value="${pram.bbsNum}">
+        <form action="" id="#commnetForm">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -75,38 +74,40 @@
                         </a>
                     </div> 
                     
+                    <!-- 댓글  -->
                     <div>
-                        <table  class="comment_size">
-                            <tr>
-                                <th>홍길동</th>
-                                <td>안녕하세요.답글입니다.
-                                    <p class="p_size">2021.7.19
-                                    <span>
-                                        <a href="#" class="p_size2">수정</a>
-                                        <a href="#" class="p_size2">삭제</a>
-                                    </span>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+						<table class="comment_size">
+							<c:forEach items="${commentLsit}" var="list">
+								<tr>
+									<th>${list.commentId}</th>
+									<td>${list.commentContent}
+										<p class="p_size">${list.commentDate}
+											<span> <a href="#" class="p_size2">수정</a> <a href="#"
+												class="p_size2">삭제</a>
+											</span>
+										</p>
+									</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+					
+					<div class="content_footer">
+						<input type="hidden" name="cNum" value="${content.bbsNum}" id="num">
+						<table>
+							<tr>
+								<th><h3>Comment</h3></th>
+							</tr>
+							<tr>
+								<th><textarea name="commentContent" id="cmWrite"></textarea>
+									<div class="count_size">
+										문자 : <span id="count">0</span>
+									</div> <input type="button" value="댓글" onclick="comment_btn();"></th>
+							</tr>
+						</table>
+					</div>
+                    <!-- 댓글 끝 -->
                     
-                    <div class="content_footer">
-                        <table>
-                            <tr>
-                                <th><h3>Comment</h3></th>
-                            </tr>
-                            <tr>
-                                <th >
-                                    <textarea ></textarea>
-                                    <div class="count_size">
-                                     	   문자 : <span id="count">0</span>
-                                    </div>
-                                    <input type="submit" value="댓글">
-                                </th>
-                            </tr>
-                        </table>
-                    </div>
                 </div>
             </div>
         </form>
@@ -138,6 +139,26 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function comment_btn(){
+	
+	var cmWrite = $('#cmWrite').val();
+	var num = $('#num').val();
+	$.ajax({
+		type : 'POST',
+		url : '/commentWirte.do',
+		data : {
+			num : num,
+			comment : cmwrite
+		},
+		success : function(data){
+			if(data == 1){
+				alert('입력완료');
+			}
+		}
+		
+	});
+};
 </script>
 
 </body>

@@ -34,7 +34,7 @@ public class BbsWrite implements Action {
 
 		dao.write(dto);
 
-		System.out.println("게시글 작성완료");
+		System.out.println("게시글 서블릿 작성완료");
 
 	}
 }

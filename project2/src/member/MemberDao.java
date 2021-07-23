@@ -112,6 +112,7 @@ public class MemberDao {
 		String sql = "select * from member";
 		
 		try {
+			conn = DBconn.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			

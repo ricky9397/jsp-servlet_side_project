@@ -38,11 +38,13 @@ CREATE TABLE IORDER (           oidx NUMBER(6) CONSTRAINT ORDER_OCODE_PK PRIMARY
                               ) ;
 --시퀀스 삭제
 drop sequence member_idx_seq ;
+drop sequence comment_dix_seq;
 drop sequence iorder_oidx_seq ;
 
 
 --시퀀스 생성
 create sequence member_idx_seq ;
+create sequence comment_dix_seq;
 create sequence iorder_oidx_seq ;
                               
 --member dml  --idx ,id,pw, name, phonenum, email
@@ -107,3 +109,18 @@ insert into bbs values (1, '안녕하세요', test, sysdate, 0, '뭐이색기야
 DROP TABLE BBS;
 select max(bbsnum) from bbs;
 select bbsnum, bbstitle, id, bbsdate, bbshit from bbs order by bbsgroup, bbsstep asc;
+
+
+CREATE TABLE COMMENTS(
+    CNUM NUMBER PRIMARY KEY,
+    CBBSNUM NUMBER,
+    COMMENTID VARCHAR2(20),
+    COMMENTDATE DATE DEFAULT SYSDATE,
+    COMMENTPARENT NUMBER,
+    COMMENTCONTENT VARCHAR2(2048)
+);
+drop table comments;
+select * from comments;
+select * from comments where cbbsnum=1 start with commentparent=0 connect by prior cnum=commentparent;
+insert into comments values(2, 2, 'test', sysdate, 2, '안녕하세요');
+update comments set commentcontent='ffff' where cnum=4;

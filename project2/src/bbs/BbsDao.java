@@ -36,11 +36,6 @@ public class BbsDao {
 			while(rs.next()) {
 				result = rs.getInt("max(bbsnum)");
 			}
-//			if (rs.next()) {
-//				return rs.getInt(1) + 1; // 게시글 1씩증가
-//			}
-//			return 1; // 첫번째 게시물인 경우
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -162,10 +157,6 @@ public class BbsDao {
 		}
 		return null;
 	}
-	
-	// 유니크번호 체크용
-//	public BbsDto 
-	
 	
 	// 게시글 수정
 	public int update(BbsDto dto) {

@@ -20,8 +20,9 @@ public class BbsMain implements Action {
 		BbsDao dao = BbsDao.getInstance();
 		ArrayList<BbsDto> list = dao.getList();
 		
-		request.setAttribute("list", list); // 세션에 저장
+		request.setAttribute("list", list); 
 		
-		System.out.println("게시판 글작성이후 리스트 출력 완료");
+		System.out.println("게시판 리스트 서블릿 완료");
+		
 	}
 }

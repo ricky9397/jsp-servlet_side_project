@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import commentController.CommentList;
+import commentController.CommentWrite;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
 
@@ -44,9 +46,21 @@ public class BbsFrontController extends HttpServlet {
 		String viewPage = null;
 		Action action = null;
 		
-		if(com.equals("/write.do")) {
-			// 게시글 작성
-			// 로그인한사람만 작성가능하게 한다.
+		
+		if(com.equals("/memberShip.do")) {
+			if(id != null) {
+				action = new MemberUpdateForm();
+				action.execute(request, response);
+				viewPage = "memberEdit.jsp";
+			} else {
+				viewPage = "login.jsp";
+			}
+		} else if(com.equals("/memberEdit.do")) {
+			action = new MemeberUpdate();
+			action.execute(request, response);
+			viewPage = "mypage.jsp";
+			
+		} else if(com.equals("/write.do")) {
 			if(id == null) {
 				viewPage = "login.jsp";
 			} else {
@@ -82,21 +96,18 @@ public class BbsFrontController extends HttpServlet {
 			action = new BbsUpdate();
 			action.execute(request, response);
 			viewPage = "bbsList.do";
-		} else if(com.equals("/memberShip.do")) {
-			// 회원만 회원정보 수정 가능
-			if(id != null) {
-				action = new MemberUpdateForm();
-				action.execute(request, response);
-				viewPage = "memberEdit.jsp";
-			} else {
-				viewPage = "login.jsp";
-			}
-		} else if(com.equals("/memberEdit.do")) {
-			action = new MemeberUpdate();
+			
+		} else if(com.equals("/commentWirte.do")) {
+			System.out.println("댓글 작성");
+			action = new CommentWrite();
 			action.execute(request, response);
-			viewPage = "mypage.jsp";
-		} 
-		
+			viewPage = "content.jsp";
+			
+		} else if(com.equals("/commentList.do")) {
+			action = new CommentList();
+			action.execute(request, response);
+			viewPage = "content.jsp";
+		}
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

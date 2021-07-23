@@ -69,14 +69,4 @@ public class CommentDto {
 		this.commentContent = commentContent;
 	}
 
-	@Override
-	public String toString() {
-		return "CommentDto [cNum=" + cNum + ", cBbsNum=" + cBbsNum + ", commentId=" + commentId + ", commentDate="
-				+ commentDate + ", commentParent=" + commentParent + ", commentContent=" + commentContent
-				+ ", getcNum()=" + getcNum() + ", getcBbsNum()=" + getcBbsNum() + ", getCommentId()=" + getCommentId()
-				+ ", getCommentDate()=" + getCommentDate() + ", getCommentParent()=" + getCommentParent()
-				+ ", getCommentContent()=" + getCommentContent() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
-	}
-
 }
