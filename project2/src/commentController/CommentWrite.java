@@ -36,13 +36,13 @@ public class CommentWrite implements Action {
 		dto.setCommentId(commentId);
 		dto.setCommentContent(commentContent);
 		
-//		response.getWriter().write(dao.insertComment(dto));
+		response.getWriter().write(dao.insertComment(dto));
 		
-		dao.insertComment(dto);
-		
-		JSONObject json = new JSONObject();
-		PrintWriter pw = response.getWriter();
-		pw.println(json);
+//		dao.insertComment(dto);
+//		
+//		JSONObject json = new JSONObject();
+//		PrintWriter pw = response.getWriter();
+//		pw.println(json);
 		
 	}
 }

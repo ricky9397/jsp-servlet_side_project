@@ -39,14 +39,14 @@ $(document).ready(function(){
 				comment :  $('#cmWrite').val()
 			},
 			success : function(data){
-				if(data == 1){
 					console.log('입력완료');
+				if(data == 1){
 				}
 			}
 		});
 	});
 	
-	// 댓글리스트 ajax
+/* 	// 댓글리스트 ajax
 	function CommentList(){
 		$.ajax({
 			type : 'GET',
@@ -64,26 +64,9 @@ $(document).ready(function(){
 				
 			}
 		});
-	};
+	}; */
 	
 });
-
-	
-/* <tbody>
-<tr>
-    <th>홍길동</th>
-    <td>안녕하세요.답글입니다.
-        <p class="p_size">2021.7.19
-        <span>
-            <a href="#" class="p_size2">수정</a>
-            <a href="#" class="p_size2">삭제</a>
-        </span>
-        </p>
-    </td>
-</tr>
-</tbody>	 */
-	
-	
 	
 </script>
 </head>
@@ -148,9 +131,10 @@ $(document).ready(function(){
                     
                     <!-- 댓글  -->
                     <div>
+                    	<input type="hidden" name="BbsNum" value="${list.bbsNum}">
 						<table class="comment_size">
-							<tbody id="CommentList()">
-								<c:forEach items="${commentLsit}" var="list">
+							<c:forEach items="${list}" var="list">
+							<tbody>
 									<tr>
 										<th>${list.commentId}</th>
 										<td>${list.commentContent}
@@ -162,8 +146,9 @@ $(document).ready(function(){
 											</p>
 										</td>
 									</tr>
-								</c:forEach>
+								
 							</tbody>
+							</c:forEach>
 						</table>
 					</div>
 					

@@ -55,7 +55,7 @@
                         </tr>
                         
                         <!-- jstl for문을 이용하여 사용자가 작성한 게시글들이 db에 저장된 list를 불러와 출력한다. -->
-                        <c:forEach items="${list}" var="list">
+                        <c:forEach items="${Bbslist}" var="list">
                         <tr class="bb_sizes">
                             <th class="bb_size">${list.bbsNum}</th>
                             <th class="bb_size2 bb_ss">

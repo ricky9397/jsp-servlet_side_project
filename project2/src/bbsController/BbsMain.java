@@ -20,7 +20,7 @@ public class BbsMain implements Action {
 		BbsDao dao = BbsDao.getInstance();
 		ArrayList<BbsDto> list = dao.getList();
 		
-		request.setAttribute("list", list); 
+		request.setAttribute("Bbslist", list); 
 		
 	}
 }

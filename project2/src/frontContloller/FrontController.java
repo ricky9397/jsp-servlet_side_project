@@ -108,11 +108,11 @@ public class FrontController extends HttpServlet {
 		} else if(com.equals("/commentWirte.do")) {
 			action = new CommentWrite();
 			action.execute(request, response);
-			viewPage = "content.jsp";
+			viewPage = "commentList.do";
 			
 		} else if(com.equals("/commentList.do")) {
 			System.out.println("댓글 리스트 ㄱㄱ");
-			action = new CommentLists();
+			action = new CommentList();
 			action.execute(request, response);
 			viewPage = "content.jsp";
 		}
