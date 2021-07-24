@@ -22,7 +22,5 @@ public class BbsMain implements Action {
 		
 		request.setAttribute("list", list); 
 		
-		System.out.println("게시판 리스트 서블릿 완료");
-		
 	}
 }

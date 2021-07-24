@@ -2,7 +2,6 @@ package bbsController;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,8 +32,6 @@ public class BbsWrite implements Action {
 		dto.setId(id);
 
 		dao.write(dto);
-
-		System.out.println("게시글 서블릿 작성완료");
 
 	}
 }

@@ -1,12 +1,15 @@
 package commentController;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONObject;
 
 import bbsController.Action;
 import comment.CommentDao;
@@ -25,7 +28,6 @@ public class CommentWrite implements Action {
 		HttpSession session = request.getSession();
 		String commentId = (String) session.getAttribute("id");
 		
-		// ajax에서 키값을 가져온다.
 		int cBbsNum = Integer.parseInt(request.getParameter("num"));
 		String commentContent = request.getParameter("comment");
 
@@ -34,14 +36,13 @@ public class CommentWrite implements Action {
 		dto.setCommentId(commentId);
 		dto.setCommentContent(commentContent);
 		
+//		response.getWriter().write(dao.insertComment(dto));
+		
 		dao.insertComment(dto);
-//		if(result == 1) {
-//			return;
-//		}
 		
-		response.getWriter().write(dao.insertComment(dto) + "");
+		JSONObject json = new JSONObject();
+		PrintWriter pw = response.getWriter();
+		pw.println(json);
 		
-		System.out.println("게시판 댓글 작성 완료");
-
 	}
 }

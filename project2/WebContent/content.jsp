@@ -14,6 +14,78 @@
         </script>
 <!-- js -->
 <script src="./js/content_view.js"></script>
+
+<!-- type 넣어주는게 브라우져 생각했을때 더안정적 -->
+<script type="text/javascript">
+	/* 삭제 여부 물어보기~ */
+$(document).ready(function(){
+		
+	$("#delete").click(function(){
+		var result = confirm('삭제 하시겠습니까?');
+		if(result == true){
+			alert('삭제되었습니다.');
+		} else {
+			return false;
+		}
+	});
+		
+	// 댓글 ajax
+	$('#comment_btn').on('click', function(){
+		$.ajax({
+			type : 'GET',
+			url : 'commentWirte.do',
+			data : {
+				num : "${content.bbsNum}",
+				comment :  $('#cmWrite').val()
+			},
+			success : function(data){
+				if(data == 1){
+					console.log('입력완료');
+				}
+			}
+		});
+	});
+	
+	// 댓글리스트 ajax
+	function CommentList(){
+		$.ajax({
+			type : 'GET',
+			url : "commentList.do",
+			data : {
+				num : "${content.bbsNum}"
+			},
+			beforeSend:function() {
+                console.log("읽어오기 시작 전...");
+            },
+            complete:function() {
+                console.log("읽어오기 완료 후...");
+            },
+			success : function(data){
+				
+			}
+		});
+	};
+	
+});
+
+	
+/* <tbody>
+<tr>
+    <th>홍길동</th>
+    <td>안녕하세요.답글입니다.
+        <p class="p_size">2021.7.19
+        <span>
+            <a href="#" class="p_size2">수정</a>
+            <a href="#" class="p_size2">삭제</a>
+        </span>
+        </p>
+    </td>
+</tr>
+</tbody>	 */
+	
+	
+	
+</script>
 </head>
 
 <body>
@@ -33,7 +105,7 @@
 
         
         <!-- 센터 -->
-        <form action="" id="#commnetForm">
+        <form action="">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -70,30 +142,32 @@
                         </a>
                     </c:if>
                         <a href="bbsList.do">
-                                <input type="button" value="LIST"  class="con_dm con_dm3">
+                        	<input type="button" value="LIST"  class="con_dm con_dm3">
                         </a>
                     </div> 
                     
                     <!-- 댓글  -->
                     <div>
 						<table class="comment_size">
-							<c:forEach items="${commentLsit}" var="list">
-								<tr>
-									<th>${list.commentId}</th>
-									<td>${list.commentContent}
-										<p class="p_size">${list.commentDate}
-											<span> <a href="#" class="p_size2">수정</a> <a href="#"
-												class="p_size2">삭제</a>
-											</span>
-										</p>
-									</td>
-								</tr>
-							</c:forEach>
+							<tbody id="CommentList()">
+								<c:forEach items="${commentLsit}" var="list">
+									<tr>
+										<th>${list.commentId}</th>
+										<td>${list.commentContent}
+											<p class="p_size">${list.commentDate}
+												<span> 
+													<a href="#" class="p_size2">수정</a> 
+													<a href="#" class="p_size2">삭제</a>
+												</span>
+											</p>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
 						</table>
 					</div>
 					
 					<div class="content_footer">
-						<input type="hidden" name="cNum" value="${content.bbsNum}" id="num">
 						<table>
 							<tr>
 								<th><h3>Comment</h3></th>
@@ -102,7 +176,7 @@
 								<th><textarea name="commentContent" id="cmWrite"></textarea>
 									<div class="count_size">
 										문자 : <span id="count">0</span>
-									</div> <input type="button" value="댓글" onclick="comment_btn();"></th>
+									</div> <input type="button" value="댓글" id="comment_btn"></th>
 							</tr>
 						</table>
 					</div>
@@ -125,42 +199,6 @@
         <!-- 하단끝 -->
     </div>
     
-<script>
-
-/* 삭제 여부 물어보기~ */
-$(document).ready(function(){
-	
-	$("#delete").click(function(){
-		var result = confirm('삭제 하시겠습니까?');
-		if(result == true){
-			alert('삭제되었습니다.');
-		} else {
-			return false;
-		}
-	});
-});
-
-function comment_btn(){
-	
-	var cmWrite = $('#cmWrite').val();
-	var num = $('#num').val();
-	$.ajax({
-		type : 'POST',
-		url : '/commentWirte.do',
-		data : {
-			num : num,
-			comment : cmwrite
-		},
-		success : function(data){
-			if(data == 1){
-				alert('입력완료');
-			}
-		}
-		
-	});
-};
-</script>
-
 </body>
 
 </html>

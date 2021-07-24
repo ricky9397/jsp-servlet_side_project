@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import Database.DBClose;
 import Database.DBconn;
@@ -53,10 +53,8 @@ public class CommentDao {
 	// 댓글 등록
 	public int insertComment(CommentDto dto) {
 		int result = 0;
-		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
 		String sql = "insert into comments values(comment_dix_seq.nextval, ?, ?, sysdate, ?, ?)";
 		try {
 			conn = DBconn.getConnection();
@@ -99,13 +97,14 @@ public class CommentDao {
 	public ArrayList<CommentDto> getCommentList(int cBbsNum){
 		ArrayList<CommentDto> list = new ArrayList<CommentDto>();
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select * from comments where cbbsnum=?";
 		try {
 			conn = DBconn.getConnection();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cBbsNum);
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				list.add(new CommentDto(rs.getInt(1), rs.getInt(2), rs.getString(3), 
 						rs.getString(4), rs.getInt(5), rs.getString(6)));
@@ -114,7 +113,7 @@ public class CommentDao {
 			e.printStackTrace();
 		} finally {
 			DBClose.dbClose(conn);
-			DBClose.dbClose(stmt);
+			DBClose.dbClose(pstmt);
 			DBClose.dbClose(rs);
 		}
 		return list;

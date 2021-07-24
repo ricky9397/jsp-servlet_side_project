@@ -1,4 +1,4 @@
-package bbsController;
+package frontContloller;
 
 import java.io.IOException;
 
@@ -10,17 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bbsController.Action;
+import bbsController.BbsContent;
+import bbsController.BbsDelete;
+import bbsController.BbsMain;
+import bbsController.BbsUpdate;
+import bbsController.BbsUpdateForm;
+import bbsController.BbsWrite;
 import commentController.CommentList;
+import commentController.CommentLists;
 import commentController.CommentWrite;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
 
 
 @WebServlet("/bbsFront")
-public class BbsFrontController extends HttpServlet {
+public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BbsFrontController() {
+    public FrontController() {
         super();
     }
 
@@ -98,13 +106,13 @@ public class BbsFrontController extends HttpServlet {
 			viewPage = "bbsList.do";
 			
 		} else if(com.equals("/commentWirte.do")) {
-			System.out.println("댓글 작성");
 			action = new CommentWrite();
 			action.execute(request, response);
 			viewPage = "content.jsp";
 			
 		} else if(com.equals("/commentList.do")) {
-			action = new CommentList();
+			System.out.println("댓글 리스트 ㄱㄱ");
+			action = new CommentLists();
 			action.execute(request, response);
 			viewPage = "content.jsp";
 		}

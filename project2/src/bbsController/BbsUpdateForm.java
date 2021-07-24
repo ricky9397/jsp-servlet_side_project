@@ -18,13 +18,10 @@ public class BbsUpdateForm implements Action {
 
 		BbsDao dao = BbsDao.getInstance();
 
-		// 수정 번호를 누른후 수정정보를 가져온다. 
 		String bbsNum = request.getParameter("bbsNum");
 		
 		BbsDto dto = dao.selectByNum(bbsNum);
 		
-		// update.jsp에 뿌려준다 
-		// 수정하기 전 내용들이 글대로 볼수 있다.
 		request.setAttribute("update", dto);
 		
 	}

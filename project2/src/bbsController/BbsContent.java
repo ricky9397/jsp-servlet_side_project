@@ -21,9 +21,8 @@ public class BbsContent implements Action {
 		
 		String bbsNum = request.getParameter("bbsNum");
 		
+		// 조회수
 		dao.hitUp(bbsNum);
-		
-		
 		
 		BbsDto dto = dao.selectByNum(bbsNum);
 		

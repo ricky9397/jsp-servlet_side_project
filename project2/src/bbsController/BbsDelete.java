@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bbs.BbsDao;
-import bbs.BbsDto;
 
 public class BbsDelete implements Action {
 

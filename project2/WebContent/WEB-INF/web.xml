@@ -18,11 +18,11 @@
   </resource-ref> -->
   
   <servlet>
-  	<servlet-name>BbsFrontController</servlet-name>
-  	<servlet-class>bbsController.BbsFrontController</servlet-class>
+  	<servlet-name>FrontController</servlet-name>
+  	<servlet-class>frontContloller.FrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>BbsFrontController</servlet-name>
+  	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
