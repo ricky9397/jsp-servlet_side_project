@@ -104,17 +104,18 @@ public class FrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "bbsList.do";
 			
-		} else if(com.equals("/commentWirte.do")) {
-			action = new CommentWrite();
-			action.execute(request, response);
-			viewPage = "content.jsp";
-			
-		} else if(com.equals("/commentList.do")) {
-			System.out.println("댓글 리스트 ㄱㄱ");
-			action = new CommentList();
-			action.execute(request, response);
-			viewPage = "content.jsp";
-		}
+		} 
+//		else if(com.equals("/commentWirte.do")) {
+//			action = new CommentWrite();
+//			action.execute(request, response);
+//			viewPage = "commentList.do";
+//				
+//		} else if(com.equals("/commentList.do")) {
+//			System.out.println("댓글 리스트 ㄱㄱ");
+//			action = new CommentList();
+//			action.execute(request, response);
+//			viewPage = "content.jsp";
+//		}
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

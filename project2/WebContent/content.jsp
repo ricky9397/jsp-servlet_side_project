@@ -32,22 +32,27 @@ $(document).ready(function(){
 	$('#comment_btn').on('click', function(){
 		$.ajax({
 			type : 'POST',
-			url : 'commentWirte.do?bbsNum=${content.bbsNum}',
+			url : './C1',
 			data : {
 				id : "${id}",
 				num : "${content.bbsNum}",
 				comment : $('#cmWrite').val()
 			},
 			success : function(data){
-				console.log('댓글 성공');
+				/* if($('#cmWrite').val().trim() != ''){
+					console.log('댓글 성공');
+				} else if(($('#cmWrite').val().trim() == '')){
+					alert('댓글을 입력해주세요.');
+				} */
 			}
 		});
+		$('#cmWrite').val('');
 	});
 		
 	function showComent(type){
 		$.ajax({
 			type: "POST",
-			url : "commentList.do",
+			url : "C2",
 			data : {
 				num : "${content.bbsNum}"
 			},
@@ -110,7 +115,7 @@ $(document).ready(function(){
         
         <!-- 센터 -->
         <input type="hidden" name="id" value="${id}">
-       	<input type="hidden" name="bbsNum" value="${content.bbsNum}">
+       	<input type="text" name="bbsNum" value="${content.bbsNum}">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
