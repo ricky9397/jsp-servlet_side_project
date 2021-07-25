@@ -94,7 +94,7 @@ public class CommentDao {
 	}
 	
 	// 댓글 리스트
-	public ArrayList<CommentDto> getCommentList(int cBbsNum){
+	public ArrayList<CommentDto> getCommentList(int Num){
 		ArrayList<CommentDto> list = new ArrayList<CommentDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -103,11 +103,20 @@ public class CommentDao {
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cBbsNum);
+			pstmt.setInt(1, Num);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				list.add(new CommentDto(rs.getInt(1), rs.getInt(2), rs.getString(3), 
-						rs.getString(4), rs.getInt(5), rs.getString(6)));
+				int cNum = rs.getInt("cNum");
+				int cBbsNum = rs.getInt("cBbsNum");
+				String commentId = rs.getString("commentId");
+				String commentDate = rs.getString("commentDate");
+				int commentParent = rs.getInt("commentParent");
+				String commentContent = rs.getString("commentContent");
+				
+				CommentDto dto = new CommentDto(cNum,cBbsNum,commentId,commentDate,commentParent,commentContent);
+				list.add(dto);
+//				list.add(new CommentDto(rs.getInt(1), rs.getInt(2), rs.getString(3), 
+//						rs.getString(4), rs.getInt(5), rs.getString(6)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

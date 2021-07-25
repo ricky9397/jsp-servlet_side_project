@@ -1,6 +1,7 @@
 package bbsController;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,5 @@ public class BbsWrite implements Action {
 		dto.setId(id);
 
 		dao.write(dto);
-
 	}
 }

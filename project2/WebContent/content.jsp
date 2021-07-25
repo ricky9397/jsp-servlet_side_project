@@ -19,6 +19,7 @@
 <script type="text/javascript">
 	/* 삭제 여부 물어보기~ */
 $(document).ready(function(){
+	
 		
 	$("#delete").click(function(){
 		var result = confirm('삭제 하시겠습니까?');
@@ -39,18 +40,17 @@ $(document).ready(function(){
 				comment :  $('#cmWrite').val()
 			},
 			success : function(data){
-					console.log('입력완료');
-				if(data == 1){
-				}
+				console.log('입력완료');
 			}
 		});
 	});
 	
-/* 	// 댓글리스트 ajax
-	function CommentList(){
+	
+	// 댓글리스트 ajax
+	/* function getComment(){
 		$.ajax({
 			type : 'GET',
-			url : "commentList.do",
+			url : "commentList.do?bbsNum=${content.bbsNum}",
 			data : {
 				num : "${content.bbsNum}"
 			},
@@ -61,10 +61,10 @@ $(document).ready(function(){
                 console.log("읽어오기 완료 후...");
             },
 			success : function(data){
-				
+				console.log("comment를 정상적으로 조회하였습니다.");
 			}
 		});
-	}; */
+	};  */
 	
 });
 	
@@ -128,17 +128,16 @@ $(document).ready(function(){
                         	<input type="button" value="LIST"  class="con_dm con_dm3">
                         </a>
                     </div> 
-                    
-                    <!-- 댓글  -->
-                    <div>
-                    	<input type="hidden" name="BbsNum" value="${list.bbsNum}">
+                    <%-- <input type="text" name="cBbsNum" value="${num.cBbsNum}"> --%>
+                    <!-- 댓글 리스트 -->
+                    <div id="showComment">
 						<table class="comment_size">
-							<c:forEach items="${list}" var="list">
+							<c:forEach items="${commentList}" var="clist">
 							<tbody>
 									<tr>
-										<th>${list.commentId}</th>
-										<td>${list.commentContent}
-											<p class="p_size">${list.commentDate}
+										<th>${clist.commentId}</th>
+										<td>${clist.commentContent}
+											<p class="p_size">${clist.commentDate}
 												<span> 
 													<a href="#" class="p_size2">수정</a> 
 													<a href="#" class="p_size2">삭제</a>
@@ -151,7 +150,9 @@ $(document).ready(function(){
 							</c:forEach>
 						</table>
 					</div>
+					<!-- 댓글 리스트 끝 -->
 					
+					<!-- 댓글쓰기 -->
 					<div class="content_footer">
 						<table>
 							<tr>
