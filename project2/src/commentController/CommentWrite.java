@@ -26,19 +26,17 @@ public class CommentWrite implements Action {
 		
 		int cBbsNum = Integer.parseInt(request.getParameter("num"));
 		String commentContent = request.getParameter("comment");
-
-		request.setAttribute("num", cBbsNum);
-		CommentDto dto = new CommentDto();
-		dto.setcBbsNum(cBbsNum);
-		dto.setCommentId(commentId);
-		dto.setCommentContent(commentContent);
 		
-		PrintWriter pw = response.getWriter();
-		pw.write(dao.insertComment(dto));
-		
-		System.out.println("댓글 : " + pw);
-		
-		
-		
+		if(commentId == null || commentId.equals("") || commentContent == null || commentContent.equals("")) {
+			response.getWriter().write("0");
+		} else {
+			CommentDto dto = new CommentDto();
+			dto.setcBbsNum(cBbsNum);
+			dto.setCommentId(commentId);
+			dto.setCommentContent(commentContent);
+			
+			PrintWriter pw = response.getWriter();
+			pw.write(dao.insertComment(dto));
+		}
 	}
 }

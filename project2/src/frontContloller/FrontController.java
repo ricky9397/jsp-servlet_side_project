@@ -17,6 +17,7 @@ import bbsController.BbsMain;
 import bbsController.BbsUpdate;
 import bbsController.BbsUpdateForm;
 import bbsController.BbsWrite;
+import commentController.CommentList;
 import commentController.CommentWrite;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
@@ -107,13 +108,13 @@ public class FrontController extends HttpServlet {
 			action = new CommentWrite();
 			action.execute(request, response);
 			viewPage = "content.jsp";
-		} 
-//		else if(com.equals("/commentList.do")) {
-//			System.out.println("댓글 리스트 ㄱㄱ");
-//			action = new CommentList();
-//			action.execute(request, response);
-//			viewPage = "content.jsp";
-//		}
+			
+		} else if(com.equals("/commentList.do")) {
+			System.out.println("댓글 리스트 ㄱㄱ");
+			action = new CommentList();
+			action.execute(request, response);
+			viewPage = "content.jsp";
+		}
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

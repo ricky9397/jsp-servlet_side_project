@@ -1,14 +1,11 @@
 package commentController;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.simple.JSONArray;
 
 import bbsController.Action;
 import comment.CommentDao;
@@ -22,18 +19,27 @@ public class CommentList implements Action{
 		System.out.println("게시판 댓글 리스트 서블릿 시작");
 		request.setCharacterEncoding("UTF-8");
 		
-		int cBbsNum = Integer.parseInt(request.getParameter("cBbsNum"));
+		int cBbsNum = Integer.parseInt(request.getParameter("num"));
 		
-		CommentDao dao = CommentDao.getInstance();
-		
-		ArrayList<CommentDto> list = dao.getCommentList(cBbsNum);
-		
-		request.setAttribute("commentList", list);
+		response.getWriter().write(getContentList(cBbsNum));
 		
 		System.out.println("게시판 댓글 리스트 서블릿 완료");
 		
-		
-		
+	}
+	
+	public String getContentList(int cBbsNum) {
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		CommentDao dao = CommentDao.getInstance();
+		ArrayList<CommentDto> list = dao.getCommentList(cBbsNum);
+		for(int i = 0; i < list.size(); i++) {
+			result.append("[{\"value\": \"" + list.get(i).getCommentId() + "\"},");
+			result.append("{\"value\": \"" + list.get(i).getCommentContent() + "\"},");
+			result.append("{\"value\": \"" + list.get(i).getCommentDate() + "\"}]");
+			if(i != list.size() -1) result.append(",");
+		}
+		result.append("]}");
+		return result.toString();
 	}
 	
 }

@@ -25,29 +25,6 @@
 			<!-- 로고 끝 -->
 
 			<!-- 메뉴 -->
-			<!-- <nav>
-				<div>
-					<ul class="nav1">
-						<li><a href="login.jsp">LOGIN</a></li>
-						<li><a href="joincheck">JOIN</a></li>
-						<li><a href="#">MY PAGE</a></li>
-					</ul>
-				</div>
-				<div>
-					<ul>
-						<li class="serch_li"><a href="#" class="serch"> <img
-								src="./img/header_ico_search.png">
-						</a></li>
-					</ul>
-				</div>
-				<ul class="nav2">
-					<li><a href="index.jsp">MAIN</a></li>
-					<li><a href="#">OUTWEAR</a></li>
-					<li><a href="#">TOP</a></li>
-					<li><a href="#">BOTTOM</a></li>
-					<li><a href="Login">COMMUNITY</a></li>
-				</ul>
-			</nav> -->
 			<%@ include file="../frame/nav.jsp" %>
 			<!-- 메뉴 끝 -->
 		</div>
@@ -110,7 +87,6 @@
 		<!-- 하단끝 -->
 	</div>
 	
-	
 <script>
 $(document).ready(function(){
     $('textarea').keyup(function(){
@@ -121,7 +97,6 @@ $(document).ready(function(){
         console.log(cnt, remain);
 
         if(remain < 0){
-            /* 150자 이상되면 뒤에 글자를 짤라줘서 더이상 들어가지 않게 해준다. */
             alert('글작성은 10000자 까지만 가능합니다.');
             var str = $(this).val().substr(0, 10000);
             $(this).val(str);

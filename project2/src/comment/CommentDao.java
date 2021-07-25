@@ -106,17 +106,17 @@ public class CommentDao {
 			pstmt.setInt(1, Num);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int cNum = rs.getInt("cNum");
-				int cBbsNum = rs.getInt("cBbsNum");
-				String commentId = rs.getString("commentId");
-				String commentDate = rs.getString("commentDate");
-				int commentParent = rs.getInt("commentParent");
-				String commentContent = rs.getString("commentContent");
-				
-				CommentDto dto = new CommentDto(cNum,cBbsNum,commentId,commentDate,commentParent,commentContent);
-				list.add(dto);
-//				list.add(new CommentDto(rs.getInt(1), rs.getInt(2), rs.getString(3), 
-//						rs.getString(4), rs.getInt(5), rs.getString(6)));
+//				int cNum = rs.getInt("cNum");
+//				int cBbsNum = rs.getInt("cBbsNum");
+//				String commentId = rs.getString("commentId");
+//				String commentDate = rs.getString("commentDate");
+//				int commentParent = rs.getInt("commentParent");
+//				String commentContent = rs.getString("commentContent");
+//				
+//				CommentDto dto = new CommentDto(cNum,cBbsNum,commentId,commentDate,commentParent,commentContent);
+//				list.add(dto);
+				list.add(new CommentDto(rs.getInt(1), rs.getInt(2), rs.getString(3), 
+						rs.getString(4), rs.getInt(5), rs.getString(6)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

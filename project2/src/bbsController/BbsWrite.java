@@ -31,7 +31,7 @@ public class BbsWrite implements Action {
 		dto.setBbsTitle(bbsTitle);
 		dto.setBbsContent(bbsContent);
 		dto.setId(id);
-
+		
 		dao.write(dto);
 	}
 }

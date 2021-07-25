@@ -19,8 +19,6 @@
 <script type="text/javascript">
 	/* 삭제 여부 물어보기~ */
 $(document).ready(function(){
-	
-		
 	$("#delete").click(function(){
 		var result = confirm('삭제 하시겠습니까?');
 		if(result == true){
@@ -33,24 +31,23 @@ $(document).ready(function(){
 	// 댓글 ajax
 	$('#comment_btn').on('click', function(){
 		$.ajax({
-			type : 'GET',
-			url : 'commentWirte.do',
+			type : 'POST',
+			url : 'commentWirte.do?bbsNum=${content.bbsNum}',
 			data : {
+				id : "${id}",
 				num : "${content.bbsNum}",
-				comment :  $('#cmWrite').val()
+				comment : $('#cmWrite').val()
 			},
 			success : function(data){
-				console.log('입력완료');
+				console.log('댓글 성공');
 			}
 		});
 	});
-	
-	
-	// 댓글리스트 ajax
-	/* function getComment(){
+		
+	function showComent(type){
 		$.ajax({
-			type : 'GET',
-			url : "commentList.do?bbsNum=${content.bbsNum}",
+			type: "POST",
+			url : "commentList.do",
 			data : {
 				num : "${content.bbsNum}"
 			},
@@ -60,12 +57,36 @@ $(document).ready(function(){
             complete:function() {
                 console.log("읽어오기 완료 후...");
             },
-			success : function(data){
-				console.log("comment를 정상적으로 조회하였습니다.");
+            success : function(data){
+				console.log('리스트 출력완료');
+				if(data == "") return;
+				var pased = JSON.parse(data);
+				var result = parsed.result;
+				for(var i = 0; i < result.length; i++){
+					addList(result[i][0].value, result[i][1].value, result[i][2].value);
+				}
+				
 			}
 		});
-	};  */
+	};
 	
+	function addList(commentId, commentContent, commentDate){
+		$('#comentList').append('<table class="comment_size">'+ 
+								'<tbody>' +
+								'<tr>' +
+								'<th>'+ commentId +'</th>' +
+								'<td>' + commentContent +
+								'<p class="p_size">'+ commentDate +
+								'<span>' +
+								'<a href="#" class="p_size2">수정</a>' +
+								'<a href="#" class="p_size2">삭제</a>' +
+								'</span>' +
+								'</p>' +
+								'</td>' +
+								'</tr>' +
+								'</tbody>' +
+								'</table>');
+	};
 });
 	
 </script>
@@ -88,7 +109,8 @@ $(document).ready(function(){
 
         
         <!-- 센터 -->
-        <form action="">
+        <input type="hidden" name="id" value="${id}">
+       	<input type="hidden" name="bbsNum" value="${content.bbsNum}">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -130,8 +152,8 @@ $(document).ready(function(){
                     </div> 
                     <%-- <input type="text" name="cBbsNum" value="${num.cBbsNum}"> --%>
                     <!-- 댓글 리스트 -->
-                    <div id="showComment">
-						<table class="comment_size">
+                    <div id="comentList">
+						<%-- <table class="comment_size">
 							<c:forEach items="${commentList}" var="clist">
 							<tbody>
 									<tr>
@@ -148,7 +170,7 @@ $(document).ready(function(){
 								
 							</tbody>
 							</c:forEach>
-						</table>
+						</table> --%>
 					</div>
 					<!-- 댓글 리스트 끝 -->
 					
@@ -159,10 +181,13 @@ $(document).ready(function(){
 								<th><h3>Comment</h3></th>
 							</tr>
 							<tr>
-								<th><textarea name="commentContent" id="cmWrite"></textarea>
+								<th>
+								<textarea name="commentContent" id="cmWrite"></textarea>
 									<div class="count_size">
 										문자 : <span id="count">0</span>
-									</div> <input type="button" value="댓글" id="comment_btn"></th>
+									</div> 
+									<input type="button" value="댓글" id="comment_btn" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>">
+								</th>
 							</tr>
 						</table>
 					</div>
@@ -170,7 +195,6 @@ $(document).ready(function(){
                     
                 </div>
             </div>
-        </form>
         <!-- 센터끝 -->
 
 
