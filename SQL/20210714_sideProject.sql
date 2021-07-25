@@ -86,18 +86,6 @@ CREATE TABLE BBS(
     BBSTITLE VARCHAR2(50),
     ID VARCHAR2(20),
     BBSDATE DATE DEFAULT SYSDATE,
-    BBSHIT NUMBER default 0,
-    BBSCONTENT VARCHAR2(2048),
-    BBSGROUP NUMBER,
-    BBSSTEP NUMBER,
-    BBSINDENT NUMBER
-);
-
-CREATE TABLE BBS(
-    BBSNUM NUMBER PRIMARY KEY,
-    BBSTITLE VARCHAR2(50),
-    ID VARCHAR2(20),
-    BBSDATE DATE DEFAULT SYSDATE,
     BBSHIT NUMBER,
     BBSCONTENT VARCHAR2(2048)
 );
@@ -120,6 +108,7 @@ CREATE TABLE COMMENTS(
     COMMENTCONTENT VARCHAR2(2048)
 );
 drop table comments;
+select * from comments;
 select * from comments where cbbsnum=4;
 select * from comments where cbbsnum=1 start with commentparent=0 connect by prior cnum=commentparent;
 insert into comments values(2, 2, 'test', sysdate, 2, '안녕하세요');
