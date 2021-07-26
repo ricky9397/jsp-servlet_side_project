@@ -26,17 +26,16 @@ public class CommentList extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("게시판 댓글 리스트 서블릿 시작");
+		
 		request.setCharacterEncoding("UTF-8");
-
+		
 		int cBbsNum = Integer.parseInt(request.getParameter("bbsNum"));
-		System.out.println(cBbsNum);
 		CommentDao dao = CommentDao.getInstance();
 		ArrayList<CommentDto> list = dao.getCommentList(cBbsNum);
-
 		JSONArray jsonArr = new JSONArray();
 		for (CommentDto cDto : list) {
 			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("cNum", cDto.getcNum());
 			jsonObject.put("cBbsNum", cDto.getcBbsNum());
 			jsonObject.put("commentId", cDto.getCommentId());
 			jsonObject.put("commentDate", cDto.getCommentDate());
@@ -44,14 +43,13 @@ public class CommentList extends HttpServlet {
 			jsonArr.add(jsonObject);
 			System.out.println(jsonObject.toString());
 		};
-		
 
 		JSONObject json = new JSONObject();
 		json.put("list", jsonArr);
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.getWriter().write(json.toString());
-		System.out.println("서블릿 댓글 리스트 끝");
+		
 	}
 
 }

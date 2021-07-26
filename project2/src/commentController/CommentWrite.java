@@ -34,7 +34,7 @@ public class CommentWrite extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String commentId = (String) session.getAttribute("id");
-
+		
 		int cBbsNum = Integer.parseInt(request.getParameter("num"));
 		String commentContent = request.getParameter("comment");
 

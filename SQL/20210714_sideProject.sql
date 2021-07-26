@@ -109,6 +109,7 @@ CREATE TABLE COMMENTS(
 );
 drop table comments;
 select * from comments;
+delete from comments where cnum=243;
 select * from comments where cbbsnum=4;
 select * from comments where cbbsnum=1 start with commentparent=0 connect by prior cnum=commentparent;
 insert into comments values(2, 2, 'test', sysdate, 2, '안녕하세요');

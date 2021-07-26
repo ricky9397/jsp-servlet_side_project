@@ -47,7 +47,23 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
+	// 댓글삭제 ajax 사용
+	function commentDel(cNum){
+		 $.ajax({
+			type: "GET",
+			url : "CommentDelete",
+			data : {
+				cNum : cNum
+			},
+			success : function(data){
+				console.log('성공');
+				location.reload(true);
+			}
+		 });
+	 }
 		
+	 // 댓글 리스트 json리스트 가져옴
 	 $.ajax({
 		type: "POST",
 		url : "CommentList",
@@ -65,7 +81,7 @@ $(document).ready(function(){
 					if(val.commentId == '${sessionScope.id}'){
 						htmlStr += "				<span>";
 						htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>수정</a>";
-						htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>삭제</a>";
+						htmlStr += "					<a href='javascript:commentDel(" +val.cNum + ")' style='color:royalblue; padding-left: 3px;'>삭제</a>";
 						htmlStr += "				</span>";
 					} else {
 						htmlStr += "<td></td>"
@@ -82,7 +98,7 @@ $(document).ready(function(){
 			console.log('error'+e);
 		}
 	});
-
+	 
 });
 	
 </script>
@@ -149,23 +165,19 @@ $(document).ready(function(){
                     <%-- <input type="text" name="cBbsNum" value="${num.cBbsNum}"> --%>
                     <!-- 댓글 리스트 -->
                     <div id="comentList">
-						<%-- <table class="comment_size">
-							<c:forEach items="${commentList}" var="clist">
-							<tbody>
-									<tr>
-										<th>${clist.commentId}</th>
-										<td>${clist.commentContent}
-											<p class="p_size">${clist.commentDate}
-												<span> 
-													<a href="#" class="p_size2">수정</a> 
-													<a href="#" class="p_size2">삭제</a>
-												</span>
-											</p>
-										</td>
-									</tr>
-							</tbody>
-							</c:forEach>
-						</table> --%>
+						<!-- <table class="comment_size" class="dd">
+								<tr class="dd">
+									<th class="dd"></th>
+									<td class="dd">
+										<p class="p_size dd">
+											<span> 
+												<a href="#" class="p_size2 dd">수정</a> 
+												<a href="#" class="p_size2 dd">삭제</a>
+											</span>
+										</p>
+									</td>
+								</tr>
+						</table> -->
 					</div>
 					<!-- 댓글 리스트 끝 -->
 					

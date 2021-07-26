@@ -73,7 +73,7 @@ public class CommentDao {
 	}
 	
 	// 댓글 수정
-	public int update(CommentDto dto) {
+	public int updateComment(CommentDto dto) {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -117,6 +117,25 @@ public class CommentDao {
 			DBClose.dbClose(rs);
 		}
 		return list;
+	}
+	
+	public int deleteComment(int num) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		String sql = "delete from comments where cnum=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(pstmt);
+		}
+		return result;
 	}
 	
 	
