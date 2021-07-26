@@ -1,4 +1,4 @@
-package loginController;
+package memberController;
 
 import java.io.IOException;
 

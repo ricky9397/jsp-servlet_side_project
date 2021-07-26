@@ -29,7 +29,7 @@
 	<ul class="nav2">
 		<li><a href="index.jsp">MAIN</a></li>
 		<li><a href="#">OUTWEAR</a></li>
-		<li><a href="#">TOP</a></li>
+		<li><a href="productTop.jsp">TOP</a></li>
 		<li><a href="#">BOTTOM</a></li>
 		<li><a href="bbsList.do">COMMUNITY</a></li>
 	</ul>

@@ -49,19 +49,17 @@ $(document).ready(function(){
 	});
 	
 	// 댓글삭제 ajax 사용
-	function commentDel(cNum){
+	function commentDel(num){
 		 $.ajax({
 			type: "GET",
 			url : "CommentDelete",
-			data : {
-				cNum : cNum
-			},
+			data : {cNum : num},
 			success : function(data){
 				console.log('성공');
 				location.reload(true);
 			}
 		 });
-	 }
+	 };
 		
 	 // 댓글 리스트 json리스트 가져옴
 	 $.ajax({
@@ -81,7 +79,7 @@ $(document).ready(function(){
 					if(val.commentId == '${sessionScope.id}'){
 						htmlStr += "				<span>";
 						htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>수정</a>";
-						htmlStr += "					<a href='javascript:commentDel(" +val.cNum + ")' style='color:royalblue; padding-left: 3px;'>삭제</a>";
+						htmlStr += "					<a href='javascript:commentDel("+val.cNum+")' style='color:royalblue; padding-left: 3px;'>삭제</a>";
 						htmlStr += "				</span>";
 					} else {
 						htmlStr += "<td></td>"
