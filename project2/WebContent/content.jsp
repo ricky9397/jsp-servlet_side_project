@@ -17,6 +17,7 @@
 
 <!-- type 넣어주는게 브라우져 생각했을때 더안정적 -->
 <script type="text/javascript">
+
 	/* 삭제 여부 물어보기~ */
 $(document).ready(function(){
 	$("#delete").click(function(){
@@ -29,69 +30,59 @@ $(document).ready(function(){
 	});
 		
 	// 댓글 ajax
-	$('#comment_btn').on('click', function(){
+ 	$('#comment_btn').on('click', function(){
 		$.ajax({
 			type : 'POST',
-			url : './C1',
+			url : 'CommentWrite',
 			data : {
 				id : "${id}",
 				num : "${content.bbsNum}",
 				comment : $('#cmWrite').val()
 			},
 			success : function(data){
-				/* if($('#cmWrite').val().trim() != ''){
-					console.log('댓글 성공');
-				} else if(($('#cmWrite').val().trim() == '')){
-					alert('댓글을 입력해주세요.');
-				} */
+				location.reload(true);
+			},
+			error:function(e){
+				console.log('error'+e);
 			}
 		});
-		$('#cmWrite').val('');
 	});
 		
-	function showComent(type){
-		$.ajax({
-			type: "POST",
-			url : "C2",
-			data : {
-				num : "${content.bbsNum}"
-			},
-			beforeSend:function() {
-                console.log("읽어오기 시작 전...");
-            },
-            complete:function() {
-                console.log("읽어오기 완료 후...");
-            },
-            success : function(data){
-				console.log('리스트 출력완료');
-				if(data == "") return;
-				var pased = JSON.parse(data);
-				var result = parsed.result;
-				for(var i = 0; i < result.length; i++){
-					addList(result[i][0].value, result[i][1].value, result[i][2].value);
-				}
-				
-			}
-		});
-	};
-	
-	function addList(commentId, commentContent, commentDate){
-		$('#comentList').append('<table class="comment_size">'+ 
-								'<tbody>' +
-								'<tr>' +
-								'<th>'+ commentId +'</th>' +
-								'<td>' + commentContent +
-								'<p class="p_size">'+ commentDate +
-								'<span>' +
-								'<a href="#" class="p_size2">수정</a>' +
-								'<a href="#" class="p_size2">삭제</a>' +
-								'</span>' +
-								'</p>' +
-								'</td>' +
-								'</tr>' +
-								'</tbody>' +
-								'</table>');
-	};
+	 $.ajax({
+		type: "POST",
+		url : "CommentList",
+		dataType : "json",
+		data : {
+			bbsNum : "${content.bbsNum}"
+		},
+		success : function(data){
+			var htmlStr = "<table>";
+				$.each(data.list, function(key, val){
+					htmlStr += "<tr>";
+					htmlStr += "	<th style='padding:15px;'>" + val.commentId +"</th>";
+					htmlStr += "		<td>"+ val.commentContent ;
+					htmlStr += "			<p style='color:#aaa; font-size:5px'>" + val.commentDate ;
+					if(val.commentId == '${sessionScope.id}'){
+						htmlStr += "				<span>";
+						htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>수정</a>";
+						htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>삭제</a>";
+						htmlStr += "				</span>";
+					} else {
+						htmlStr += "<td></td>"
+					}
+					htmlStr += "			</p>";
+					htmlStr += "		</td>";
+					htmlStr += "	</th>";
+					htmlStr += "</tr>";
+				})
+					htmlStr += "</table>";
+					$("#comentList").html(htmlStr);
+		},
+		error:function(e){
+			console.log('error'+e);
+		}
+	});
+
 });
 	
 </script>
@@ -115,7 +106,7 @@ $(document).ready(function(){
         
         <!-- 센터 -->
         <input type="hidden" name="id" value="${id}">
-       	<input type="text" name="bbsNum" value="${content.bbsNum}">
+       	<input type="hidden" id="bbsNum" name="bbsNum" value="${content.bbsNum}">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -172,7 +163,6 @@ $(document).ready(function(){
 											</p>
 										</td>
 									</tr>
-								
 							</tbody>
 							</c:forEach>
 						</table> --%>

@@ -38,6 +38,9 @@ $(document).ready(function(){
 			    } else if(data == 0){
 			    	alert('비밀번호 틀렸습니다.')
 			    }
+			},
+			error:function(e){
+				console.log('error'+e);
 			}
 		})
 	});

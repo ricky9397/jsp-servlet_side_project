@@ -69,4 +69,10 @@ public class CommentDto {
 		this.commentContent = commentContent;
 	}
 
+	@Override
+	public String toString() {
+		return "CommentDto [cNum=" + cNum + ", cBbsNum=" + cBbsNum + ", commentId=" + commentId + ", commentDate="
+				+ commentDate + ", commentParent=" + commentParent + ", commentContent=" + commentContent + "]";
+	}
+	
 }

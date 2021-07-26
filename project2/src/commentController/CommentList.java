@@ -4,42 +4,54 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bbsController.Action;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import comment.CommentDao;
 import comment.CommentDto;
 
-public class CommentList implements Action{
+@WebServlet("/CommentList")
+public class CommentList extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("게시판 댓글 리스트 서블릿 시작");
 		request.setCharacterEncoding("UTF-8");
-		
-		int cBbsNum = Integer.parseInt(request.getParameter("num"));
-		
-		response.getWriter().write(getContentList(cBbsNum));
-		
-		System.out.println("게시판 댓글 리스트 서블릿 완료");
-		
-		request.setAttribute("num", cBbsNum);
-	}
-	
-	public String getContentList(int cBbsNum) {
-		StringBuffer result = new StringBuffer("");
-		result.append("{\"result\":[");
+
+		int cBbsNum = Integer.parseInt(request.getParameter("bbsNum"));
+		System.out.println(cBbsNum);
 		CommentDao dao = CommentDao.getInstance();
 		ArrayList<CommentDto> list = dao.getCommentList(cBbsNum);
-		for(int i = 0; i < list.size(); i++) {
-			result.append("[{\"value\": \"" + list.get(i).getCommentId() + "\"},");
-			result.append("{\"value\": \"" + list.get(i).getCommentContent() + "\"},");
-			result.append("{\"value\": \"" + list.get(i).getCommentDate() + "\"}]");
-		}
-		result.append("]}");
-		return result.toString();
+
+		JSONArray jsonArr = new JSONArray();
+		for (CommentDto cDto : list) {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("cBbsNum", cDto.getcBbsNum());
+			jsonObject.put("commentId", cDto.getCommentId());
+			jsonObject.put("commentDate", cDto.getCommentDate());
+			jsonObject.put("commentContent", cDto.getCommentContent());
+			jsonArr.add(jsonObject);
+			System.out.println(jsonObject.toString());
+		};
+		
+
+		JSONObject json = new JSONObject();
+		json.put("list", jsonArr);
+		response.setContentType("text/html; charset=utf-8");
+		response.setCharacterEncoding("utf-8");
+		response.getWriter().write(json.toString());
+		System.out.println("서블릿 댓글 리스트 끝");
 	}
-	
+
 }
