@@ -7,5 +7,5 @@
 
 2021/7/13
 1.쇼핑몰 만들기
- - HTML,CSS,JS,JQuery,ajax,jsp,servlet,java,db(oracle)
+ - HTML,CSS,JS,JQuery,ajax,json,jsp,servlet,java,db(oracle)
  - servlet mvc2패턴, frontcontroller 사용
