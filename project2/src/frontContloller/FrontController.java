@@ -120,7 +120,9 @@ public class FrontController extends HttpServlet {
 			action = new ProductContent();
 			action.execute(request, response);
 			viewPage = "productMain.jsp";
-		}
+			
+		} 
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

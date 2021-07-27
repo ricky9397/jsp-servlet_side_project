@@ -24,7 +24,7 @@
 			<li class="serch_li"><a href="#" class="serch"> <img
 					src="./img/header_ico_search.png">
 			</a></li>
-			<li class="serch_li"><a href="basket.jsp" class="serch2"> <img
+			<li class="serch_li"><a href="cart.jsp" class="serch2"> <img
 					src="./img/header_barket.png">
 			</a></li>
 		</ul>

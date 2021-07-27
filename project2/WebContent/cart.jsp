@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>OHMYSHOP</title>
 <link rel="stylesheet" href="./css/basket.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
+        </script>
 <script src="./js/basket.js"></script>
 </head>
 
@@ -54,7 +57,7 @@
                                     <li class="li_in">[옵션:black/free]</li>
                                 </ul>
                             </td>
-                            <td>15.000</td>
+                            <td>${cart.iPrice}</td>
                             <td><div>
                                 <input type="number" value="1" class="number_input">
                             </div>

@@ -7,7 +7,6 @@
 <title>OHMYSHOP</title>
 <link rel="stylesheet" href="./css/top.css">
 </head>
-
 <body>
 	<div id="wrap">
 		<!-- 상단 -->

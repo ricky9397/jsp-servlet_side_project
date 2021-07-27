@@ -24,6 +24,8 @@ CREATE TABLE  PRODUCT (
                               ) ;          
 insert into product values (1, '반팔티', '2000', 5);
 select * from product;
+select max(icode) from product;
+drop table product;
           
 
                               
@@ -108,6 +110,7 @@ CREATE TABLE COMMENTS(
     COMMENTPARENT NUMBER,
     COMMENTCONTENT VARCHAR2(2048)
 );
+
 drop table comments;
 select * from comments;
 delete from comments where cnum=243;
@@ -115,3 +118,16 @@ select * from comments where cbbsnum=4;
 select * from comments where cbbsnum=1 start with commentparent=0 connect by prior cnum=commentparent;
 insert into comments values(2, 2, 'test', sysdate, 2, '안녕하세요');
 update comments set commentcontent='ffff' where cnum=4;
+
+
+-- CART 테이블
+CREATE TABLE CART(
+    CARTNUM NUMBER PRIMARY KEY,
+    CARTCODE NUMBER,
+    ID VARCHAR2(20),
+    COUNT NUMBER
+);
+
+-- SELECT
+SELECT * FROM CART;
+

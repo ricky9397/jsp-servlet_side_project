@@ -6,15 +6,26 @@
 <meta charset="UTF-8">
 <title>OHMYSHOP</title>
 <link rel="stylesheet" href="./css/product_full.css">
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
+        </script>
 <script type="text/javascript">
+
 $(document).ready(function(){
-	$('#cart').on('click', function(){
+	$('#cartgo').on('click', function(){
 		$.ajax({
-			
+			type : 'POST',
+			url : 'cart',
+			data : {
+				iCode : '${ProductContent.iCode}'
+			},
+			success : function(data){
+				alert('성공');				
+			},
 		});
 	});
 });
+
 </script>
 
 </head>
@@ -34,7 +45,8 @@ $(document).ready(function(){
 
 	
 		<!-- 센터 -->
-		<form action="">
+		<form action="#">
+		<input type="hidden" name="iCode" value="${ProductContent.iCode}">
 			<div id="center_wrap">
 	            <div class="main_img">
 	                <img src="./img/옷1.png">
@@ -73,8 +85,10 @@ $(document).ready(function(){
 	                    <p>[필수]옵션을 선택해주세요.</p>
 	                </div>
 	                <div class="button_size">
-	                    <input type="submit" value="BUY NOW">
-	                    <input type="button" value="ADD TO CART">
+	                <a href="#">
+	                    <input type="button" value="BUY NOW">
+	                </a>
+	                    <input type="button" value="ADD TO CART" id="cartgo">
 	                </div>
 	            </div>
 	        </div>

@@ -3,16 +3,15 @@ package cart;
 public class CartDto {
 	
 	private int cartNum;
-	private int iCode;
+	private int cartCode;
 	private String id;
 	private int count;
-	
 	public CartDto() {
 	}
-	public CartDto(int cartNum, int iCode, String id, int count) {
+	public CartDto(int cartNum, int cartCode, String id, int count) {
 		super();
 		this.cartNum = cartNum;
-		this.iCode = iCode;
+		this.cartCode = cartCode;
 		this.id = id;
 		this.count = count;
 	}
@@ -22,11 +21,11 @@ public class CartDto {
 	public void setCartNum(int cartNum) {
 		this.cartNum = cartNum;
 	}
-	public int getiCode() {
-		return iCode;
+	public int getCartCode() {
+		return cartCode;
 	}
-	public void setiCode(int iCode) {
-		this.iCode = iCode;
+	public void setCartCode(int cartCode) {
+		this.cartCode = cartCode;
 	}
 	public String getId() {
 		return id;
@@ -42,7 +41,9 @@ public class CartDto {
 	}
 	@Override
 	public String toString() {
-		return "CartDto [cartNum=" + cartNum + ", iCode=" + iCode + ", id=" + id + ", count=" + count + "]";
+		return "CartDto [cartNum=" + cartNum + ", cartCode=" + cartCode + ", id=" + id + ", count=" + count + "]";
 	}
+	
+	
 	
 }
