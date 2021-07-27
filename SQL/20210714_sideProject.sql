@@ -26,6 +26,7 @@ insert into product values (1, '반팔티', '2000', 5);
 select * from product;
 select max(icode) from product;
 drop table product;
+select * from product where icode=1;
           
 
                               
