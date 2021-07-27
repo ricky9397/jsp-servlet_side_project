@@ -1,6 +1,7 @@
 package cartController;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,15 +35,14 @@ public class ProductCart extends HttpServlet {
 		ProductDao dao = ProductDao.getInstance();
 
 		int iCode = Integer.parseInt(request.getParameter("iCode"));
-		
 //		response.setContentType("text/html;charset=utf-8");
-		
 		ProductDto dto = dao.selectIcode(iCode);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("cart", dto);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/cart.jsp");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/test.jsp");
 		rd.forward(request, response);
 	}
 }
