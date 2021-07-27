@@ -21,7 +21,7 @@
 
 <body>
 
-	<div id="wrap">
+	<div id="wrap">	
 		<!-- 상단 -->
 		<div>
 			<!-- 로고 -->

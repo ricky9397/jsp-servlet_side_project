@@ -2,14 +2,14 @@ package product;
 
 public class ProductDto {
 	private int iCode;
-	private String iname;
+	private String iName;
 	private int iPrice;
 	private int count;
 	public ProductDto() {
 	}
-	public ProductDto(int iCode, String iname, int iPrice, int count) {
+	public ProductDto(int iCode, String iName, int iPrice, int count) {
 		this.iCode = iCode;
-		this.iname = iname;
+		this.iName = iName;
 		this.iPrice = iPrice;
 		this.count = count;
 	}
@@ -19,11 +19,11 @@ public class ProductDto {
 	public void setiCode(int iCode) {
 		this.iCode = iCode;
 	}
-	public String getIname() {
-		return iname;
+	public String getiName() {
+		return iName;
 	}
-	public void setIname(String iname) {
-		this.iname = iname;
+	public void setiName(String iName) {
+		this.iName = iName;
 	}
 	public int getiPrice() {
 		return iPrice;
@@ -37,6 +37,11 @@ public class ProductDto {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	@Override
+	public String toString() {
+		return "ProductDto [iCode=" + iCode + ", iName=" + iName + ", iPrice=" + iPrice + ", count=" + count + "]";
+	}
+	
 	
 	
 }

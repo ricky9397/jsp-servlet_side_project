@@ -49,6 +49,7 @@ public class CommentWrite extends HttpServlet {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter pw = response.getWriter();
 			pw.write(dao.insertComment(dto));
+			request.setAttribute("num", dao);
 		}
 	}
 

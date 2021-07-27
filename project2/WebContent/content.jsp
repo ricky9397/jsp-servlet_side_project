@@ -53,7 +53,9 @@ $(document).ready(function(){
 		 $.ajax({
 			type: "GET",
 			url : "CommentDelete",
-			data : {cNum : num},
+			data : {
+				cNum : num
+				},
 			success : function(data){
 				console.log('성공');
 				location.reload(true);

@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Noto+Sans+KR:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#wrap{
+    width: 1400px;
+    margin: 0 auto;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+header{
+    padding: 40px 0;
+    text-align: center;
+}
+
+.nav1{
+    display: flex;
+    margin-left: 50px;
+    list-style: none;
+}
+.nav1 a {
+    padding: 15px;
+    font-size: 0.5em;
+}
+.nav2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 280px;
+    list-style: none;
+    font-size: 0.8em;
+}
+.nav2 li{
+    margin-left: 80px;
+}
+
+#nav_button{
+    margin-bottom: 30px;
+}
+
+.serch{
+    float: right;
+    margin-right: 100px;
+    text-decoration: none;
+}
+.serch2{
+    text-decoration: none;
+    float: right;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+.serch2 img{
+    width: 25px;
+}
+
+.serch_li{
+    list-style: none;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+li:hover{
+    text-decoration: underline;
+}
+
+/* 센터 시작 */
+
+#center_wrap{
+    width: 1250px;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.menu_a{
+    margin-top: 150px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.number_input{
+    width: 30px;
+    margin-bottom: 5px;
+}
+
+.table_menu{
+    width: 1200px;
+    text-align: center;
+}
+
+.li_in{
+    list-style: none;
+}
+
+th, td {
+    border-bottom: 1px solid #aaa;
+    padding: 10px;
+}
+
+table {
+    border-collapse:collapse; 
+}
+.img_size{
+    width: 100px;
+    height: 100px;
+}
+
+.order{
+    text-align: right;
+}
+
+.button_a{
+    background-color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 3px;
+    border: 1px solid #bbb;
+}
+
+.button_footer{
+    text-align: center;
+}
+
+.button_footer input[type="submit"]{
+    background-color: #000;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 8px 50px;
+    cursor: pointer;
+}
+
+.button_footer input[type="button"]{
+    background-color:white;
+    color: #000;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 8px 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+
+/* 센터 끝 */
+
+/* 하단시작 */
+footer{
+    padding: 10px 30px;
+    text-align: center;
+}
+footer h2{
+    font-size: 1.0em;
+    margin-bottom: 10px;
+
+}
+
+footer p{
+    font-size: 0.5em;
+    margin-bottom: 5px;
+}
+

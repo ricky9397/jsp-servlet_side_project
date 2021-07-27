@@ -24,12 +24,15 @@
 			<li class="serch_li"><a href="#" class="serch"> <img
 					src="./img/header_ico_search.png">
 			</a></li>
+			<li class="serch_li"><a href="basket.jsp" class="serch2"> <img
+					src="./img/header_barket.png">
+			</a></li>
 		</ul>
 	</div>
 	<ul class="nav2">
 		<li><a href="index.jsp">MAIN</a></li>
 		<li><a href="#">OUTWEAR</a></li>
-		<li><a href="productTop.jsp">TOP</a></li>
+		<li><a href="productList.do">TOP</a></li>
 		<li><a href="#">BOTTOM</a></li>
 		<li><a href="bbsList.do">COMMUNITY</a></li>
 	</ul>

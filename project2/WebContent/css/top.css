@@ -40,10 +40,23 @@ header{
     margin-left: 80px;
 }
 
+#nav_button{
+    margin-bottom: 30px;
+}
+
 .serch{
     float: right;
     margin-right: 100px;
     text-decoration: none;
+}
+.serch2{
+    text-decoration: none;
+    float: right;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+.serch2 img{
+    width: 25px;
 }
 
 .serch_li{
@@ -74,12 +87,22 @@ li:hover{
 }
 
 /* 센터 시작 */
+.top_main{
+    width: 1400px;
+}
+.top_main img{
+    width: 1000px;
+    height: 500px;
+    margin: 20px 130px;
+    padding: 30px;
+}
+
+
 .center_a{
-    width: 1500px;
-    margin: 50px auto;
+    width: 1200px;
+    margin: 50px 150px;
     padding: 10px;
     font-size: 0.7em;
-    
 }
 
 .center_b{

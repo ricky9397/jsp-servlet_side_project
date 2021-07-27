@@ -4,7 +4,6 @@
 }
 
 body {
-    background: #eee;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
@@ -84,6 +83,7 @@ li:hover{
 
 .check{
     text-align: center;
+    border: 1px solid #ddd;
 }
 
 .check h3{

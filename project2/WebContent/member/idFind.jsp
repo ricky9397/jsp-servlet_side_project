@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>OHMYSHOP</title>
-<link rel="stylesheet" href="./css/id_find.css">
+<link rel="stylesheet" href="<c:url value='/css/id_find.css'/>">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
@@ -13,7 +13,7 @@
 	
 </script>
 <!-- js -->
-<script src="./js/id_find.js"></script>
+<script src="<c:url value='/js/id_find.js'/>"></script>
 </head>
 
 <body>

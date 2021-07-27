@@ -24,75 +24,28 @@
 
 	
 		<!-- 센터 -->
-		<div class="center_a">
+		<div class="top_main">
+            <img src="./img/top_main.png">
+        </div>
+        <div class="center_a">
+        <c:forEach items="${productList}" var="list">
             <div class="center_b">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="productContent.do?iCode=${list.iCode}">
                             <img src="./img/옷1.png" alt="">
                         </a>
+                    </li>
                     <li>
-                        <a href="#">
-                            <strong><span class="span_center">시스루블루종</span></strong>
+                        <a href="productContent.do?iCode=${list.iCode}">
+                            <strong><span class="span_center">${list.iName}</span></strong>
                         </a>
                     </li>
-                    <li><span>1.3000원</span></li>
-                    <li><span style="color: red;">59,850원(5% 할인)</span></li>
+                    <li><span class="text_in">${list.iPrice}</span></li>
                     <li><span>(3color)</span></li>
-                    </li>
                 </ul>
             </div>
-            <div class="center_b">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="./img/옷1.png" alt="">
-                        </a>
-                    <li>
-                        <a href="#">
-                            <strong><span class="span_center">시스루블루종</span></strong>
-                        </a>
-                    </li>
-                    <li><span>1.3000원</span></li>
-                    <li><span style="color: red;">59,850원(5% 할인)</span></li>
-                    <li><span>(3color)</span></li>
-                    </li>
-                </ul>
-            </div>
-            <div class="center_b">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="./img/옷1.png" alt="">
-                        </a>
-                    <li>
-                        <a href="#">
-                            <strong><span class="span_center">시스루블루종</span></strong>
-                        </a>
-                    </li>
-                    <li><span>1.3000원</span></li>
-                    <li><span style="color: red;">59,850원(5% 할인)</span></li>
-                    <li><span>(3color)</span></li>
-                    </li>
-                </ul>
-            </div>
-            <div class="center_b">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="./img/옷1.png" alt="이미지없음">
-                        </a>
-                    <li>
-                        <a href="#">
-                            <strong><span class="span_center">시스루블루종</span></strong>
-                        </a>
-                    </li>
-                    <li><span>1.3000원</span></li>
-                    <li><span style="color: red;">59,850원(5% 할인)</span></li>
-                    <li><span>(3color)</span></li>
-                    </li>
-                </ul>
-            </div>
+        </c:forEach>
         </div>
 		<!-- 센터끝 -->
 

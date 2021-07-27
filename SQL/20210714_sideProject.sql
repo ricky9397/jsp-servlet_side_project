@@ -22,7 +22,8 @@ CREATE TABLE  PRODUCT (
                                 IPRICE  INTEGER , 
                                 COUNT INTEGER
                               ) ;          
-          
+insert into product values (1, '반팔티', '2000', 5);
+select * from product;
           
 
                               
