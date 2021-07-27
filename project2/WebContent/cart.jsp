@@ -52,7 +52,7 @@
                                 <img src="./img/옷1.png" class="img_size">
                             </td>
                             <td>
-                                <a href="#"><strong>옷이름</strong></a>
+                                <a href="#"><strong>${cart.iName}</strong></a>
                                 <ul>
                                     <li class="li_in">[옵션:black/free]</li>
                                 </ul>
@@ -67,7 +67,7 @@
                             <td>
                                 <p>3.000원</p>조건
                             </td>
-                            <td>15.000</td>
+                            <td>${cart.iPrice}</td>
                             <td>
                                 <input type="button" value="주문하기" class="button_a"><br>
                                 <input type="button" value="삭제하기" class="button_a">

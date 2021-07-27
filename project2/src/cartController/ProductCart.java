@@ -1,6 +1,8 @@
-package cart;
+package cartController;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,23 +19,30 @@ public class ProductCart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		cartGo(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		cartGo(request, response);
+	}
+	
+	public void cartGo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println(" 서블릿 시작");
 		request.setCharacterEncoding("UTF-8");
 
-		CartDao dao = CartDao.getInstance();
+		ProductDao dao = ProductDao.getInstance();
 
 		int iCode = Integer.parseInt(request.getParameter("iCode"));
 		
-		response.setContentType("text/html;charset=utf-8");
+//		response.setContentType("text/html;charset=utf-8");
 		
-		CartDto dto = dao.selectIcode(iCode);
+		ProductDto dto = dao.selectIcode(iCode);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("cart", dto);
 		
+		RequestDispatcher rd = request.getRequestDispatcher("/cart.jsp");
+		rd.forward(request, response);
 	}
-
 }

@@ -11,7 +11,7 @@
         </script>
 <script type="text/javascript">
 
-$(document).ready(function(){
+/* $(document).ready(function(){
 	$('#cartgo').on('click', function(){
 		$.ajax({
 			type : 'POST',
@@ -24,7 +24,7 @@ $(document).ready(function(){
 			},
 		});
 	});
-});
+}); */
 
 </script>
 
@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 	
 		<!-- 센터 -->
-		<form action="#">
+		<form action="cart">
 		<input type="hidden" name="iCode" value="${ProductContent.iCode}">
 			<div id="center_wrap">
 	            <div class="main_img">
@@ -85,10 +85,10 @@ $(document).ready(function(){
 	                    <p>[필수]옵션을 선택해주세요.</p>
 	                </div>
 	                <div class="button_size">
-	                <a href="#">
+	                <a href="cart">
 	                    <input type="button" value="BUY NOW">
 	                </a>
-	                    <input type="button" value="ADD TO CART" id="cartgo">
+	                    <input type="submit" value="ADD TO CART" id="cartgo">
 	                </div>
 	            </div>
 	        </div>
