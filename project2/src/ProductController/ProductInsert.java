@@ -2,11 +2,9 @@ package ProductController;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import bbsController.Action;
 import product.ProductDao;
@@ -30,9 +28,5 @@ public class ProductInsert implements Action {
 		dto.setiPrice(iPrice);
 		dto.setCount(count);
 		dao.productInsert(dto);
-		
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("list", dto);
 	}
 }

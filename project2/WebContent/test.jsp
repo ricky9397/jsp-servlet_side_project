@@ -1,3 +1,4 @@
+<%@page import="product.ProductDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,14 +10,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:forEach items="${cart}" var="cart">
+	<c:forEach items="${cartList}" var="cart">
 	<h1>
 		${cart.iCode} <br>
 		${cart.iName} <br>
 		${cart.iPrice}
+		${cart.count}
 	</h1>
 	</c:forEach>
-		<h3>${cart}</h3>
+	
+	<hr>
+		<h3>${list}</h3>
 		<a href="index.jsp">메인화면</a>
 		
 </body>

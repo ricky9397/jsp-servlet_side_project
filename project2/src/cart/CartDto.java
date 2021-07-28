@@ -1,36 +1,35 @@
 package cart;
 
 public class CartDto {
-	
-	private int cartNum;
-	private int cartCode;
-	private String id;
+	private int iCode;
+	private String iName;
+	private int iPrice;
 	private int count;
 	public CartDto() {
 	}
-	public CartDto(int cartNum, int cartCode, String id, int count) {
-		this.cartNum = cartNum;
-		this.cartCode = cartCode;
-		this.id = id;
+	public CartDto(int iCode, String iName, int iPrice, int count) {
+		this.iCode = iCode;
+		this.iName = iName;
+		this.iPrice = iPrice;
 		this.count = count;
 	}
-	public int getCartNum() {
-		return cartNum;
+	public int getiCode() {
+		return iCode;
 	}
-	public void setCartNum(int cartNum) {
-		this.cartNum = cartNum;
+	public void setiCode(int iCode) {
+		this.iCode = iCode;
 	}
-	public int getCartCode() {
-		return cartCode;
+	public String getiName() {
+		return iName;
 	}
-	public void setCartCode(int cartCode) {
-		this.cartCode = cartCode;
+	public void setiName(String iName) {
+		this.iName = iName;
 	}
-	public String getId() {
-		return id;
+	public int getiPrice() {
+		return iPrice;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setiPrice(int iPrice) {
+		this.iPrice = iPrice;
 	}
 	public int getCount() {
 		return count;
@@ -40,9 +39,8 @@ public class CartDto {
 	}
 	@Override
 	public String toString() {
-		return "CartDto [cartNum=" + cartNum + ", cartCode=" + cartCode + ", id=" + id + ", count=" + count + "]";
+		return "data [iCode=" + iCode + ", iName=" + iName + ", iPrice=" + iPrice + ", count=" + count + "]";
 	}
-	
 	
 	
 }

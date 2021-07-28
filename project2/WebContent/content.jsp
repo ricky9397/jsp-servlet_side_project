@@ -84,33 +84,6 @@ $(document).ready(function(){
 		}
 	});
 	 
-	 /* 	$.getJSON("CommentList",
-     {bbsNum: $('#bbsNum').val()},
-     function(data){
-         var htmlStr = "<table>";
-         $.each(data.list, function(key, val){
-             htmlStr += "<tr>";
-             htmlStr += "	<th style='padding:15px;'>" + val.commentId +"</th>";
-             htmlStr += "		<td>"+ val.commentContent;
-             htmlStr += "			<p style='color:#aaa; font-size:5px'>" + val.commentDate;
-             if(val.commentId == '${sessionScope.id}'){
-                 htmlStr += "				<span>";
-                 htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>수정</a>";
-                 htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>삭제</a>";
-                 htmlStr += "				</span>";
-             } else {
-                 htmlStr += "<td></td>"
-             }
-             htmlStr += "			</p>";
-             htmlStr += "		</td>";
-             htmlStr += "	</th>";
-             htmlStr += "</tr>";
-         })
-             htmlStr += "</table>";
-             $("#comentList").html(htmlStr);
-    	 }
-	) */
-	 
 });
 	
 //댓글삭제 ajax 사용

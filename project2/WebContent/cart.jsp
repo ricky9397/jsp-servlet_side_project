@@ -30,9 +30,7 @@
 	
 		<!-- 센터 -->
 		<form action="">
-		
             <div id="center_wrap">
-            
                 <div class="menu_a">
                     <h3>일반상품(1)</h3>
                 </div>
@@ -50,8 +48,18 @@
                             <th>TOTL</th>
                             <th>SELECT</th>
                         </tr>
+                        <c:if test="${cartList ne null && cartDel ne null}">
+                        <tr >
+                            <td colspan="9">
+                            	<h3>장바구니 상품이 없습니다.</h3>
+                            </td>
+                        </tr>
+                        </c:if>
+                        <c:if test="${cartList != null}">
+                        <c:forEach items="${cartList}" var="cart">
                         <tr>
-                            <td><input type="checkbox" class="checkItem"></td>
+                            <td><input type="checkbox" class="checkItem">
+                            </td>
                             <td>
                                 <img src="./img/옷1.png" class="img_size">
                             </td>
@@ -74,10 +82,14 @@
                             <td>${cart.iPrice}</td>
                             <td>
                                 <input type="button" value="주문하기" class="button_a"><br>
+                                <a href="cartDelete.do?iCode=${cart.iCode}">
                                 <input type="button" value="삭제하기" class="button_a">
-
+                                </a>
                             </td>
                         </tr>
+                        </c:forEach>
+                        </c:if>
+                        <c:if test="${cartDel ne null and not empty cartDel}">
                         <tr>
                             <td>
                                 <span>[기본배송]</span>
@@ -91,6 +103,8 @@
                                 </strong>
                             </td>
                         </tr>
+                        </c:if>
+                        
                     </table>
                 </div>
                 

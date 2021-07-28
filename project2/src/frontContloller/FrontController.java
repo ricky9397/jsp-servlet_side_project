@@ -20,6 +20,8 @@ import bbsController.BbsMain;
 import bbsController.BbsUpdate;
 import bbsController.BbsUpdateForm;
 import bbsController.BbsWrite;
+import cartController.CartSession;
+import cartController.CartSessionDelete;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
 
@@ -121,7 +123,17 @@ public class FrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "productMain.jsp";
 			
-		} 
+		} else if (com.equals("/cart.do")) {
+			action = new CartSession();
+			action.execute(request, response);
+			viewPage = "cart.jsp";
+			
+		} else if (com.equals("/cartDelete.do")) {
+			System.out.println("삭제시작");
+			action = new CartSessionDelete();
+			action.execute(request, response);
+			viewPage = "cart.jsp";
+		}
 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
