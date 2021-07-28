@@ -9,7 +9,6 @@ public class CartDto {
 	public CartDto() {
 	}
 	public CartDto(int cartNum, int cartCode, String id, int count) {
-		super();
 		this.cartNum = cartNum;
 		this.cartCode = cartCode;
 		this.id = id;

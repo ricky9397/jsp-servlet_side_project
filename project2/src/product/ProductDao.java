@@ -132,31 +132,31 @@ public class ProductDao {
 	}
 	
 	// 장바구니 리스트
-//	public ArrayList<ProductDto> getProductList(int Num){
-//		ArrayList<ProductDto> list = new ArrayList<ProductDto>();
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		String sql = "select * from product where icode=?";
-//		try {
-//			conn = DBconn.getConnection();
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, Num);
-//			rs = pstmt.executeQuery();
-//			while(rs.next()) {
-//				list.add(new ProductDto(rs.getInt(1), 
-//						rs.getString(2), rs.getInt(3), 
-//						rs.getInt(4)));
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			DBClose.dbClose(conn);
-//			DBClose.dbClose(pstmt);
-//			DBClose.dbClose(rs);
-//		}
-//		return list;
-//	}
+	public ArrayList<ProductDto> getProductList(int Num){
+		ArrayList<ProductDto> list = new ArrayList<ProductDto>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from product where icode=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Num);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new ProductDto(rs.getInt(1), 
+						rs.getString(2), rs.getInt(3), 
+						rs.getInt(4)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
+		}
+		return list;
+	}
 	
 	
 }

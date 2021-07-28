@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +30,13 @@
 	
 		<!-- 센터 -->
 		<form action="">
+		
             <div id="center_wrap">
+            
                 <div class="menu_a">
                     <h3>일반상품(1)</h3>
                 </div>
+                
                 <div>
                     <table class="table_menu">
                         <tr>
@@ -89,6 +93,9 @@
                         </tr>
                     </table>
                 </div>
+                
+                
+                
                 <div class="button_footer">
                     <input type="submit" value="BUY NOW">
                     <a href="index.jsp">

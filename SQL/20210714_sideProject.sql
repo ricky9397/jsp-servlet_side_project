@@ -4,6 +4,8 @@ drop table product;
 update member set pw='1234', name='홍길순', post=3030, address='서울 신촌', addresss='먹자골목', phonenum='01056789088', email='bbb@bbb.com' where id='test';
 insert into member values(member_idx_seq.nextval, 'test', '1111', '홍길동', 330, '신촌', '로데오', '01055550000', 'asd@asd.com');
 select * from member;
+
+-- member 테이블
 CREATE TABLE  MEMBER (
                                 IDX NUMBER CONSTRAINT MEMBER_IDX_PK PRIMARY KEY,
                                 ID VARCHAR2(40) CONSTRAINT MEMBER_ID_NN NOT NULL,
@@ -15,7 +17,8 @@ CREATE TABLE  MEMBER (
                                 PHONENUM  VARCHAR2(40)CONSTRAINT MEMBER_NUM_NN NOT NULL,
                                 EMAIL VARCHAR2(100)CONSTRAINT MEMBER_EMAIL_NN NOT NULL
                               ) ;
-          
+
+-- 상품 테이블          
 CREATE TABLE  PRODUCT (
                                 ICODE NUMBER(6) CONSTRAINT PRODUCT_ICODE_PK PRIMARY KEY,
                                 INAME  VARCHAR2(50)CONSTRAINT PRODUCT_NAME_NN NOT NULL ,
@@ -51,19 +54,6 @@ create sequence member_idx_seq ;
 create sequence comment_dix_seq;
 create sequence iorder_oidx_seq ;
                               
---member dml  --idx ,id,pw, name, phonenum, email
-insert into member values (member_idx_seq.nextval, 'apple','1234','홍길동', '01012341234','fods@gmail.com');
-insert into member values (member_idx_seq.nextval, 'banana','1234','강호동', '01045741234','djwd@gmail.com');
-
-
---product dml --- icode, iname, iprice, count
-insert into product values (1,'바닐라 아이스크림', '2000',5);
-insert into product values (2,'초코 아이스크림', '2500',6);
-insert into product values (3,'딸기 아이스크림', '2500',3);
-insert into product values (4,'바나나 아이스크림', '2700',6);
-insert into product values (5,'커피 아이스크림', '2700',2);
-insert into product values (6,'민트 아이스크림', '2800',2);
-insert into product values (7,'요거트 아이스크림', '3000',5);
 
 --iorder dml -- oidx, ordercode, icode,idx,orderdate,count,price
 insert into iorder values (iorder_oidx_seq.nextval, '', 1,3,sysdate,5,10000);
@@ -85,6 +75,7 @@ SELECT SYSDATE FROM DUAL;
 
 select id from member order by id desc;
 
+-- 게시판 테이블
 CREATE TABLE BBS(
     BBSNUM NUMBER PRIMARY KEY,
     BBSTITLE VARCHAR2(50),
@@ -102,7 +93,7 @@ DROP TABLE BBS;
 select max(bbsnum) from bbs;
 select bbsnum, bbstitle, id, bbsdate, bbshit from bbs order by bbsgroup, bbsstep asc;
 
-
+-- 댓글 테이블
 CREATE TABLE COMMENTS(
     CNUM NUMBER PRIMARY KEY,
     CBBSNUM NUMBER,
