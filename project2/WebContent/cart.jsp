@@ -11,6 +11,18 @@
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
         </script>
 <script src="./js/basket.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#reflash").click(function(){
+		var result = confirm('삭제 하시겠습니까?');
+		if(result == true){
+			alert('삭제되었습니다.');
+		} else {
+			return false;
+		}
+	});
+});
+</script>
 </head>
 
 <body>
@@ -32,7 +44,7 @@
 		<form action="">
             <div id="center_wrap">
                 <div class="menu_a">
-                    <h3>일반상품(1)</h3>
+                    <h3>일반상품</h3>
                 </div>
                 
                 <div>
@@ -48,15 +60,19 @@
                             <th>TOTL</th>
                             <th>SELECT</th>
                         </tr>
-                        <c:if test="${cartList ne null && cartDel ne null}">
-                        <tr >
-                            <td colspan="9">
-                            	<h3>장바구니 상품이 없습니다.</h3>
-                            </td>
-                        </tr>
-                        </c:if>
-                        <c:if test="${cartList != null}">
-                        <c:forEach items="${cartList}" var="cart">
+                        
+                        <c:if test="${cartList eq null || empty cartList}">
+	                        <tr>
+	                            <td colspan="9">
+	                            	<h3>장바구니 상품이 없습니다.</h3>
+	                            </td>
+	                        </tr>
+	                    </c:if>
+	                    
+	                    
+                        <c:if test="${cartList ne null && not empty cartList}">
+                        	<c:forEach items="${cartList}" var="cart">
+                        
                         <tr>
                             <td><input type="checkbox" class="checkItem">
                             </td>
@@ -64,46 +80,47 @@
                                 <img src="./img/옷1.png" class="img_size">
                             </td>
                             <td>
-                                <a href="#"><strong>${cart.iName}</strong></a>
+                                <a href="productContent.do?iCode=${cart.iCode}"><strong>${cart.iName}</strong></a>
                                 <ul>
                                     <li class="li_in">[옵션:black/free]</li>
                                 </ul>
                             </td>
                             <td>${cart.iPrice}</td>
                             <td><div>
-                                <input type="number" value="1" class="number_input">
+                                <p>${cart.count}</p>
                             </div>
-                                <input type="button" value="변경" class="button_a">
                             </td>
                             <td>기본배송</td>
                             <td>
                                 <p>3.000원</p>조건
                             </td>
-                            <td>${cart.iPrice}</td>
+                            <td>${cart.iPrice*cart.count}</td>
                             <td>
                                 <input type="button" value="주문하기" class="button_a"><br>
                                 <a href="cartDelete.do?iCode=${cart.iCode}">
-                                <input type="button" value="삭제하기" class="button_a">
+                                <input type="button" value="삭제하기" class="button_a" id="reflash">
                                 </a>
                             </td>
                         </tr>
+                        
                         </c:forEach>
+	                        <tr>
+	                            <td>
+	                                <span>[기본배송]</span>
+	                            </td>
+	                            <td colspan="9" class="order">
+	                               	 상품구매금액
+	                                <strong>${total}</strong>
+	                                +배송비3.000= 합계:
+	                                <strong>
+	                                    <span>${total+3000}</span>원
+	                                </strong>
+	                            </td>
+	                        </tr>
                         </c:if>
-                        <c:if test="${cartDel ne null and not empty cartDel}">
-                        <tr>
-                            <td>
-                                <span>[기본배송]</span>
-                            </td>
-                            <td colspan="9" class="order">
-                               	 상품구매금액
-                                <strong>15.000</strong>
-                                +배송비3.000= 합계:
-                                <strong>
-                                    <span> 15.000</span>원
-                                </strong>
-                            </td>
-                        </tr>
-                        </c:if>
+                        
+                        
+                        
                         
                     </table>
                 </div>

@@ -146,6 +146,13 @@ li:hover{
     border: 1px solid #000;
 }
 
+.in_number input{
+	padding: 7px;
+    width: 185px;
+    border: 1px solid #bbb;
+    font-size: 13px;
+}
+
 
 /* 센터 끝 */
 

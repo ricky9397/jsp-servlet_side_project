@@ -28,7 +28,7 @@ $(document).ready(function(){
 			return false;
 		}
 	});
-		
+	
 	// 댓글 ajax
  	$('#comment_btn').on('click', function(){
 		$.ajax({
@@ -65,8 +65,8 @@ $(document).ready(function(){
 					htmlStr += "			<p style='color:#aaa; font-size:5px'>" + val.commentDate ;
 					if(val.commentId == '${sessionScope.id}'){
 						htmlStr += "				<span>";
-						htmlStr += "					<a href='#' style='color:royalblue; padding-left: 3px;'>수정</a>";
-						htmlStr += "					<a href='javascript:commentDel("+val.cNum+")' style='color:royalblue; padding-left: 3px;'>삭제</a>";
+						htmlStr += "					<a href='javascript:commentUpdate("+val.cNum+","+val.commentContent+")' id='cWrite' style='color:royalblue; padding-left: 3px;'>수정</a>";
+						htmlStr += "					<a href='javascript:commentDel("+val.cNum+")' onclick='confirmDel()' style='color:royalblue; padding-left: 3px;'>삭제</a>";
 						htmlStr += "				</span>";
 					} else {
 						htmlStr += "<td></td>"
@@ -85,13 +85,22 @@ $(document).ready(function(){
 	});
 	 
 });
+// 댓글 삭제 여부 물어보기 함수
+function confirmDel(){
+	var result = confirm('삭제 하시겠습니까?');
+	if(result == true){
+		alert('삭제되었습니다.');
+	} else {
+		return false;
+	}
+}
 	
 //댓글삭제 ajax 사용
 function commentDel(num){
 	 $.ajax({
 		type: "GET",
 		url : "CommentDelete",
-		data : {
+		data : {	
 			cNum : num
 			},
 		success : function(data){
@@ -99,9 +108,44 @@ function commentDel(num){
 			location.reload(true);
 		}
 	 });
- };
-	
+};
+
+function commentUpdate(num, content){
+	var result = num;
+	var coment = content;
+	$('#cWirte').click(function(){
+		$.ajax({
+	 		type: "POST",
+	 		url: "CommentUpdate",
+	 		data : {
+	 			cNum : result,
+	 			cContent : content
+	 		},
+	 		success : function(data){
+	 			alert('성공');
+	 		}
+	 	});
+	});
+};	 
+
+
 </script>
+
+<!--  // 댓글 수정
+ function commentUpdate(num){
+ 	$.ajax({
+ 		type: "POST",
+ 		url: "CommentUpdate",
+ 		data : {
+ 			cNum : num,
+ 			cContent : $('#cWrite').val()
+ 		},
+ 		success : function(data){
+ 			alert('성공');
+ 		}
+ 	});
+ };  -->
+
 </head>
 
 <body>

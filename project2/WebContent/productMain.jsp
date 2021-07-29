@@ -30,7 +30,7 @@
 		<input type="hidden" name="iCode" value="${ProductContent.iCode}">
 		<input type="hidden" name="iName" value="${ProductContent.iName}">
 		<input type="hidden" name="iPrice" value="${ProductContent.iPrice}">
-		<input type="hidden" name="count" value="${ProductContent.count}">
+		<%-- <input type="hidden" name="count" value="${ProductContent.count}"> --%>
 			<div id="center_wrap">
 	            <div class="main_img">
 	                <img src="./img/옷1.png">
@@ -68,6 +68,9 @@
 	                    </select>
 	                    <p>[필수]옵션을 선택해주세요.</p>
 	                </div>
+	                <div class="in_number main_b">
+                   		<input type="number" value="1" name="count"><p>수량 선택</p>
+               		</div>
 	                <div class="button_size">
 	                <a href="cart">
 	                    <input type="button" value="BUY NOW">

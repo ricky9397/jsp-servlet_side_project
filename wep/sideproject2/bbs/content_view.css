@@ -101,7 +101,7 @@ footer p{
 .center_wrap{
     width: 900px;
     margin: 0px auto;
-    text-align: center;
+    text-align: center; 
     background-color: white;
     padding-bottom: 20px;
 }
@@ -167,7 +167,13 @@ footer p{
     padding: 10px;
     border: 1px solid #ddd;
 }
-textarea{
+
+.texta{
+    width: 600px;
+    padding: 10px;
+}
+
+.textareas{
     width: 800px;
     height: 70px;
 }

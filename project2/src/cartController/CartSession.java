@@ -26,7 +26,8 @@ public class CartSession implements Action {
 		data.setiCode(iCode);
 		data.setiName(iName);
 		data.setiPrice(iPrice);
-		data.setiCode(iCode);
+		data.setCount(count);
+		
 		
 		// 장바구니 카드 세션에 저장
 		HttpSession session = request.getSession();
@@ -36,6 +37,13 @@ public class CartSession implements Action {
 			session.setAttribute("cartList", list);
 		}
 		list.add(data);
+		
+		
+		int total = 0;
+		for (int i = 0; i < list.size(); i++) {
+			total += list.get(i).getSumPrice();
+			request.setAttribute("total", total);
+		}
 		
 	}
 

@@ -37,6 +37,12 @@ public class CartDto {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	
+	// 가격 함수
+	public int getSumPrice() {
+		return this.iPrice * this.count;
+	}
+	
 	@Override
 	public String toString() {
 		return "data [iCode=" + iCode + ", iName=" + iName + ", iPrice=" + iPrice + ", count=" + count + "]";

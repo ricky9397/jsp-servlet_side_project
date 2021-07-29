@@ -197,4 +197,25 @@ public class MemberDao {
 		return result;
 	}
 	
+	// 회원 탈퇴
+	public int memberDelete(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from member where id=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			return pstmt.executeUpdate(); //삭제
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}  finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+		}
+		return 0;
+	}
+	
+	
 }

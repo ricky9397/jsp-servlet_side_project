@@ -15,20 +15,19 @@ public class CartSessionDelete implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		int iCode = Integer.parseInt(request.getParameter("iCode"));
-		System.out.println(iCode);
-		
 		HttpSession session = request.getSession();
+
 		ArrayList<CartDto> list = (ArrayList<CartDto>) session.getAttribute("cartList");
-		if(list != null) {
+		if (list != null) {
+			CartDto dto = new CartDto();
 			for (int i = 0; i < list.size(); i++) {
-				if(iCode == list.get(i).getiCode()) {
-					list.remove(i);
-				} 
-			} 
+				dto = list.get(i);
+				if (iCode == list.get(i).getiCode()) {
+					list.remove(dto);
+				}
+			}
 		}
-		session.setAttribute("cartDel", list);
-		
 	}
 }

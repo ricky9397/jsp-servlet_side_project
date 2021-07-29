@@ -22,6 +22,7 @@ import bbsController.BbsUpdateForm;
 import bbsController.BbsWrite;
 import cartController.CartSession;
 import cartController.CartSessionDelete;
+import memberController.MemberDelet;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
 
@@ -70,7 +71,12 @@ public class FrontController extends HttpServlet {
 			action = new MemeberUpdate();
 			action.execute(request, response);
 			viewPage = "mypage.jsp";
-
+		
+		} else if (com.equals("/memberDelete.do")){
+			action = new MemberDelet();
+			action.execute(request, response);
+			viewPage = "index.jsp";
+		
 		} else if (com.equals("/write.do")) {
 			if (id == null) {
 				viewPage = "login.jsp";

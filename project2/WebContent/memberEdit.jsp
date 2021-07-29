@@ -96,7 +96,9 @@
 					<input type="button" value="취소" onclick="history.back(-1)">
 				</div>
 				<div class="s_size2">
+					<a href="memberDelete.do?id=${member.id}">
                     <input type="button" value="회원탈퇴">
+					</a>
                 </div>
 			</div>
 		</form>
