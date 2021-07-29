@@ -25,14 +25,11 @@ public class BbsWrite implements Action {
 
 		String bbsTitle = request.getParameter("bbsTitle");
 		String bbsContent = request.getParameter("bbsContent");
-		// 게시글 제목등록이 안되있으면 안된다.
-		if(bbsTitle != null && bbsContent != null) {
-			BbsDto dto = new BbsDto();
-			dto.setBbsNum(dao.getNext() + 1);
-			dto.setBbsTitle(bbsTitle);
-			dto.setBbsContent(bbsContent);
-			dto.setId(id);
-			dao.write(dto);
-		}
+		BbsDto dto = new BbsDto();
+		dto.setBbsNum(dao.getNext() + 1);
+		dto.setBbsTitle(bbsTitle);
+		dto.setBbsContent(bbsContent);
+		dto.setId(id);
+		dao.write(dto);
 	}
 }

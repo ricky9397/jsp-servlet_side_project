@@ -12,7 +12,6 @@
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous">
 </script>
-
 </head>
 
 <body>
@@ -32,7 +31,7 @@
 
 
 		<!-- 센터 -->
-		<form action="./bbswrite.do">
+		<form action="./bbswrite.do" method="post" id="bbs_writer">
 			<div class="center_wrap">
 				<div class="center_font">
 					<h2>Q & A</h2>
@@ -41,7 +40,7 @@
 					<h2>COMMUNITY</h2>
 				</div>
 				<div class="title">
-					<span>WRITER</span> <input type="text" name="bbsTitle">
+					<span>WRITER</span> <input type="text" name="bbsTitle" id="title">
 				</div>
 				<div>
 					<textarea class="bbs" name="bbsContent"></textarea>
@@ -55,18 +54,10 @@
                         <th>FILE1</th>
                         <td><input type="file"></td>
                     </tr>
-                    <tr>
-                        <th>FILE2</th>
-                        <td><input type="file"></td>
-                    </tr>
-                    <tr>
-                        <th>FILE3</th>
-                        <td><input type="file"></td>
-                    </tr>
                 </table>
 				
 				<div class="bbs_btn_size">
-					<input type="submit" value="REGISTER"> <input type="button"
+					<input type="submit" value="REGISTER" id="dd"> <input type="button"
 						value="CANCLE" onclick="history.back(-1)">
 				</div>
 			</div>
