@@ -18,7 +18,7 @@ import bbsController.Action;
 import product.ProductDao;
 import product.ProductDto;
 
-public class ProductInsert implements Action {
+public class ProductInsert2 implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,16 +27,13 @@ public class ProductInsert implements Action {
 
 		System.out.println("파일업로드 시작");
 		String iName = request.getParameter("iName");
-		System.out.println(iName);
+		int iPrice = Integer.parseInt(request.getParameter("iPrice"));
 		int count = Integer.parseInt(request.getParameter("count"));
-		System.out.println(count);
-		String iPhoto = request.getParameter("img");
+		String iPhoto = request.getParameter("photo");
 		String content1 = request.getParameter("content1");
 		String content2 = request.getParameter("content2");
 		String content3 = request.getParameter("content3");
 		
-		int iPrice = Integer.parseInt(request.getParameter("iPrice"));
-		System.out.println(iPrice);
 		
 		ProductDto product = new ProductDto();
 		
@@ -66,13 +63,19 @@ public class ProductInsert implements Action {
 					if (item.isFormField()) {
 						// 회원 아이디, 회원 이름, 비밀번호
 						String paramName = item.getFieldName();
-						if (paramName.equals("iCode")) {
-							// String value = item.getString("utf-8");
-							product.setiName(item.getString("utf-8"));
+						if(paramName.equals("iName")) {
+							String paramValue = item.getString("utf-8");
+							iName = paramValue;
 						}
 
 					} else {
-						String uploadUri = "upload";
+						String paramName = item.getFieldName();
+						if(paramName.equals("photo")) {
+							String userFileName = item.getName();
+							String contentType = item.getContentType();
+							long fileSize = item.getSize();
+						}
+						String uploadUri = "/upload";
 						String dir = request.getSession().getServletContext().getRealPath(uploadUri);
 
 						File saveDir = new File(dir);
@@ -81,7 +84,7 @@ public class ProductInsert implements Action {
 							saveDir.mkdir();
 						}
 
-						String paramName = item.getFieldName();
+//						String paramName = item.getFieldName();
 						if (paramName.equals("photo")) {
 							// 파일 이름, 사이즈
 							if (item.getName() != null && item.getSize() > 0) {
@@ -105,8 +108,6 @@ public class ProductInsert implements Action {
 		}
 
 		ProductDao dao = ProductDao.getInstance();
-
-		
 		product.setiCode(dao.getNext() + 1);
 		product.setiName(iName);
 		product.setiPrice(iPrice);
@@ -116,6 +117,8 @@ public class ProductInsert implements Action {
 		product.setContent2(content2);
 		product.setContent3(content3);
 		dao.productInsert(product);
-
+		
+		System.out.println(iPhoto);
+		
 	}
 }

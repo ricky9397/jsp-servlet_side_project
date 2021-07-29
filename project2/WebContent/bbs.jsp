@@ -33,7 +33,7 @@
 
 
 		<!-- 센터 -->
-		<form action="./write.do">
+		<form action="./write.do" method="post">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>

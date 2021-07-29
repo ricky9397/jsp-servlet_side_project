@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
                 <ul>
                     <li>
                         <a href="productContent.do?iCode=${list.iCode}">
-                            <img src="./img/옷1.png" alt="">
+                            <img src="<c:url value="/upload/${list.iPhoto}"/>">
                         </a>
                     </li>
                     <li>

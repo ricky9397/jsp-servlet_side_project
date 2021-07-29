@@ -23,10 +23,12 @@ public class CartSession implements Action {
 		String iName = request.getParameter("iName");
 		int iPrice = Integer.parseInt(request.getParameter("iPrice"));
 		int count = Integer.parseInt(request.getParameter("count"));
+		String photo = request.getParameter("photo");
 		data.setiCode(iCode);
 		data.setiName(iName);
 		data.setiPrice(iPrice);
 		data.setCount(count);
+		data.setPhoto(photo);
 		
 		
 		// 장바구니 카드 세션에 저장

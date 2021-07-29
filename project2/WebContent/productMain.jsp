@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +31,11 @@
 		<input type="hidden" name="iCode" value="${ProductContent.iCode}">
 		<input type="hidden" name="iName" value="${ProductContent.iName}">
 		<input type="hidden" name="iPrice" value="${ProductContent.iPrice}">
+		<input type="hidden" name="photo" value="${ProductContent.iPhoto}">
 		<%-- <input type="hidden" name="count" value="${ProductContent.count}"> --%>
 			<div id="center_wrap">
 	            <div class="main_img">
-	                <img src="./img/옷1.png">
+	                <img src="<c:url value="/upload/${ProductContent.iPhoto}"/>">
 	            </div>
 	            <div class="main_content">
 	                <div class="main_a">
@@ -41,9 +43,9 @@
 	                </div>
 	                <div class="main_a">
 	                    <p><b>${ProductContent.iName}</b></p>
-	                    <p>-피그먼트 워싱 티셔츠</p>
-	                    <p>-오버핏 디자인</p>
-	                    <p>-데님 슬랙스등 다양한 하의와 매치 좋음</p>
+	                    <p>-${ProductContent.content1}</p>
+	                    <p>-${ProductContent.content2}</p>
+	                    <p>-${ProductContent.content3}</p>
 	
 	                    <p><span>FITTING</span></p>
 	                    <p>OHMYSHOP[185/76] - charcoal fitting</p>

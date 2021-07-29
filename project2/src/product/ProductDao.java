@@ -21,6 +21,7 @@ public class ProductDao {
 		return dao;
 	}
 	
+	// 상품번호 증가
 	public int getNext() {
 		int result = 0;
 		Connection conn = null;
@@ -50,7 +51,7 @@ public class ProductDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into product values (?, ?, ?, ?)";
+		String sql = "insert into product values (?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -58,6 +59,10 @@ public class ProductDao {
 			pstmt.setString(2, dto.getiName());
 			pstmt.setInt(3, dto.getiPrice());
 			pstmt.setInt(4, dto.getCount());
+			pstmt.setString(5, dto.getiPhoto());
+			pstmt.setString(6, dto.getContent1());
+			pstmt.setString(7, dto.getContent2());
+			pstmt.setString(8, dto.getContent3());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -89,7 +94,12 @@ public class ProductDao {
 						rs.getInt(1), 
 						rs.getString(2), 
 						rs.getInt(3),
-						rs.getInt(4)));
+						rs.getInt(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8)
+						));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -119,6 +129,10 @@ public class ProductDao {
 				dto.setiName(rs.getString("iName"));
 				dto.setiPrice(rs.getInt("iPrice"));
 				dto.setCount(rs.getInt("count"));
+				dto.setiPhoto(rs.getString("iPhoto"));
+				dto.setContent1(rs.getString("content1"));
+				dto.setContent2(rs.getString("content2"));
+				dto.setContent3(rs.getString("content3"));
 				return dto;
 			}
 		} catch (SQLException e) {
@@ -129,33 +143,6 @@ public class ProductDao {
 			DBClose.dbClose(rs);
 		}
 		return null;
-	}
-	
-	// 장바구니 리스트
-	public ArrayList<ProductDto> getProductList(int Num){
-		ArrayList<ProductDto> list = new ArrayList<ProductDto>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select * from product where icode=?";
-		try {
-			conn = DBconn.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, Num);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				list.add(new ProductDto(rs.getInt(1), 
-						rs.getString(2), rs.getInt(3), 
-						rs.getInt(4)));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			DBClose.dbClose(conn);
-			DBClose.dbClose(pstmt);
-			DBClose.dbClose(rs);
-		}
-		return list;
 	}
 	
 	

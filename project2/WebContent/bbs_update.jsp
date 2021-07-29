@@ -32,7 +32,7 @@
 
 
 		<!-- 센터 -->	
-		<form action="./bbsUpdate.do">
+		<form action="./bbsUpdate.do" method="post">
 			<input type="hidden" name="bbsNum" value="${update.bbsNum}">
 			<div class="center_wrap">
 				<div class="center_font">

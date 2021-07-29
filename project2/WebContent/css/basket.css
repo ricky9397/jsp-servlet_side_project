@@ -88,6 +88,10 @@ li:hover{
 
 /* 센터 시작 */
 
+#img_size{
+	height: 70px
+}
+
 #center_wrap{
     width: 1250px;
     margin-top: 30px;

@@ -33,7 +33,7 @@
 
         
         <!-- 센터 -->
-        <form action="index.jsp" id="join_end_form">
+        <form action="index.jsp" id="join_end_form" method="post">
             <h2 id="h2">회원 가입 완료</h2>
             <h3>OH MY SHOP</h3>
             <h4>회원가입이 완료 되었습니다.</h4>

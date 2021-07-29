@@ -23,6 +23,7 @@ public class ProductList implements Action {
 		
 		ArrayList<ProductDto> productList = dao.getProductList();
 		request.setAttribute("productList", productList);
+		
 	}
 	
 }

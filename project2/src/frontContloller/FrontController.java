@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ProductController.ProductContent;
-import ProductController.ProductInsert;
 import ProductController.ProductList;
 import bbsController.Action;
 import bbsController.BbsContent;
@@ -22,6 +21,7 @@ import bbsController.BbsUpdateForm;
 import bbsController.BbsWrite;
 import cartController.CartSession;
 import cartController.CartSessionDelete;
+import fileService.FileUpload;
 import memberController.MemberDelet;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
@@ -115,7 +115,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "bbsList.do";
 
 		} else if (com.equals("/productInsert.do")) {
-			action = new ProductInsert();
+			action = new FileUpload();
 			action.execute(request, response);
 			viewPage = "productList.do";
 

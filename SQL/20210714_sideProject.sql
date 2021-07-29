@@ -2,9 +2,9 @@ drop table iorder;
 drop table member;
 drop table product;
 update member set pw='1234', name='홍길순', post=3030, address='서울 신촌', addresss='먹자골목', phonenum='01056789088', email='bbb@bbb.com' where id='test';
-insert into member values(member_idx_seq.nextval, 'test', '1111', '홍길동', 330, '신촌', '로데오', '01055550000', 'asd@asd.com');
+insert into member values(member_idx_seq.nextval, 'test2', '1111', '홍길동', 330, '신촌', '로데오', '01055550000', 'asd@asd.com');
 select * from member;
-
+delete from member where pw='1234';
 -- member 테이블
 CREATE TABLE  MEMBER (
                                 IDX NUMBER CONSTRAINT MEMBER_IDX_PK PRIMARY KEY,
@@ -23,7 +23,11 @@ CREATE TABLE  PRODUCT (
                                 ICODE NUMBER(6) CONSTRAINT PRODUCT_ICODE_PK PRIMARY KEY,
                                 INAME  VARCHAR2(50)CONSTRAINT PRODUCT_NAME_NN NOT NULL ,
                                 IPRICE  INTEGER , 
-                                COUNT INTEGER
+                                COUNT INTEGER,
+                                IPHOTO VARCHAR2(50) DEFAULT 'photo.png',
+                                CONTENT1 VARCHAR2(100),
+                                CONTENT2 VARCHAR2(100),
+                                CONTENT3 VARCHAR2(100)
                               ) ;          
 insert into product values (1, '반팔티', '2000', 5);
 select * from product;

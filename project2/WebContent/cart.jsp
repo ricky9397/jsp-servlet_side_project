@@ -77,7 +77,7 @@ $(document).ready(function(){
                             <td><input type="checkbox" class="checkItem">
                             </td>
                             <td>
-                                <img src="./img/옷1.png" class="img_size">
+                                <img src="<c:url value="/upload/${cart.photo}"/>" id="img_size">
                             </td>
                             <td>
                                 <a href="productContent.do?iCode=${cart.iCode}"><strong>${cart.iName}</strong></a>
