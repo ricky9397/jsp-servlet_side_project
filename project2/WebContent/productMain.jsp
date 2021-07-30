@@ -10,6 +10,14 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
 </script>
+<script type="text/javascript">
+	function submit2(frm){
+		frm.action = 'cart.do';
+		frm.submit();
+		return true;
+	};
+</script>
+
 </head>
 <body>
 	<div id="wrap">
@@ -32,6 +40,7 @@
 		<input type="hidden" name="iName" value="${ProductContent.iName}">
 		<input type="hidden" name="iPrice" value="${ProductContent.iPrice}">
 		<input type="hidden" name="photo" value="${ProductContent.iPhoto}">
+		<input type="hidden" name="id" value="${id}">
 		<%-- <input type="hidden" name="count" value="${ProductContent.count}"> --%>
 			<div id="center_wrap">
 	            <div class="main_img">
@@ -74,9 +83,7 @@
                    		<input type="number" value="1" name="count"><p class="fonts">수량 선택</p>
                		</div>
 	                <div class="button_size">
-	                <a href="cart.do?iCode=${ProductContent.iCode}&iName=${ProductContent.iName}&iPrice=${ProductContent.iPrice}&photo=${ProductContent.iPhoto}&count=${ProductContent.count}">
-	                    <input type="button" value="ADD TO CART" id="cartgo">
-	                </a>
+	                    <input type="button" value="ADD TO CART" id="cartgo" onclick="return submit2(this.form);">
 	                    <input type="submit" value="BUY NOW" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>">
 	                </div>
 	            </div>

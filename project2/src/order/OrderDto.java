@@ -10,7 +10,6 @@ public class OrderDto {
 	private String odate;
 	private int count;
 	public OrderDto() {
-		// TODO Auto-generated constructor stub
 	}
 	public OrderDto(int oidx, int icode, String id, String oname, int oprice, String ophoto, String odate, int count) {
 		this.oidx = oidx;
