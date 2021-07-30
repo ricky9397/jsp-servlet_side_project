@@ -124,7 +124,29 @@ public class FrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "productTop.jsp";
 			
-		} else if (com.equals("/productContent.do")) {
+		} else if(com.equals("/productInsertBottom.do")) {
+			action = new FileUpload();
+			action.execute(request, response);
+			viewPage = "productListBottom.do";
+			
+		} else if(com.equals("/productListBottom.do")) {
+			action = new ProductList();
+			action.execute(request, response);
+			viewPage = "productBottom.jsp";
+			
+		} else if(com.equals("productInsertOutwear.do")) {
+			action = new ProductList();
+			action.execute(request, response);
+			viewPage = "productListOutwear.do";
+			
+		} else if(com.equals("productListOutwear.do")) {
+			action = new ProductList();
+			action.execute(request, response);
+			viewPage = "productOutwear.jsp";
+		}
+		
+		
+		else if (com.equals("/productContent.do")) {
 			action = new ProductContent();
 			action.execute(request, response);
 			viewPage = "productMain.jsp";
@@ -135,7 +157,6 @@ public class FrontController extends HttpServlet {
 			viewPage = "cart.jsp";
 			
 		} else if (com.equals("/cartDelete.do")) {
-			System.out.println("삭제시작");
 			action = new CartSessionDelete();
 			action.execute(request, response);
 			viewPage = "cart.jsp";

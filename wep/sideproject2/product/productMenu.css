@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Noto+Sans+KR:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#wrap{
+    width: 1400px;
+    margin: 0 auto;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+header{
+    padding: 40px 0;
+    text-align: center;
+}
+
+.nav1{
+    display: flex;
+    margin-left: 50px;
+    list-style: none;
+}
+.nav1 a {
+    padding: 15px;
+    font-size: 0.5em;
+}
+.nav2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 280px;
+    list-style: none;
+    font-size: 0.8em;
+}
+.nav2 li{
+    margin-left: 80px;
+}
+
+.serch{
+    float: right;
+    margin-right: 100px;
+    text-decoration: none;
+}
+
+.serch_li{
+    list-style: none;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+li:hover{
+    text-decoration: underline;
+}
+
+/* 센터 시작 */
+
+#center_wrap{
+    width: 1250px;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.menu_a{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.number_input{
+    width: 30px;
+    margin-bottom: 5px;
+}
+
+.table_menu{
+    width: 1200px;
+    text-align: center;
+}
+
+.li_in{
+    list-style: none;
+}
+
+.logout{
+    margin-top: 100px;
+    text-align: center;
+}
+.logout input{
+    padding: 15px;
+    background-color: #000;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    
+}

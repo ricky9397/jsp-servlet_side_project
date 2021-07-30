@@ -22,11 +22,11 @@
 		<!-- 상단 끝 -->
 		
 		<!-- 센터 -->
-		<form action="<%= request.getContextPath()%>/productInsert.do" method="POST" enctype="multipart/form-data">
+		<form action="<%= request.getContextPath()%>/productInsertBottom.do" method="POST" enctype="multipart/form-data">
 			<div id="center_wrap">
 	            <div class="main_img">
 					<h1> 관리자 페이지 상품등록</h1>
-					<h3>TOP 상품 이미지 등록 </h3>
+					<h3>BOTTOM 상품 이미지 등록 </h3>
 					<input type="file" name="photo">
 	            </div>
 	            <div class="main_content">
