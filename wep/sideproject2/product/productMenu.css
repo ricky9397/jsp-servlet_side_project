@@ -21,8 +21,8 @@ header{
 
 .nav1{
     display: flex;
-    margin-left: 50px;
     list-style: none;
+    margin-left: 20px;
 }
 .nav1 a {
     padding: 15px;
@@ -93,7 +93,8 @@ li:hover{
 }
 
 .table_menu{
-    width: 1200px;
+    width: 700px;
+    margin-left: 280px;
     text-align: center;
 }
 

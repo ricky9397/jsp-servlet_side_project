@@ -31,9 +31,7 @@
 	</div>
 	<ul class="nav2">
 		<li><a href="index.jsp">MAIN</a></li>
-		<li><a href="#">OUTWEAR</a></li>
-		<li><a href="productList.do">TOP</a></li>
-		<li><a href="#">BOTTOM</a></li>
+		<li><a href="productList.do">SHOP</a></li>
 		<li><a href="bbsList.do">COMMUNITY</a></li>
 	</ul>
 </nav>

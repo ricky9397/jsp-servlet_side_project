@@ -6,7 +6,7 @@
 }
 
 #wrap{
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
 }
 a{
@@ -39,23 +39,10 @@ header{
     margin-left: 80px;
 }
 
-#nav_button{
-    margin-bottom: 30px;
-}
-
 .serch{
     float: right;
     margin-right: 100px;
     text-decoration: none;
-}
-.serch2{
-    text-decoration: none;
-    float: right;
-    margin-top: -5px;
-    margin-right: 5px;
-}
-.serch2 img{
-    width: 25px;
 }
 
 .serch_li{
@@ -88,53 +75,41 @@ li:hover{
 /* 센터 시작 */
 
 #center_wrap{
+    width: 1250px;
     margin-top: 30px;
+    margin-left: 100px;
 }
-
-#center_a{
-    width: 900px;
-    margin: 0px auto;
-    background-color: white;
-    text-align: center;
-    padding: 50px;
-}
-
-.center_b p a{
-    color: #a9a9a9; 
-    font-size: 0.5em;
-}
-
-.center_b a{
-    font-size: 0.8em;
-    padding: 10px;
-}
-
-.a_size{
-    padding: 10px;
-}
-
-.center_b{
-    width: 400px;
-    height: 70px;
-    padding: 20px;
-    margin: 0px auto;
-    border: 1px solid #ddd;
-}
-
-
-/* 하단시작 */
-footer{
-    padding: 10px 30px;
+.menu_a{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    font-size: 20px;
     text-align: center;
 }
-footer h2{
-    font-size: 1.0em;
-    margin-bottom: 10px;
 
-}
-
-footer p{
-    font-size: 0.5em;
+.number_input{
+    width: 30px;
     margin-bottom: 5px;
 }
 
+.table_menu{
+    width: 700px;
+    margin-left: 280px;
+    text-align: center;
+}
+
+.li_in{
+    list-style: none;
+}
+
+.logout{
+    margin-top: 100px;
+    text-align: center;
+}
+.logout input{
+    padding: 15px;
+    background-color: #000;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    
+}

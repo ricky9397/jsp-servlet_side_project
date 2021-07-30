@@ -25,7 +25,7 @@
 	
 		<!-- 센터 -->
 		<div class="top_main">
-            <img src="./img/top_main.png">
+            <img src="./img/main1.png">
         </div>
         <div class="center_a">
         <c:forEach items="${productList}" var="list">

@@ -6,7 +6,7 @@
 }
 
 #wrap{
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
 }
 a{
@@ -31,7 +31,7 @@ header{
 .nav2{
     display: flex;
     align-items: center;
-    padding: 0px 400px;
+    padding: 0px 500px;
     list-style: none;
     font-size: 0.8em;
 }
@@ -87,40 +87,40 @@ li:hover{
 
 /* 센터 시작 */
 
-#center_wrap{
-    margin-top: 30px;
-}
 
-#center_a{
-    width: 900px;
-    margin: 0px auto;
-    background-color: white;
+#text_h1{
     text-align: center;
-    padding: 50px;
+    margin: 100px;
 }
 
-.center_b p a{
-    color: #a9a9a9; 
-    font-size: 0.5em;
+.button_a{
+    background-color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 3px;
+    border: 1px solid #bbb;
 }
 
-.center_b a{
-    font-size: 0.8em;
-    padding: 10px;
+.button_footer{
+    text-align: center;
 }
 
-.a_size{
-    padding: 10px;
+.button_footer{
+    text-align: right;
+    margin-right: 50px;
 }
 
-.center_b{
-    width: 400px;
-    height: 70px;
-    padding: 20px;
-    margin: 0px auto;
-    border: 1px solid #ddd;
+.button_footer input {
+    background-color: white;
+    color: #000;
+    border: 1px solid #aaa;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 8px 30px;
+    cursor: pointer;
 }
 
+/* 센터 끝 */
 
 /* 하단시작 */
 footer{

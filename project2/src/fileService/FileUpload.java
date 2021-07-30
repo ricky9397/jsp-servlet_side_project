@@ -43,12 +43,10 @@ public class FileUpload implements Action{
 		product.setContent1(multi.getParameter("content1"));
 		product.setContent2(multi.getParameter("content2"));
 		product.setContent3(multi.getParameter("content3"));
-		
 		String img = multi.getFilesystemName("photo");
 		
 		System.out.println("img : " + img);
 		product.setiPhoto(img);
-		
 		dao.productInsert(product);
 		
 	}

@@ -6,7 +6,7 @@
 }
 
 #wrap{
-    width: 1400px;
+    width: 1200px;
     margin: 0 auto;
 }
 a{
@@ -30,9 +30,8 @@ header{
 }
 .nav2{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0px 280px;
+    padding: 0px 400px;
     list-style: none;
     font-size: 0.8em;
 }
@@ -91,9 +90,9 @@ li:hover{
     width: 1400px;
 }
 .top_main img{
-    width: 1000px;
-    height: 500px;
-    margin: 20px 130px;
+    width: 800px;
+    height: 600px;
+    margin: 20px 200px;
     padding: 30px;
 }
 

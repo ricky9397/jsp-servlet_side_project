@@ -29,24 +29,27 @@ CREATE TABLE  PRODUCT (
                                 CONTENT2 VARCHAR2(100),
                                 CONTENT3 VARCHAR2(100)
                               ) ;          
-insert into product values (1, '반팔티', '2000', 5);
+insert into product values (10, '반바지', '2000', 5, '상의', 'PNG', 'ASD', 'ASD', '하의');
 select * from product;
 select max(icode) from product;
 drop table product;
 select * from product where icode=1;
-          
+select * from product where category='상의';
 
                               
                               
 CREATE TABLE IORDER (           oidx NUMBER(6) CONSTRAINT ORDER_OCODE_PK PRIMARY KEY,
-                                ORDERCODE NUMBER(20) ,
                                 ICODE NUMBER(6) CONSTRAINT ORDER_ICODE_FK REFERENCES PRODUCT(ICODE) NOT NULL,
-                                IDX NUMBER(6) CONSTRAINT ORDER_IDX_FK REFERENCES MEMBER(IDX) NOT NULL ,
-                                ORDERDATE  DATE DEFAULT SYSDATE,
-                                count Integer,
-                                oprice Integer
-                               
+                                ID VARCHAR2(40) CONSTRAINT ORDER_ID_NN NOT NULL,
+                                ONAME  VARCHAR2(50)CONSTRAINT ORDER_NAME_NN NOT NULL ,
+                                OPRICE  INTEGER ,
+                                OPHOTO VARCHAR2(50) DEFAULT 'photo.png',
+                                ODATE  DATE DEFAULT SYSDATE,
+                                count Integer
                               ) ;
+drop table iorder;
+select * from iorder;
+
 --시퀀스 삭제
 drop sequence member_idx_seq ;
 drop sequence comment_dix_seq;

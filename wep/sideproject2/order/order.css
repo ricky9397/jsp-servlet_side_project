@@ -6,7 +6,7 @@
 }
 
 #wrap{
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
 }
 a{
@@ -31,7 +31,7 @@ header{
 .nav2{
     display: flex;
     align-items: center;
-    padding: 0px 400px;
+    padding: 0px 500px;
     list-style: none;
     font-size: 0.8em;
 }
@@ -39,23 +39,10 @@ header{
     margin-left: 80px;
 }
 
-#nav_button{
-    margin-bottom: 30px;
-}
-
 .serch{
     float: right;
     margin-right: 100px;
     text-decoration: none;
-}
-.serch2{
-    text-decoration: none;
-    float: right;
-    margin-top: -5px;
-    margin-right: 5px;
-}
-.serch2 img{
-    width: 25px;
 }
 
 .serch_li{
@@ -87,40 +74,45 @@ li:hover{
 
 /* 센터 시작 */
 
-#center_wrap{
-    margin-top: 30px;
-}
 
-#center_a{
-    width: 900px;
-    margin: 0px auto;
-    background-color: white;
+#text_h1{
     text-align: center;
-    padding: 50px;
+    margin: 100px ;
 }
 
-.center_b p a{
-    color: #a9a9a9; 
-    font-size: 0.5em;
+.button_a{
+    background-color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 3px;
+    border: 1px solid #bbb;
 }
 
-.center_b a{
-    font-size: 0.8em;
-    padding: 10px;
+.button_footer{
+    text-align: center;
 }
 
-.a_size{
-    padding: 10px;
+.button_footer input[type="submit"]{
+    background-color: #000;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 8px 50px;
+    cursor: pointer;
 }
 
-.center_b{
-    width: 400px;
-    height: 70px;
-    padding: 20px;
-    margin: 0px auto;
-    border: 1px solid #ddd;
+.button_footer input[type="button"]{
+    background-color:white;
+    color: #000;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 8px 30px;
+    cursor: pointer;
+    margin-left: 20px;
 }
 
+
+/* 센터 끝 */
 
 /* 하단시작 */
 footer{

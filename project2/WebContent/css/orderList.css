@@ -6,7 +6,7 @@
 }
 
 #wrap{
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
 }
 a{
@@ -31,7 +31,7 @@ header{
 .nav2{
     display: flex;
     align-items: center;
-    padding: 0px 400px;
+    padding: 0px 500px;
     list-style: none;
     font-size: 0.8em;
 }
@@ -87,40 +87,76 @@ li:hover{
 
 /* 센터 시작 */
 
+#img_size{
+	height: 70px
+}
+
 #center_wrap{
+    width: 1250px;
     margin-top: 30px;
+    margin-left: 100px;
+}
+.menu_a{
+    margin-top: 150px;
+    margin-left: 10px;
+    font-size: 12px;
 }
 
-#center_a{
-    width: 900px;
-    margin: 0px auto;
-    background-color: white;
+.number_input{
+    width: 30px;
+    margin-bottom: 5px;
+}
+
+.table_menu{
+    width: 1200px;
     text-align: center;
-    padding: 50px;
 }
 
-.center_b p a{
-    color: #a9a9a9; 
-    font-size: 0.5em;
+.li_in{
+    list-style: none;
 }
 
-.center_b a{
-    font-size: 0.8em;
+th, td {
+    border-bottom: 1px solid #aaa;
     padding: 10px;
 }
 
-.a_size{
-    padding: 10px;
+table {
+    border-collapse:collapse; 
+}
+.img_size{
+    width: 100px;
+    height: 100px;
 }
 
-.center_b{
-    width: 400px;
-    height: 70px;
-    padding: 20px;
-    margin: 0px auto;
-    border: 1px solid #ddd;
+.order{
+    text-align: right;
 }
 
+.button_a{
+    background-color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 3px;
+    border: 1px solid #bbb;
+}
+
+.button_footer{
+    text-align: right;
+    margin-right: 50px;
+}
+
+.button_footer input {
+    background-color: white;
+    color: #000;
+    border: 1px solid #aaa;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 8px 30px;
+    cursor: pointer;
+}
+
+/* 센터 끝 */
 
 /* 하단시작 */
 footer{

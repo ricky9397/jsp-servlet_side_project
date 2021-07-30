@@ -27,7 +27,7 @@
 
 	
 		<!-- 센터 -->
-		<form action="cart.do" method="post">
+		<form action="order.do" method="post">
 		<input type="hidden" name="iCode" value="${ProductContent.iCode}">
 		<input type="hidden" name="iName" value="${ProductContent.iName}">
 		<input type="hidden" name="iPrice" value="${ProductContent.iPrice}">
@@ -61,23 +61,23 @@
 	                        <option>white</option>
 	                        <option>black</option>
 	                    </select>
-	                    <p>[필수]옵션을 선택해주세요.</p>
+	                    <p class="fonts">[필수]옵션을 선택해주세요.</p>
 	                </div>
 	                <div class="main_b">
 	                    <select class="select_size">
 	                        <option>size</option>
 	                        <option>free</option>
 	                    </select>
-	                    <p>[필수]옵션을 선택해주세요.</p>
+	                    <p class="fonts">[필수]옵션을 선택해주세요.</p>
 	                </div>
 	                <div class="in_number main_b">
-                   		<input type="number" value="1" name="count"><p>수량 선택</p>
+                   		<input type="number" value="1" name="count"><p class="fonts">수량 선택</p>
                		</div>
 	                <div class="button_size">
-	                <a href="cart">
-	                    <input type="button" value="BUY NOW">
+	                <a href="cart.do?iCode=${ProductContent.iCode}&iName=${ProductContent.iName}&iPrice=${ProductContent.iPrice}&photo=${ProductContent.iPhoto}&count=${ProductContent.count}">
+	                    <input type="button" value="ADD TO CART" id="cartgo">
 	                </a>
-	                    <input type="submit" value="ADD TO CART" id="cartgo">
+	                    <input type="submit" value="BUY NOW" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>">
 	                </div>
 	            </div>
 	        </div>

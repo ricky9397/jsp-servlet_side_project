@@ -39,16 +39,16 @@
 		<div class="swiper-container mySwiper1">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
-					<img src="./img/main1.jpg" alt="">
+					<img src="./img/main7.png" alt="">
 				</div>
 				<div class="swiper-slide">
-					<img src="./img/main2.jpg" alt="">
+					<img src="./img/main2.png" alt="">
 				</div>
 				<div class="swiper-slide">
-					<img src="./img/main3.jpg" alt="">
+					<img src="./img/메인사진.png" alt="">
 				</div>
 				<div class="swiper-slide">
-					<img src="./img/main4.jpg" alt="">
+					<img src="./img/main6.png" alt="">
 				</div>
 			</div>
 			<div class="swiper-button-next"></div>
