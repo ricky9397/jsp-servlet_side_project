@@ -154,7 +154,8 @@ public class FrontController extends HttpServlet {
 			} else {
 				viewPage = "login.jsp";
 			}
-		} else if (com.equals("orderList.do")) {
+			
+		} else if (com.equals("/orderList.do")) {
 			System.out.println("리스트 출력시작");
 			if (id != null) {
 				action = new OrderList();

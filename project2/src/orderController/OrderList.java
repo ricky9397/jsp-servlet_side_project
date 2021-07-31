@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bbsController.Action;
 import order.OrderDao;
@@ -18,8 +19,9 @@ public class OrderList implements Action{
 		
 		request.setCharacterEncoding("utf-8");
 		OrderDao dao = OrderDao.getInstance();
-		ArrayList<OrderDto> list = dao.getOrderList();
+		HttpSession session  = request.getSession();
+		String id = (String) session.getAttribute("id");
+		ArrayList<OrderDto> list = dao.getOrderList(id);
 		request.setAttribute("orders", list);
-		System.out.println("리스트 출력끝");
 	}
 }

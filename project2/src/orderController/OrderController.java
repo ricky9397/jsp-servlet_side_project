@@ -30,7 +30,7 @@ public class OrderController implements Action {
 		OrderDao dao = OrderDao.getInstance();
 		List<OrderDto> list = new ArrayList<OrderDto>();
 		OrderDto dto = null;
-		for (int i = 0; i < check.length; i++) {
+		for (int i = 0; i < icode.length; i++) {
 			dto = new OrderDto();
 			dto.setIcode(Integer.parseInt(icode[i]));
 			dto.setId(id[i]);
@@ -43,6 +43,5 @@ public class OrderController implements Action {
 		dao.orderInsert(list);
 
 		HttpSession session = request.getSession();
-
 	}
 }

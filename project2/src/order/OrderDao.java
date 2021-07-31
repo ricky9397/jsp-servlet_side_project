@@ -54,19 +54,18 @@ public class OrderDao {
 	
 	// 주문 리스트
 	
-	public ArrayList<OrderDto> getOrderList(){
+	public ArrayList<OrderDto> getOrderList(String id){
 		ArrayList<OrderDto> list = null;
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from iorder";
+		String sql = "select * from iorder where id=?";
 		try {
 			conn = DBconn.getConnection();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
 			list = new ArrayList<>();
-			
 			while(rs.next()) {
 				list.add(new OrderDto(
 						rs.getInt(1),
@@ -82,7 +81,7 @@ public class OrderDao {
 			e.printStackTrace();
 		} finally {
 			DBClose.dbClose(conn);
-			DBClose.dbClose(stmt);
+			DBClose.dbClose(pstmt);
 			DBClose.dbClose(rs);
 		}
 		return list;

@@ -60,38 +60,34 @@ $(document).ready(function(){
                             <th>DATE</th>
                         </tr>
                         
-                        <c:if test="${orders eq null || empty orders}">
 	                        <tr>
 	                            <td colspan="9">
 	                            	<h3>주문 상품이 없습니다.</h3>
 	                            </td>
 	                        </tr>
-	                    </c:if>
 	                    
 	                    
-                        <c:if test="${orders ne null && not empty orders}">
-                        	<c:forEach items="${orders}" var="orders">
-                        
+                        	<c:forEach items="${orders}" var="order">
                         <tr>
                             <td>
-                                <img src="<c:url value="/upload/${orders.photo}"/>" id="img_size">
+                                <img src="<c:url value="/upload/${order.ophoto}"/>" id="img_size">
                             </td>
                             <td>
-                                <a href="productContent.do?iCode=${orders.iCode}"><strong>${orders.iName}</strong></a>
+                                <a href="productContent.do?iCode=${order.iCode}"><strong>${orders.oname}</strong></a>
                                 <ul>
                                     <li class="li_in">[옵션:black/free]</li>
                                 </ul>
                             </td>
-                            <td>${orders.iPrice}</td>
+                            <td>${order.oprice}</td>
                             <td><div>
-                                <p>${orders.count}</p>
+                                <p>${order.count}</p>
                             </div>
                             </td>
                             <td>기본배송</td>
                             <td>
                                 <p>3.000원</p>조건
                             </td>
-                            <td>${orders.iPrice*cart.count}</td>
+                            <td>${order.iPrice*cart.count}</td>
                             <td>날짜</td>
                         </tr>
                         
@@ -109,11 +105,6 @@ $(document).ready(function(){
 	                                </strong>
 	                            </td>
 	                        </tr>
-                        </c:if>
-                        
-                        
-                        
-                        
                     </table>
                 </div>
                 
