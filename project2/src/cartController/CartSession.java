@@ -30,7 +30,6 @@ public class CartSession implements Action {
 		data.setCount(count);
 		data.setPhoto(photo);
 		
-		
 		// 장바구니 카드 세션에 저장
 		HttpSession session = request.getSession();
 		ArrayList<CartDto> list = (ArrayList<CartDto>) session.getAttribute("cartList");

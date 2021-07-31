@@ -26,6 +26,7 @@ import memberController.MemberDelet;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
 import orderController.OrderController;
+import orderController.OrderList;
 
 @WebServlet("/bbsFront")
 public class FrontController extends HttpServlet {
@@ -135,6 +136,11 @@ public class FrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "cart.jsp";
 			
+		} else if (com.equals("/cartBack.do")) {
+			action = new CartSession();
+			action.execute(request, response);
+			viewPage = "productContent.do";
+			
 		} else if (com.equals("/cartDelete.do")) {
 			action = new CartSessionDelete();
 			action.execute(request, response);
@@ -145,6 +151,15 @@ public class FrontController extends HttpServlet {
 				action = new OrderController();
 				action.execute(request, response);
 				viewPage = "order.jsp";
+			} else {
+				viewPage = "login.jsp";
+			}
+		} else if (com.equals("orderList.do")) {
+			System.out.println("리스트 출력시작");
+			if (id != null) {
+				action = new OrderList();
+				action.execute(request, response);
+				viewPage = "orderList.jsp";
 			} else {
 				viewPage = "login.jsp";
 			}

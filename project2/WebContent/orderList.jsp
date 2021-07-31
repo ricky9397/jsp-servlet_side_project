@@ -60,7 +60,7 @@ $(document).ready(function(){
                             <th>DATE</th>
                         </tr>
                         
-                        <c:if test="${cartList eq null || empty cartList}">
+                        <c:if test="${orders eq null || empty orders}">
 	                        <tr>
 	                            <td colspan="9">
 	                            	<h3>주문 상품이 없습니다.</h3>
@@ -69,29 +69,29 @@ $(document).ready(function(){
 	                    </c:if>
 	                    
 	                    
-                        <c:if test="${cartList ne null && not empty cartList}">
-                        	<c:forEach items="${cartList}" var="cart">
+                        <c:if test="${orders ne null && not empty orders}">
+                        	<c:forEach items="${orders}" var="orders">
                         
                         <tr>
                             <td>
-                                <img src="<c:url value="/upload/${cart.photo}"/>" id="img_size">
+                                <img src="<c:url value="/upload/${orders.photo}"/>" id="img_size">
                             </td>
                             <td>
-                                <a href="productContent.do?iCode=${cart.iCode}"><strong>${cart.iName}</strong></a>
+                                <a href="productContent.do?iCode=${orders.iCode}"><strong>${orders.iName}</strong></a>
                                 <ul>
                                     <li class="li_in">[옵션:black/free]</li>
                                 </ul>
                             </td>
-                            <td>${cart.iPrice}</td>
+                            <td>${orders.iPrice}</td>
                             <td><div>
-                                <p>${cart.count}</p>
+                                <p>${orders.count}</p>
                             </div>
                             </td>
                             <td>기본배송</td>
                             <td>
                                 <p>3.000원</p>조건
                             </td>
-                            <td>${cart.iPrice*cart.count}</td>
+                            <td>${orders.iPrice*cart.count}</td>
                             <td>날짜</td>
                         </tr>
                         

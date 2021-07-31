@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import Database.DBClose;
 import Database.DBconn;
-import member.MemberDto;
 
 public class OrderDao {
 	
@@ -19,7 +19,7 @@ public class OrderDao {
 	
 	
 	// 주문
-	public int orderInsert(OrderDto dto) {
+	public int orderInsert(List<OrderDto> dto) {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -28,13 +28,21 @@ public class OrderDao {
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getIcode());
-			pstmt.setString(2, dto.getId());
-			pstmt.setString(3, dto.getOname());
-			pstmt.setInt(4, dto.getOprice());
-			pstmt.setString(5, dto.getOphoto());
-			pstmt.setInt(6, dto.getCount());
-			result = pstmt.executeUpdate();
+			for (OrderDto o : dto) {
+				pstmt.setInt(1, o.getIcode());
+				pstmt.setString(2, o.getId());
+				pstmt.setString(3, o.getOname());
+				pstmt.setInt(4, o.getOprice());
+				pstmt.setString(5, o.getOphoto());
+				pstmt.setInt(6, o.getCount());
+//				pstmt.setInt(1, dto.getIcode());
+//				pstmt.setString(2, dto.getId());
+//				pstmt.setString(3, dto.getOname());
+//				pstmt.setInt(4, dto.getOprice());
+//				pstmt.setString(5, dto.getOphoto());
+//				pstmt.setInt(6, dto.getCount());
+				result = pstmt.executeUpdate();
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

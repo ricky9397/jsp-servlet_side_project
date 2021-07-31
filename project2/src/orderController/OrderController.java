@@ -1,10 +1,14 @@
 package orderController;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bbsController.Action;
 import order.OrderDao;
@@ -15,26 +19,30 @@ public class OrderController implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		int icode = Integer.parseInt(request.getParameter("iCode"));
-		System.out.println(icode);
-		String id = request.getParameter("id");
-		System.out.println(id);
-		String oname = request.getParameter("iName");
-		System.out.println(oname);
-		int oprice = Integer.parseInt(request.getParameter("iPrice"));
-		System.out.println(oprice);
-		String ophoto = request.getParameter("photo");
-		System.out.println(ophoto);
-		int count = Integer.parseInt(request.getParameter("count"));
-		System.out.println(count);
+		String[] check = request.getParameterValues("check");
+		System.out.println(Arrays.toString(check));
+		String[] icode = request.getParameterValues("iCode");
+		String[] id = request.getParameterValues("id");
+		String[] oname = request.getParameterValues("iName");
+		String[] oprice = request.getParameterValues("iPrice");
+		String[] ophoto = request.getParameterValues("photo");
+		String[] count = request.getParameterValues("count");
 		OrderDao dao = OrderDao.getInstance();
-		OrderDto dto = new OrderDto();
-		dto.setIcode(icode);
-		dto.setId(id);
-		dto.setOname(oname);
-		dto.setOprice(oprice);
-		dto.setOphoto(ophoto);
-		dto.setCount(count);
-		dao.orderInsert(dto);
+		List<OrderDto> list = new ArrayList<OrderDto>();
+		OrderDto dto = null;
+		for (int i = 0; i < check.length; i++) {
+			dto = new OrderDto();
+			dto.setIcode(Integer.parseInt(icode[i]));
+			dto.setId(id[i]);
+			dto.setOname(oname[i]);
+			dto.setOprice(Integer.parseInt(oprice[i]));
+			dto.setOphoto(ophoto[i]);
+			dto.setCount(Integer.parseInt(count[i]));
+			list.add(dto);
+		}
+		dao.orderInsert(list);
+
+		HttpSession session = request.getSession();
+
 	}
 }

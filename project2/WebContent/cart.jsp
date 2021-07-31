@@ -72,9 +72,14 @@ $(document).ready(function(){
 	                    
                         <c:if test="${cartList ne null && not empty cartList}">
                         	<c:forEach items="${cartList}" var="cart">
-                        
+                        	<input type="hidden" name="iCode" value="${cart.iCode}">
+							<input type="hidden" name="iName" value="${cart.iName}">
+							<input type="hidden" name="iPrice" value="${cart.iPrice}">
+							<input type="hidden" name="photo" value="${cart.photo}">
+							<input type="hidden" name="id" value="${id}">
+							<input type="hidden" name="count" value="${cart.count}">
                         <tr>
-                            <td><input type="checkbox" class="checkItem">
+                            <td><input type="checkbox" class="checkItem" name="check" value="${cart.iCode}">
                             </td>
                             <td>
                                 <img src="<c:url value="/upload/${cart.photo}"/>" id="img_size">
@@ -118,15 +123,8 @@ $(document).ready(function(){
 	                            </td>
 	                        </tr>
                         </c:if>
-                        
-                        
-                        
-                        
                     </table>
                 </div>
-                
-                
-                
                 <div class="button_footer">
                     <input type="submit" value="BUY NOW">
                     <a href="index.jsp">
