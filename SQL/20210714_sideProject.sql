@@ -49,6 +49,7 @@ CREATE TABLE IORDER (           oidx NUMBER(6) CONSTRAINT ORDER_OCODE_PK PRIMARY
                               ) ;
 drop table iorder;
 select * from iorder;
+insert into iorder values(iorder_oidx_seq.nextval, 1, 'test1', '덩크', '8000', 'photo.png', sysdate, 1) where icode=1;
 
 --시퀀스 삭제
 drop sequence member_idx_seq ;
