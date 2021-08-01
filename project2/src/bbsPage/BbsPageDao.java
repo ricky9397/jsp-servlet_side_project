@@ -44,7 +44,7 @@ public class BbsPageDao {
 			int firstRow = (pageNumber-1)*messageCountPerPage;
 
 			System.out.println(firstRow + messageCountPerPage);
-			messageList = dao.getBbsList(conn, firstRow, messageCountPerPage);
+			messageList = dao.getBbsList(firstRow, messageCountPerPage);
 			System.out.println("message List : " + messageList);
 
 			listView = new BbsPage(

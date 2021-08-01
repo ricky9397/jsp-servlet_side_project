@@ -49,7 +49,7 @@
 
 
 		<!-- 센터 -->
-		<form action="./write.do" method="post">
+		<form action="bbsSerch.do" method="post">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>Q & A</h2>
@@ -66,7 +66,7 @@
                         </tr>
                         
                         <!-- jstl for문을 이용하여 사용자가 작성한 게시글들이 db에 저장된 list를 불러와 출력한다. -->
-                        <c:forEach items="${Bbslist.messageList}" var="list">
+                        <c:forEach items="${BbsList}" var="list">
                         <tr class="bb_sizes">
                             <th class="bb_size">${list.bbsNum}</th>
                             <th class="bb_size2 bb_ss">
@@ -80,7 +80,9 @@
                         
                     </table>
                     <div class="butto_write">
-                        <input type="submit" value="WRITE" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>">
+                    	<a href="write.do">
+                        <input type="button" value="WRITE" onclick="<c:if test="${id == null}">alert('로그인 하셔야합니다.')</c:if>">
+                    	</a>
                     </div>
                 	</div>
                 	<div>
@@ -124,11 +126,11 @@
                     </div>
                     <div class="bbs_serch">
                         <select name="f">
-                            <option value="title">제목</option>
-                            <option value="writerId">작성자</option>
+                            <option value="bbstitle">제목</option>
+                            <option value="id">작성자</option>
                         </select>
-                        <input type="text" name="q" value="">
-                        <a href="bbsSerch.do">FIND</a>
+                        <input type="text" name="q" value="${param.q}">
+                        <input type="submit" value="FIND">
                     </div>
                 </div>
             </div>

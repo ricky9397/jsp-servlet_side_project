@@ -95,9 +95,15 @@ public class FrontController extends HttpServlet {
 		} else if (com.equals("/bbsList.do")) {
 			action = new BbsMain();
 			action.execute(request, response);
-			viewPage = "test.jsp";
+			viewPage = "bbs.jsp";
 
-		} else if (com.equals("/content.do")) {
+		} else if (com.equals("/bbsSerch.do")) {
+			action = new BbsSerch();
+			action.execute(request, response);
+			viewPage = "bbs.jsp";
+		}
+		
+		else if (com.equals("/content.do")) {
 			action = new BbsContent();
 			action.execute(request, response);
 			viewPage = "content.jsp";

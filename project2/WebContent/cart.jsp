@@ -70,7 +70,7 @@ $(document).ready(function(){
 	                    </c:if>
 	                    
 	                    
-                        <c:if test="${cartList ne null && not empty cartList}">
+                        <c:if test="${cartList ne null and not empty cartList}">
                         	<c:forEach items="${cartList}" var="cart">
                         	<input type="hidden" name="iCode" value="${cart.iCode}">
 							<input type="hidden" name="iName" value="${cart.iName}">
@@ -86,9 +86,6 @@ $(document).ready(function(){
                             </td>
                             <td>
                                 <a href="productContent.do?iCode=${cart.iCode}"><strong>${cart.iName}</strong></a>
-                                <ul>
-                                    <li class="li_in">[옵션:black/free]</li>
-                                </ul>
                             </td>
                             <td>${cart.iPrice}</td>
                             <td><div>

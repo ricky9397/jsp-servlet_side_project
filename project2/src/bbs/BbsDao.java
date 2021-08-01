@@ -90,21 +90,21 @@ public class BbsDao {
 	}
 
 	// 페이지 이용한 리스트
-	public List<BbsDto> getBbsList(Connection conn, int firstRow, int messageCountPerPage) {
-		
+	public List<BbsDto> getBbsList(int firstRow, int messageCountPerPage) {
+
 		List<BbsDto> list = null;
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select * from bbs order by bbsdate desc limit ?, ?";
 
 		try {
-			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, firstRow);
 			pstmt.setInt(1, messageCountPerPage);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			list = new ArrayList<BbsDto>();
 			while (rs.next()) {
 				int bbsNum = rs.getInt("bbsNum");
@@ -133,13 +133,13 @@ public class BbsDao {
 		PreparedStatement pstmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
-		String sql = "select * from(" + "select rownum num, bbs.* from bbs where " + title
-				+ " like ? order by bbsnum desc)" + "where num between 1 and 10";
+		String sql = "select * from bbs";
+		
 
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%" + bid + "%");
+			pstmt.setString(1, bid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int bbsNum = rs.getInt("bbsNum");
@@ -168,7 +168,7 @@ public class BbsDao {
 		Statement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
-		String sql = "select * from bbs order by bbsnum desc ";
+		String sql = "select * from bbs order by bbsnum desc";
 
 		try {
 			conn = DBconn.getConnection();

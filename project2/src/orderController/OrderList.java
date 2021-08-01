@@ -23,5 +23,13 @@ public class OrderList implements Action{
 		String id = (String) session.getAttribute("id");
 		ArrayList<OrderDto> list = dao.getOrderList(id);
 		request.setAttribute("orders", list);
+		
+		int total = 0;
+		for (int i = 0; i < list.size(); i++) {
+			total += list.get(i).getSumPrice();
+			request.setAttribute("total", total);
+		}
+		
+		
 	}
 }

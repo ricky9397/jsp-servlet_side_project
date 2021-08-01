@@ -28,6 +28,7 @@
 
 	
 		<!-- 센터 -->
+		<form action="orderList.do" method="post">
 		<div>
             <div id="text_h1">
                 <h1>주문이 완료 되었습니다 감사합니다.</h1>
@@ -40,6 +41,7 @@
             </div>
 
         </div>
+		</form>
 		<!-- 센터끝 -->
 
 

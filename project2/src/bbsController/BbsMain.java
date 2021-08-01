@@ -1,13 +1,14 @@
 package bbsController;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bbsPage.BbsPage;
-import bbsPage.BbsPageDao;
+import bbs.BbsDao;
+import bbs.BbsDto;
 
 public class BbsMain implements Action {
 
@@ -16,15 +17,9 @@ public class BbsMain implements Action {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String pageNumStr = request.getParameter("page");
-		int pageNum = 1;
-		if(pageNumStr != null) {
-			pageNum = Integer.parseInt(pageNumStr);
-		}
 		
-//		ArrayList<BbsDto> list = dao.getList();
-		System.out.println(pageNum);
-		BbsPage list = BbsPageDao.getInstance().getBbsPageList(pageNum);
+		BbsDao dao = BbsDao.getInstance();
+		ArrayList<BbsDto> list = dao.getList();
 		request.setAttribute("BbsList", list);
 		
 	}

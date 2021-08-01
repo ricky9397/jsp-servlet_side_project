@@ -20,7 +20,7 @@ public class BbsSerch implements Action {
 		String field_ = request.getParameter("f");
 		String query_ = request.getParameter("q");
 		
-		String field = "title";
+		String field = "bbstitle";
 		if(field_ != null) {
 			field = field_;
 		}
@@ -30,13 +30,12 @@ public class BbsSerch implements Action {
 			query = query_;
 		}
 		
-		
-		
 		BbsDao dao = BbsDao.getInstance();
 		ArrayList<BbsDto> list = dao.getList(field, query);
 		
 //		BbsPage list = BbsPageDao.getInstance().getBbsPage(pageNumber);
 		request.setAttribute("Bbslist", list); 
+		System.out.println(list);
 
 		
 		
