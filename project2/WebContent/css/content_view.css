@@ -148,10 +148,12 @@ footer p{
 .content_m{
     text-align: left;
     width: 820px;
-    height: 100px;
     padding: 20px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ddd;
+}
+.content_m img{
+	display: block; margin: 0px auto;
 }
 
 .con_dm{

@@ -52,13 +52,14 @@ public class BbsDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into bbs (BBSNUM, BBSTITLE, ID, BBSHIT, BBSCONTENT) values(?, ?, ?, 0, ?)";
+			String sql = "insert into bbs (BBSNUM, BBSTITLE, ID, BBSHIT, BBSCONTENT, PHOTO) values(?, ?, ?, 0, ?, ?)";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dto.getBbsNum());
 			pstmt.setString(2, dto.getBbsTitle());
 			pstmt.setString(3, dto.getId());
 			pstmt.setString(4, dto.getBbsContent());
+			pstmt.setString(5, dto.getPhoto());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,8 +114,9 @@ public class BbsDao {
 				String bbsDate = rs.getString("bbsDate");
 				int bbsHit = rs.getInt("bbsHit");
 				String bbsContent = rs.getString("bbsContent");
+				String photo = rs.getString("photo");
 
-				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent, photo);
 				list.add(bDto);
 			}
 		} catch (SQLException e) {
@@ -148,8 +150,9 @@ public class BbsDao {
 				String bbsDate = rs.getString("bbsDate");
 				int bbsHit = rs.getInt("bbsHit");
 				String bbsContent = rs.getString("bbsContent");
+				String photo = rs.getString("photo");
 
-				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent, photo);
 				list.add(bDto);
 			}
 		} catch (SQLException e) {
@@ -181,8 +184,9 @@ public class BbsDao {
 				String bbsDate = rs.getString("bbsDate");
 				int bbsHit = rs.getInt("bbsHit");
 				String bbsContent = rs.getString("bbsContent");
+				String photo = rs.getString("photo");
 
-				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent, photo);
 				list.add(bDto);
 			}
 		} catch (SQLException e) {
@@ -236,6 +240,7 @@ public class BbsDao {
 				bdto.setBbsDate(rs.getString("bbsDate"));
 				bdto.setBbsHit(rs.getInt("bbsHit"));
 				bdto.setBbsContent(rs.getString("bbsContent"));
+				bdto.setPhoto(rs.getString("photo"));
 				return bdto;
 			}
 		} catch (SQLException e) {

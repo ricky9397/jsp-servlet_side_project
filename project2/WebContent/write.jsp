@@ -31,7 +31,7 @@
 
 
 		<!-- 센터 -->
-		<form action="./bbswrite.do" method="post" id="bbs_writer">
+		<form action="./bbswrite.do" method="post" id="bbs_writer" enctype="multipart/form-data">
 			<div class="center_wrap">
 				<div class="center_font">
 					<h2>Q & A</h2>
@@ -52,7 +52,7 @@
 				<table class="file_tb">
                     <tr>
                         <th>FILE</th>
-                        <td><input type="file"></td>
+                        <td><input type="file" name="photo"></td>
                     </tr>
                 </table>
 				

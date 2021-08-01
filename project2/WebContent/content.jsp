@@ -187,6 +187,7 @@ function commentUpdate(num, content){
                         </tr>
                     </table> 
                     <div class="content_m">
+                    	<img src="<c:url value="/upload/${content.photo}"/>" style="width: 600px; ">
                         <p>${content.bbsContent}</p>
                     </div>
                     

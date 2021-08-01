@@ -133,11 +133,11 @@ footer p{
     font-size: 0.7em;
 }
 
+
 /* 게시글 */
 .content_m{
     text-align: left;
     width: 820px;
-    height: 100px;
     padding: 20px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ddd;

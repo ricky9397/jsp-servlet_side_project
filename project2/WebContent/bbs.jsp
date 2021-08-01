@@ -59,6 +59,7 @@
                     <table class="bbs_table">
                         <tr>
                             <th class="bb_size">번호</th>
+                            <th class="bb_size">사진</th>
                             <th class="bb_size2">제목</th>
                             <th class="bb_size">작성자</th>
                             <th class="bb_size">작성일</th>
@@ -69,6 +70,7 @@
                         <c:forEach items="${BbsList}" var="list">
                         <tr class="bb_sizes">
                             <th class="bb_size">${list.bbsNum}</th>
+                            <th class="bb_size"><img src="<c:url value="/upload/${list.photo}"/>" style="height: 80px"></th>
                             <th class="bb_size2 bb_ss">
                             <a href="content.do?bbsNum=${list.bbsNum}">${list.bbsTitle}</a>
                             </th>
@@ -77,7 +79,6 @@
                             <th class="bb_size">${list.bbsHit}</th>
                         </tr>
                         </c:forEach>
-                        
                     </table>
                     <div class="butto_write">
                     	<a href="write.do">
@@ -86,15 +87,6 @@
                     </div>
                 	</div>
                 	<div>
-                	
-                	<%-- <c:if test="${Bbslist.pageTotalCount>0}">
-						<div class="paging">
-						<c:forEach begin="1" end="${Bbslist.pageTotalCount}" var="num">
-						<span>[ <a href="list.jsp?page=${num}">${num}</a>  ]</span> 
-						</c:forEach>
-						</div>
-					</c:if> --%>
-                	
                 	<!-- jstl을 사용해 page 숫자를 적용한다. -->
                 	<!-- param.p == null인경우에는 1 아닌경우에는 param.p -->
                 	<!-- page가 나눈값이 -1을 해줘야 1~10 11~20 나온다 -->
