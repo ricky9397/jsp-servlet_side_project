@@ -16,6 +16,7 @@ import bbsController.Action;
 import bbsController.BbsContent;
 import bbsController.BbsDelete;
 import bbsController.BbsMain;
+import bbsController.BbsSerch;
 import bbsController.BbsUpdate;
 import bbsController.BbsUpdateForm;
 import bbsController.BbsWrite;
@@ -94,7 +95,7 @@ public class FrontController extends HttpServlet {
 		} else if (com.equals("/bbsList.do")) {
 			action = new BbsMain();
 			action.execute(request, response);
-			viewPage = "bbs.jsp";
+			viewPage = "test.jsp";
 
 		} else if (com.equals("/content.do")) {
 			action = new BbsContent();
@@ -116,7 +117,13 @@ public class FrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "bbsList.do";
 
-		} else if (com.equals("/productInsert.do")) {
+		} else if (com.equals("/bbsSerch.do")) {
+			action = new BbsSerch();
+			action.execute(request, response);
+			viewPage = "bbs.jsp";
+		}
+		
+		else if (com.equals("/productInsert.do")) {
 			action = new FileUpload();
 			action.execute(request, response);
 			viewPage = "productList.do";

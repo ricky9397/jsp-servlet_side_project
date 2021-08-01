@@ -5,19 +5,16 @@ public class CommentDto {
 	private int cBbsNum;
 	private String commentId;
 	private String commentDate;
-	private int commentParent;
 	private String commentContent;
 
 	public CommentDto() {
 	}
 
-	public CommentDto(int cNum, int cBbsNum, String commentId, String commentDate, int commentParent,
-			String commentContent) {
+	public CommentDto(int cNum, int cBbsNum, String commentId, String commentDate, String commentContent) {
 		this.cNum = cNum;
 		this.cBbsNum = cBbsNum;
 		this.commentId = commentId;
 		this.commentDate = commentDate;
-		this.commentParent = commentParent;
 		this.commentContent = commentContent;
 	}
 
@@ -53,14 +50,6 @@ public class CommentDto {
 		this.commentDate = commentDate;
 	}
 
-	public int getCommentParent() {
-		return commentParent;
-	}
-
-	public void setCommentParent(int commentParent) {
-		this.commentParent = commentParent;
-	}
-
 	public String getCommentContent() {
 		return commentContent;
 	}
@@ -72,7 +61,8 @@ public class CommentDto {
 	@Override
 	public String toString() {
 		return "CommentDto [cNum=" + cNum + ", cBbsNum=" + cBbsNum + ", commentId=" + commentId + ", commentDate="
-				+ commentDate + ", commentParent=" + commentParent + ", commentContent=" + commentContent + "]";
+				+ commentDate + ", commentContent=" + commentContent + "]";
 	}
+	
 	
 }

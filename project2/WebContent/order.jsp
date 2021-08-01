@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<div id="orderList.do">
+	<div id="wrap">
 		<!-- 상단 -->
 		<div>
 			<!-- 로고 -->

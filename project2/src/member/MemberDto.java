@@ -1,7 +1,6 @@
 package member;
 
 public class MemberDto {
-	private int idx;
 	private String id;
 	private String pw;
 	private String name;
@@ -12,9 +11,9 @@ public class MemberDto {
 	private String email;
 	public MemberDto() {
 	}
-	public MemberDto(int idx, String id, String pw, String name, int post, String address, String addresss,
-			String phoneNum, String email) {
-		this.idx = idx;
+	public MemberDto(String id, String pw, String name, int post, String address, String addresss, String phoneNum,
+			String email) {
+		super();
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
@@ -23,12 +22,6 @@ public class MemberDto {
 		this.addresss = addresss;
 		this.phoneNum = phoneNum;
 		this.email = email;
-	}
-	public int getIdx() {
-		return idx;
-	}
-	public void setIdx(int idx) {
-		this.idx = idx;
 	}
 	public String getId() {
 		return id;
@@ -78,5 +71,6 @@ public class MemberDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 		
 }

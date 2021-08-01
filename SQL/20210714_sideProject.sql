@@ -92,10 +92,16 @@ CREATE TABLE BBS(
     BBSHIT NUMBER,
     BBSCONTENT VARCHAR2(2048)
 );
+-- 페이징
+select * from(select rownum num, bbs.* from bbs where id like 'test' order by bbsnum desc)where num between 1 and 10;
+select * from bbs where bbstitle='ㅁㄴㅇㅁㄴㅇ' and id='test' order by bbsnum desc;
+select * from bbs;
+select count(*) from bbs
+where bbsnum between 1 and 9 order by bbsnum desc;
 
 DELETE from bbs where bbsnum=5;
 select * from bbs order by bbsnum desc;
-select * from bbs;
+select rownum num, bbs.* from bbs;
 insert into bbs values (1, '안녕하세요', test, sysdate, 0, '뭐이색기야', 1, 1, 0);
 DROP TABLE BBS;
 select max(bbsnum) from bbs;
@@ -119,15 +125,4 @@ select * from comments where cbbsnum=1 start with commentparent=0 connect by pri
 insert into comments values(2, 2, 'test', sysdate, 2, '안녕하세요');
 update comments set commentcontent='ffff' where cnum=4;
 
-
--- CART 테이블
-CREATE TABLE CART(
-    CARTNUM NUMBER PRIMARY KEY,
-    CARTCODE NUMBER,
-    ID VARCHAR2(20),
-    COUNT NUMBER
-);
-
--- SELECT
-SELECT * FROM CART;
 

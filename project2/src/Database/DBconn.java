@@ -7,10 +7,10 @@ import java.sql.SQLException;
 public class DBconn {
 	public static Connection getConnection() {
 		try {
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String id = "hr";
-			String pw = "tiger";
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
+			String id = "bit";
+			String pw = "bit";
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			return DriverManager.getConnection(url, id, pw);
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -13,6 +13,22 @@
 	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 	crossorigin="anonymous">
 </script>
+<script type="text/javascript">
+	function submit2(frm){
+		
+		var result = confirm('장바구니에 담으셨습니다. 이동하시겠습니까?');
+		if(result == true){
+			alert('장바구니 이동합니다.');
+			frm.submit();
+			frm.action = 'cart.do';
+		} else {
+			frm.submit();
+			frm.action = 'cartBack.do';
+		}
+	};
+</script>
+
+
 </head>
 
 <body>
@@ -39,11 +55,6 @@
                     <h2>Q & A</h2>
                 </div>
                 
-                <div class="qa">
-                    <a href="#">공지사항</a>
-                    <a href="bbsList.do">Q & A</a>
-                </div>
-        
                 <div class="bbs">
                     <table class="bbs_table">
                         <tr>
@@ -55,7 +66,7 @@
                         </tr>
                         
                         <!-- jstl for문을 이용하여 사용자가 작성한 게시글들이 db에 저장된 list를 불러와 출력한다. -->
-                        <c:forEach items="${Bbslist}" var="list">
+                        <c:forEach items="${Bbslist.messageList}" var="list">
                         <tr class="bb_sizes">
                             <th class="bb_size">${list.bbsNum}</th>
                             <th class="bb_size2 bb_ss">
@@ -74,6 +85,14 @@
                 	</div>
                 	<div>
                 	
+                	<%-- <c:if test="${Bbslist.pageTotalCount>0}">
+						<div class="paging">
+						<c:forEach begin="1" end="${Bbslist.pageTotalCount}" var="num">
+						<span>[ <a href="list.jsp?page=${num}">${num}</a>  ]</span> 
+						</c:forEach>
+						</div>
+					</c:if> --%>
+                	
                 	<!-- jstl을 사용해 page 숫자를 적용한다. -->
                 	<!-- param.p == null인경우에는 1 아닌경우에는 param.p -->
                 	<!-- page가 나눈값이 -1을 해줘야 1~10 11~20 나온다 -->
@@ -91,7 +110,7 @@
                     	</c:if>
                         
                     	<c:forEach var="i" begin="0" end="9">
-                        <a href="?p=${startNum+i}" class="bbs_page_num2">${startNum+i}</a>
+                        <a href="?p=${startNum+i}&f=${param.f}&q=${param.q}" class="bbs_page_num2">${startNum+i}</a>
                     	</c:forEach>
                     	
                     	<!-- 다음페이지 넘길때 -->
@@ -104,12 +123,12 @@
                     	</c:if>
                     </div>
                     <div class="bbs_serch">
-                        <select>
-                            <option>제목</option>
-                            <option>내용</option>
-                            <option>아이디</option>
+                        <select name="f">
+                            <option value="title">제목</option>
+                            <option value="writerId">작성자</option>
                         </select>
-                        <input type="text"><a href="#">FIND</a>
+                        <input type="text" name="q" value="">
+                        <a href="bbsSerch.do">FIND</a>
                     </div>
                 </div>
             </div>

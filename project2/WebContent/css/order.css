@@ -6,7 +6,7 @@
 }
 
 #wrap{
-    width: 1400px;
+    width: 1200px;
     margin: 0 auto;
 }
 a{
@@ -58,6 +58,10 @@ header{
     width: 25px;
 }
 
+.serch_li{
+    list-style: none;
+}
+
 html, body {
     position: relative;
     height: 100%;
@@ -106,7 +110,7 @@ li:hover{
     color: white;
     margin-top: 50px;
     margin-bottom: 50px;
-    padding: 8px 50px;
+    padding: 6px 45px;
     cursor: pointer;
 }
 

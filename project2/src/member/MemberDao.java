@@ -24,7 +24,7 @@ public class MemberDao {
 		ResultSet rs = null;
 
 		try {
-			String sql = "select pw from member where id=?";
+			String sql = "select pw from members where id=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -51,7 +51,7 @@ public class MemberDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into member values(member_idx_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into members values(?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			conn = DBconn.getConnection();
@@ -80,7 +80,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from member where id=?";
+		String sql = "select * from members where id=?";
 		
 		try {
 			conn = DBconn.getConnection();
@@ -109,7 +109,7 @@ public class MemberDao {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		String sql = "select * from member";
+		String sql = "select * from members";
 		
 		try {
 			conn = DBconn.getConnection();
@@ -119,8 +119,8 @@ public class MemberDao {
 			list = new ArrayList<>();
 			
 			while(rs.next()) {
-				list.add(new MemberDto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
+				list.add(new MemberDto(rs.getString(1), rs.getString(2), rs.getString(3),
+						rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 			}
 			
 			
@@ -139,7 +139,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from member where id=?";
+		String sql = "select * from members where id=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -147,7 +147,6 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				MemberDto dto = new MemberDto();
-				dto.setIdx(rs.getInt("idx"));
 				dto.setId(rs.getString("id"));
 				dto.setPw(rs.getString("pw"));
 				dto.setName(rs.getString("name"));
@@ -175,7 +174,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member set pw=?, name=?, post=?, address=?, addresss=?, phonenum=?, email=? where id=?";
+		String sql = "update members set pw=?, name=?, post=?, address=?, addresss=?, phonenum=?, email=? where id=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -202,7 +201,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "delete from member where id=?";
+		String sql = "delete from members where id=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);

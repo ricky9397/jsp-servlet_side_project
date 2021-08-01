@@ -77,7 +77,7 @@ public class JoinController extends HttpServlet {
 			email = request.getParameter("email");
 		}
 
-		int result = dao.join(new MemberDto(idx, id, pw, name, post, address , addresss, phoneNum, email));
+		int result = dao.join(new MemberDto(id, pw, name, post, address , addresss, phoneNum, email));
 		
 		if (result == 1) {
 			HttpSession session = request.getSession();

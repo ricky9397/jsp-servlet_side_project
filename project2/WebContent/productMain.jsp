@@ -23,14 +23,6 @@
 			frm.action = 'cartBack.do';
 		}
 	};
- /* 	function refalsh(){
-		var result = confirm('장바구니에 담으셨습니다. 이동하시겠습니까?');
-		if(result == true){
-			alert('장바구니 이동합니다.');
-		} else {
-			return history.back(-1);
-		}
-	};  */
 </script>
 
 </head>

@@ -31,7 +31,7 @@ public class MemeberUpdate implements Action {
 						+ request.getParameter("phoneNum2");
 		String email = request.getParameter("email");
 		
-		dao.MemberEdit(new MemberDto(idx, id, pw, name, post, address, addresss, phoneNum, email));
+		dao.MemberEdit(new MemberDto(id, pw, name, post, address, addresss, phoneNum, email));
 		
 		System.out.println("회원정보 서블릿 완성");
 	}

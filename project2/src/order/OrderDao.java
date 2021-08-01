@@ -23,7 +23,7 @@ public class OrderDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into iorder values(iorder_oidx_seq.nextval, ?, ?, ?, ?, ?, sysdate, ?)";
+		String sql = "insert into iorder (icode, id, oname, oprice, ophoto, count) values(?, ?, ?, ?, ?, ?)";
 
 		try {
 			conn = DBconn.getConnection();
@@ -35,12 +35,6 @@ public class OrderDao {
 				pstmt.setInt(4, o.getOprice());
 				pstmt.setString(5, o.getOphoto());
 				pstmt.setInt(6, o.getCount());
-//				pstmt.setInt(1, dto.getIcode());
-//				pstmt.setString(2, dto.getId());
-//				pstmt.setString(3, dto.getOname());
-//				pstmt.setInt(4, dto.getOprice());
-//				pstmt.setString(5, dto.getOphoto());
-//				pstmt.setInt(6, dto.getCount());
 				result = pstmt.executeUpdate();
 			}
 		} catch (SQLException e) {

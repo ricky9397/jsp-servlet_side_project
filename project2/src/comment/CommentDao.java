@@ -35,7 +35,6 @@ public class CommentDao {
 				comment.setcBbsNum(rs.getInt("cbbsnum"));
 				comment.setCommentId(rs.getString("commentid"));
 				comment.setCommentDate(rs.getString("commentdate"));
-				comment.setCommentParent(rs.getInt("commentparent"));
 				comment.setCommentContent("commentcontent");
 				return comment;
 			}
@@ -55,14 +54,13 @@ public class CommentDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into comments values(comment_dix_seq.nextval, ?, ?, sysdate, ?, ?)";
+		String sql = "insert into project.comments (CBBSNUM, COMMENTID ,COMMENTCONTENT) values (?, ?, ?)";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dto.getcBbsNum());
 			pstmt.setString(2, dto.getCommentId());
-			pstmt.setInt(3, dto.getCommentParent());
-			pstmt.setString(4, dto.getCommentContent());
+			pstmt.setString(3, dto.getCommentContent());
 			
 			result = pstmt.executeUpdate();
 			
@@ -107,7 +105,7 @@ public class CommentDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				list.add(new CommentDto(rs.getInt(1), rs.getInt(2), rs.getString(3), 
-						rs.getString(4), rs.getInt(5), rs.getString(6)));
+						rs.getString(4), rs.getString(5)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

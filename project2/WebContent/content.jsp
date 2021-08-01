@@ -209,19 +209,6 @@ function commentUpdate(num, content){
                     <%-- <input type="text" name="cBbsNum" value="${num.cBbsNum}"> --%>
                     <!-- 댓글 리스트 -->
                     <div id="comentList">
-						<!-- <table class="comment_size" class="dd">
-								<tr class="dd">
-									<th class="dd"></th>
-									<td class="dd">
-										<p class="p_size dd">
-											<span> 
-												<a href="#" class="p_size2 dd">수정</a> 
-												<a href="#" class="p_size2 dd">삭제</a>
-											</span>
-										</p>
-									</td>
-								</tr>
-						</table> -->
 					</div>
 					<!-- 댓글 리스트 끝 -->
 					

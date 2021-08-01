@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import Database.DBClose;
 import Database.DBconn;
@@ -32,8 +33,8 @@ public class BbsDao {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				result = rs.getInt("max(bbsnum)");
 			}
 		} catch (SQLException e) {
@@ -51,7 +52,7 @@ public class BbsDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into bbs values(?, ?, ?, sysdate, 0, ?)";
+			String sql = "insert into bbs (BBSNUM, BBSTITLE, ID, BBSHIT, BBSCONTENT) values(?, ?, ?, 0, ?)";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dto.getBbsNum());
@@ -68,19 +69,111 @@ public class BbsDao {
 		return 0; // 오류
 	}
 
-	// 전체리스트
+	// 전체 게시물의 개수
+	public int selectAllCount(Connection conn) throws SQLException {
+		int totalCount = 0;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "select count(*) from bbs";
+		try {
+			conn = DBconn.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				totalCount = rs.getInt(1);
+			}
+		} finally {
+			DBClose.dbClose(rs);
+			DBClose.dbClose(stmt);
+		}
+		return totalCount;
+	}
+
+	// 페이지 이용한 리스트
+	public List<BbsDto> getBbsList(Connection conn, int firstRow, int messageCountPerPage) {
+		
+		List<BbsDto> list = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from bbs order by bbsdate desc limit ?, ?";
+
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, firstRow);
+			pstmt.setInt(1, messageCountPerPage);
+			
+			rs = pstmt.executeQuery();
+			
+			list = new ArrayList<BbsDto>();
+			while (rs.next()) {
+				int bbsNum = rs.getInt("bbsNum");
+				String bbsTitle = rs.getString("bbsTitle");
+				String id = rs.getString("id");
+				String bbsDate = rs.getString("bbsDate");
+				int bbsHit = rs.getInt("bbsHit");
+				String bbsContent = rs.getString("bbsContent");
+
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
+				list.add(bDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
+		}
+
+		return list;
+	}
+
+	// 검색 한것만 전체 리스트
+	public ArrayList<BbsDto> getList(String title, String bid) {
+		ArrayList<BbsDto> list = new ArrayList<BbsDto>();
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		String sql = "select * from(" + "select rownum num, bbs.* from bbs where " + title
+				+ " like ? order by bbsnum desc)" + "where num between 1 and 10";
+
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + bid + "%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int bbsNum = rs.getInt("bbsNum");
+				String bbsTitle = rs.getString("bbsTitle");
+				String id = rs.getString("id");
+				String bbsDate = rs.getString("bbsDate");
+				int bbsHit = rs.getInt("bbsHit");
+				String bbsContent = rs.getString("bbsContent");
+
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent);
+				list.add(bDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
+		}
+		return list;
+	}
+
+	// 전체 리스트
 	public ArrayList<BbsDto> getList() {
 		ArrayList<BbsDto> list = new ArrayList<BbsDto>();
 		Statement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
-		String sql = "select * from bbs order by bbsnum desc";
+		String sql = "select * from bbs order by bbsnum desc ";
 
 		try {
 			conn = DBconn.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-
 			while (rs.next()) {
 				int bbsNum = rs.getInt("bbsNum");
 				String bbsTitle = rs.getString("bbsTitle");
@@ -99,11 +192,9 @@ public class BbsDao {
 			DBClose.dbClose(stmt);
 			DBClose.dbClose(rs);
 		}
-
 		return list;
 	}
-	
-	
+
 	// 조회수증가
 	public int hitUp(String bbsNum) {
 		int result = 0;
@@ -115,7 +206,7 @@ public class BbsDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(bbsNum));
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -124,8 +215,7 @@ public class BbsDao {
 		}
 		return result;
 	}
-	
-	
+
 	// content
 	public BbsDto selectByNum(String bbsNum) {
 
@@ -157,7 +247,7 @@ public class BbsDao {
 		}
 		return null;
 	}
-	
+
 	// 게시글 수정
 	public int update(BbsDto dto) {
 		int result = 0;
@@ -169,7 +259,7 @@ public class BbsDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getBbsTitle());
 			pstmt.setString(2, dto.getBbsContent());
-			pstmt.setInt(3, dto.getBbsNum()	);
+			pstmt.setInt(3, dto.getBbsNum());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -179,11 +269,10 @@ public class BbsDao {
 		}
 		return result; // 오류
 	}
-	
-	
+
 	// 게시판글 삭제
 	public int delete(String num) {
-		
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -202,6 +291,4 @@ public class BbsDao {
 		}
 		return 0; // 오류
 	}
-	
-
 }
