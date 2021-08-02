@@ -47,7 +47,6 @@ public class OrderDao {
 	}
 	
 	// 주문 리스트
-	
 	public ArrayList<OrderDto> getOrderList(String id){
 		ArrayList<OrderDto> list = null;
 		Connection conn = null;
@@ -79,6 +78,24 @@ public class OrderDao {
 			DBClose.dbClose(rs);
 		}
 		return list;
+	}
+	
+	
+	// 주문 취소
+	public int orderDelete(int iCode) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from project.iorder where icode=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, iCode);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 }

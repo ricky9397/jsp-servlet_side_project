@@ -27,6 +27,7 @@ import memberController.MemberDelet;
 import memberController.MemberUpdateForm;
 import memberController.MemeberUpdate;
 import orderController.OrderController;
+import orderController.OrderDelete;
 import orderController.OrderList;
 
 @WebServlet("/bbsFront")
@@ -167,9 +168,9 @@ public class FrontController extends HttpServlet {
 			} else {
 				viewPage = "login.jsp";
 			}
-			
+		
+		// 주문 리스트
 		} else if (com.equals("/orderList.do")) {
-			System.out.println("리스트 출력시작");
 			if (id != null) {
 				action = new OrderList();
 				action.execute(request, response);
@@ -177,6 +178,10 @@ public class FrontController extends HttpServlet {
 			} else {
 				viewPage = "login.jsp";
 			}
+		} else if (com.equals("/orderDelete.do")) {
+			action = new OrderDelete();
+			action.execute(request, response);
+			viewPage = "orderList.jsp";
 		}
 
 

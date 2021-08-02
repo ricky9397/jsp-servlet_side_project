@@ -43,7 +43,7 @@
 
 
 		<!-- 센터 -->
-		<form action="">
+		<form action="orderDelete.do">
             <div id="center_wrap">
                 <div class="menu_a">
                     <h3>주문목록</h3>
