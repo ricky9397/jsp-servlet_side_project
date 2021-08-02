@@ -17,7 +17,6 @@ public class OrderDelete implements Action {
 		int oidx = Integer.parseInt(request.getParameter("oidx"));
 		OrderDao dao = OrderDao.getInstance();
 		dao.orderDelete(oidx);
-
 	}
 
 }

@@ -16,10 +16,15 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#reflash").click(function() {
-			var result = confirm('취소 하시겠습니까??');
-			if (result == true) {
-				alert('취소 되었습니다.');
-			} else {
+			if($('#reflash').val().trim.length >= 1){
+				var result = confirm('취소 하시겠습니까??');
+				if (result == true) {
+					alert('취소 되었습니다.');
+				} else {
+					return false;
+				}
+			} else if ($('#reflash').val().trim.length < 1){
+				alert('주문 상품이 없습니다.');
 				return false;
 			}
 		});
@@ -72,7 +77,7 @@
                         
                         <c:if test="${orders ne null and not empty orders}">
                         <c:forEach items="${orders}" var="list">
-                        <input type="hidden" name="oidx" value="${list.oidx}">
+                        <input type="hidden" name="oidx" value="${list.oidx}" id="reflash">
                         <tr>
                        	 	<td>${list.odate}</td>
                             <td>
@@ -112,7 +117,7 @@
                 </div>
                 <div class="button_footer">
                     <a href="#">
-                        <input type="submit" value="주문취소" id="reflash">
+                        <input type="submit" value="주문취소">
                     </a>
                 </div>
                 <div>
