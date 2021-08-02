@@ -136,7 +136,6 @@ public class BbsDao {
 		Connection conn = null;
 		ResultSet rs = null;
 		String sql = "select * from bbs";
-		
 
 		try {
 			conn = DBconn.getConnection();
@@ -296,4 +295,40 @@ public class BbsDao {
 		}
 		return 0; // 오류
 	}
+
+	// 전체 리스트
+	public ArrayList<BbsDto> getList(String userId) {
+		ArrayList<BbsDto> list = new ArrayList<BbsDto>();
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		String sql = "select * from bbs where id=? order by bbsnum";
+
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int bbsNum = rs.getInt("bbsNum");
+				String bbsTitle = rs.getString("bbsTitle");
+				String id = rs.getString("id");
+				String bbsDate = rs.getString("bbsDate");
+				int bbsHit = rs.getInt("bbsHit");
+				String bbsContent = rs.getString("bbsContent");
+				String photo = rs.getString("photo");
+
+				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent, photo);
+				list.add(bDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
+		}
+		return list;
+	}
+
 }

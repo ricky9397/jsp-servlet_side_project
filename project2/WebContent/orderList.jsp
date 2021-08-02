@@ -16,9 +16,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#reflash").click(function() {
-			var result = confirm('삭제 하시겠습니까?');
+			var result = confirm('취소 하시겠습니까??');
 			if (result == true) {
-				alert('삭제되었습니다.');
+				alert('취소 되었습니다.');
 			} else {
 				return false;
 			}
@@ -51,6 +51,7 @@
                 <div>
                     <table class="table_menu">
                         <tr>
+                        	<th>ORDERDATE</th>
                             <th>THUMB</th>
                             <th>PRODUCT</th>
                             <th>PRICE</th>
@@ -71,8 +72,9 @@
                         
                         <c:if test="${orders ne null and not empty orders}">
                         <c:forEach items="${orders}" var="list">
-                        
+                        <input type="hidden" name="oidx" value="${list.oidx}">
                         <tr>
+                       	 	<td>${list.odate}</td>
                             <td>
                                  <img src="<c:url value="/upload/${list.ophoto}"/>" id="img_size">
                             </td>
@@ -110,7 +112,7 @@
                 </div>
                 <div class="button_footer">
                     <a href="#">
-                        <input type="submit" value="주문취소">
+                        <input type="submit" value="주문취소" id="reflash">
                     </a>
                 </div>
                 <div>

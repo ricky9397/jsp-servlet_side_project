@@ -35,5 +35,4 @@ public class MemeberUpdate implements Action {
 		
 		System.out.println("회원정보 서블릿 완성");
 	}
-
 }

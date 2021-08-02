@@ -82,15 +82,15 @@ public class OrderDao {
 	
 	
 	// 주문 취소
-	public int orderDelete(int iCode) {
+	public int orderDelete(int oidx) {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "delete from project.iorder where icode=?";
+		String sql = "delete from project.iorder where oidx=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, iCode);
+			pstmt.setInt(1, oidx);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

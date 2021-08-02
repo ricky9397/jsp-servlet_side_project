@@ -16,6 +16,7 @@ import bbsController.Action;
 import bbsController.BbsContent;
 import bbsController.BbsDelete;
 import bbsController.BbsMain;
+import bbsController.BbsMyPageList;
 import bbsController.BbsSerch;
 import bbsController.BbsUpdate;
 import bbsController.BbsUpdateForm;
@@ -182,6 +183,10 @@ public class FrontController extends HttpServlet {
 			action = new OrderDelete();
 			action.execute(request, response);
 			viewPage = "orderList.jsp";
+		} else if (com.equals("/myBord.do")) {
+			action = new BbsMyPageList();
+			action.execute(request, response);
+			viewPage = "myBordpage";
 		}
 
 

@@ -70,7 +70,11 @@
                         <c:forEach items="${BbsList}" var="list">
                         <tr class="bb_sizes">
                             <th class="bb_size">${list.bbsNum}</th>
-                            <th class="bb_size"><img src="<c:url value="/upload/${list.photo}"/>" style="height: 80px"></th>
+                            <th class="bb_size">
+                            <c:if test="${list.photo ne null }">
+                            <img src="<c:url value="/upload/${list.photo}"/>"  alt="사진없음" style="height: 80px">
+                            </c:if>
+                            </th>
                             <th class="bb_size2 bb_ss">
                             <a href="content.do?bbsNum=${list.bbsNum}">${list.bbsTitle}</a>
                             </th>
