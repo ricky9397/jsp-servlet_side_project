@@ -98,7 +98,7 @@ function confirmDel(){
 //댓글삭제 ajax 사용
 function commentDel(num){
 	 $.ajax({
-		type: "GET",
+		type: "POST",
 		url : "CommentDelete",
 		data : {	
 			cNum : num
@@ -169,11 +169,10 @@ function commentUpdate(num, content){
        	<input type="hidden" id="bbsNum" name="bbsNum" value="${content.bbsNum}">
             <div class="center_wrap">
                 <div class="center_font">
-                    <h2>Q & A</h2>
+                    <h2>게시판</h2>
                 </div>
                 <div class="qa">
-                    <a href="#">공지사항</a>
-                    <a href="bbsList.do">Q & A</a>
+                    <a href="bbsList.do">게시판</a>
                 </div>
                 <div class="content_view_wrap">
                     <table>
@@ -187,8 +186,11 @@ function commentUpdate(num, content){
                         </tr>
                     </table> 
                     <div class="content_m">
+                    <c:if test="${content.photo ne null }">
                     	<img src="<c:url value="/upload/${content.photo}"/>" style="width: 600px; ">
+                    </c:if>	
                         <p>${content.bbsContent}</p>
+                        
                     </div>
                     
                     
@@ -203,9 +205,7 @@ function commentUpdate(num, content){
                             <input type="button" value="MODIFY" class="con_dm">
                         </a>
                     </c:if>
-                        <a href="bbsList.do">
-                        	<input type="button" value="LIST"  class="con_dm con_dm3">
-                        </a>
+                        	<input type="button" value="LIST"  class="con_dm con_dm3" onclick="history.back(-1)">
                     </div> 
                     <%-- <input type="text" name="cBbsNum" value="${num.cBbsNum}"> --%>
                     <!-- 댓글 리스트 -->

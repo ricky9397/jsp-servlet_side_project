@@ -12,16 +12,14 @@
         </script>
 <script src="./js/basket.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	$("#reflash").click(function(){
-		var result = confirm('삭제 하시겠습니까?');
-		if(result == true){
-			alert('삭제되었습니다.');
-		} else {
-			return false;
-		}
-	});
-});
+function confirmDel(){
+	var result = confirm('삭제 하시겠습니까?');
+	if(result == true){
+		alert('삭제되었습니다.');
+	} else {
+		return false;
+	}
+}
 </script>
 </head>
 
@@ -41,7 +39,7 @@ $(document).ready(function(){
 
 	
 		<!-- 센터 -->
-		<form action="order.do">
+		<form action="order.do" method="post">
             <div id="center_wrap">
                 <div class="menu_a">
                     <h3>일반상품</h3>
@@ -50,7 +48,6 @@ $(document).ready(function(){
                 <div>
                     <table class="table_menu">
                         <tr>
-                            <th><input type="checkbox" id="allCheck"></th>
                             <th>THUMB</th>
                             <th>PRODUCT</th>
                             <th>PRICE</th>
@@ -79,8 +76,6 @@ $(document).ready(function(){
 							<input type="hidden" name="id" value="${id}">
 							<input type="hidden" name="count" value="${cart.count}">
                         <tr>
-                            <td><input type="checkbox" class="checkItem" name="check" value="${cart.iCode}">
-                            </td>
                             <td>
                                 <img src="<c:url value="/upload/${cart.photo}"/>" id="img_size">
                             </td>
@@ -98,9 +93,8 @@ $(document).ready(function(){
                             </td>
                             <td>${cart.iPrice*cart.count}</td>
                             <td>
-                                <input type="submit" value="주문하기" class="button_a"><br>
                                 <a href="cartDelete.do?iCode=${cart.iCode}">
-                                <input type="button" value="삭제하기" class="button_a" id="reflash">
+                                <input type="button" value="삭제하기" class="button_a" onclick="confirmDel()">
                                 </a>
                             </td>
                         </tr>
@@ -123,7 +117,7 @@ $(document).ready(function(){
                     </table>
                 </div>
                 <div class="button_footer">
-                    <input type="submit" value="BUY NOW">
+                    <input type="submit" value="ALL BUY">
                     <a href="index.jsp">
                         <input type="button" value="GO SHOPPING">
                     </a>

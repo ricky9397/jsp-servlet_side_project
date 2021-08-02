@@ -35,19 +35,17 @@
 	                </div>
 	                <div class="main_a">
 	                    <p><b>의류이름</b></p>
-	                    <p>-의류내용<input type="text" name="content1"></p>
-	                    <p>-의류내용 <input type="text" name="content2"></p>
-	                    <p>-디자인<input type="text" name="content3"></p>
-	                    <p><span>FITTING</span></p>
-	                    <p>OHMYSHOP[185/76] - charcoal fitting</p>
+	                    <p>-의류내용1 : <input type="text" name="content1"></p>
+	                    <p>-의류내용2 : <input type="text" name="content2"></p>
+	                    <p>-의류내용3 : <input type="text" name="content3"></p>
 	                </div>
 	                <div class="main_a font_sizes">
 	                    <h3>가격: <input type="text" name="iPrice">원</h3>
-	                    <h3>수량: <input type="text" name="count"></h3>
-	                    
+	                    <h3>재고: <input type="text" name="count"></h3>
 	                </div>
 	                <div class="button_size">
 	                   <input type="submit" value="상품등록">
+	                   <input type="button" value="취소" onclick="hitory.back(-1)">
 	                </div>
 	            </div>
 	        </div>

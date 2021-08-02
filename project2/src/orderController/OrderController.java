@@ -19,8 +19,6 @@ public class OrderController implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String[] check = request.getParameterValues("check");
-		System.out.println(Arrays.toString(check));
 		String[] icode = request.getParameterValues("iCode");
 		String[] id = request.getParameterValues("id");
 		String[] oname = request.getParameterValues("iName");
@@ -43,5 +41,6 @@ public class OrderController implements Action {
 		dao.orderInsert(list);
 
 		HttpSession session = request.getSession();
+		session.removeAttribute("cartList");
 	}
 }

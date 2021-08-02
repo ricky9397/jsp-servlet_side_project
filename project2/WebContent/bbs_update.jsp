@@ -30,11 +30,11 @@
 
 
 		<!-- 센터 -->	
-		<form action="./bbsUpdate.do" method="post">
+		<form action="./bbsUpdate.do" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="bbsNum" value="${update.bbsNum}">
 			<div class="center_wrap">
 				<div class="center_font">
-					<h2>Q & A</h2>
+					<h2>게시판</h2>
 				</div>
 				<div>
 					<h2>COMMUNITY</h2>
@@ -49,7 +49,7 @@
 				<table class="file_tb">
                     <tr>
                         <th>FILE</th>
-                        <td><input type="file"></td>
+                        <td><input type="file" name="photo"></td>
                     </tr>
                 </table>
 				<div class="bbs_btn_size">

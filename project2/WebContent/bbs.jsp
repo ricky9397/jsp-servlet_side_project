@@ -52,7 +52,7 @@
 		<form action="bbsSerch.do" method="post">
             <div class="center_wrap">
                 <div class="center_font">
-                    <h2>Q & A</h2>
+                    <h2>게시판</h2>
                 </div>
                 
                 <div class="bbs">

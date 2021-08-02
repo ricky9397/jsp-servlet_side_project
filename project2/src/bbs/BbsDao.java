@@ -258,12 +258,13 @@ public class BbsDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "update bbs set bbstitle=?, bbscontent=? where bbsnum=?";
+			String sql = "update bbs set bbstitle=?, bbscontent=?, photo=? where bbsnum=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getBbsTitle());
 			pstmt.setString(2, dto.getBbsContent());
-			pstmt.setInt(3, dto.getBbsNum());
+			pstmt.setString(3, dto.getPhoto());
+			pstmt.setInt(4, dto.getBbsNum());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -296,7 +297,7 @@ public class BbsDao {
 		return 0; // 오류
 	}
 
-	// 전체 리스트
+	// 자기 게시글 검색
 	public ArrayList<BbsDto> getList(String userId) {
 		ArrayList<BbsDto> list = new ArrayList<BbsDto>();
 		PreparedStatement pstmt = null;

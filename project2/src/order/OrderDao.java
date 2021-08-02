@@ -86,7 +86,7 @@ public class OrderDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "delete from project.iorder where oidx=?";
+		String sql = "delete from iorder where oidx=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);

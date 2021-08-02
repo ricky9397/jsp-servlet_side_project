@@ -14,21 +14,14 @@
 </script>
 <script src="./js/basket.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#reflash").click(function() {
-			if($('#reflash').val().trim.length >= 1){
-				var result = confirm('취소 하시겠습니까??');
-				if (result == true) {
-					alert('취소 되었습니다.');
-				} else {
-					return false;
-				}
-			} else if ($('#reflash').val().trim.length < 1){
-				alert('주문 상품이 없습니다.');
-				return false;
-			}
-		});
-	});
+function confirmDel(){
+	var result = confirm('취소하시겠습니까??');
+	if(result == true){
+		alert('취소되었습니다');
+	} else {
+		return false;
+	}
+}
 </script>
 </head>
 
@@ -48,7 +41,6 @@
 
 
 		<!-- 센터 -->
-		<form action="orderDelete.do">
             <div id="center_wrap">
                 <div class="menu_a">
                     <h3>주문목록</h3>
@@ -64,9 +56,10 @@
                             <th>DELIVERY</th>
                             <th>CHARGE</th>
                             <th>TOTL</th>
+                            <th>SELECT</th>
                         </tr>
                         
-                        <c:if test="${orders eq null and empty orders}">
+                        <c:if test="${orders eq null || empty orders}">
                         	<tr>
 	                            <td colspan="9">
 	                            	<h3>주문 상품이 없습니다.</h3>
@@ -77,7 +70,6 @@
                         
                         <c:if test="${orders ne null and not empty orders}">
                         <c:forEach items="${orders}" var="list">
-                        <input type="hidden" name="oidx" value="${list.oidx}" id="reflash">
                         <tr>
                        	 	<td>${list.odate}</td>
                             <td>
@@ -96,6 +88,11 @@
                                 <p>3.000원</p>조건
                             </td>
                             <td>${list.oprice*list.count}</td>
+                            <td>
+                                <a href="orderDelete.do?oidx=${list.oidx}">
+                                <input type="button" value="주문취소" class="button_a" onclick="confirmDel()">
+                                </a>
+                            </td>
                         </tr>
                         </c:forEach>
                         
@@ -115,16 +112,10 @@
                         </c:if>
                     </table>
                 </div>
-                <div class="button_footer">
-                    <a href="#">
-                        <input type="submit" value="주문취소">
-                    </a>
-                </div>
                 <div>
                     <img src="./img/이용안내.png">
                 </div>
             </div>
-        </form>
 		<!-- 센터끝 -->
 
 

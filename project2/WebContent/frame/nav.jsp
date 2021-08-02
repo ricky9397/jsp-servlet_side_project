@@ -11,27 +11,32 @@
 			</ul>
 		</div>
 	</c:if>
-	<c:if test="${id != null}">
-		<div>
-			<ul class="nav1">
+	<div>
+		<ul class="nav1">
+			<c:if test="${id != null}">
 				<li><a href="LogOut">LOGOUT</a></li>
 				<li><a href="mypage.jsp">MY PAGE</a></li>
-			</ul>
-		</div>
-	</c:if>
+			</c:if>
+		</ul>
+	</div>
 	<div>
 		<ul>
-			<li class="serch_li"><a href="#" class="serch"> 
-				<img src="<c:url value="/img/header_ico_search.png"/>">
-			</a></li>
 			<li class="serch_li"><a href="cart.jsp" class="serch2"> 
-				<img src="<c:url value="/img/header_barket.png"/>">
+			<img src="<c:url value="/img/header_barket.png"/>">
 			</a></li>
 		</ul>
 	</div>
 	<ul class="nav2">
-		<li><a href="index.jsp">MAIN</a></li>
-		<li><a href="productList.do">SHOP</a></li>
-		<li><a href="bbsList.do">COMMUNITY</a></li>
+		<c:set var="adminID" value="test" />
+		<c:if test="${adminID ne id}">
+			<li><a href="*.do">MAIN</a></li>
+			<li><a href="productList.do">SHOP</a></li>
+			<li><a href="bbsList.do">COMMUNITY</a></li>
+		</c:if>
+		<c:if test="${adminID eq id}">
+			<li><a href="<c:url value="/admin/product.jsp"/>">PRODUCT</a></li>
+			<li><a href="<c:url value="/productList.do"/>">PRODUCTLIST</a></li>
+			<li><a href="#">ORDERLIST</a></li>
+		</c:if>
 	</ul>
 </nav>

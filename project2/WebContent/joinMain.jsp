@@ -31,7 +31,7 @@
 					alert('사용가능한 아이디입니다.');
 				} else {
 					alert('이미 사용중인 아이디입니다.');
-				}
+				} 
 			},
 			error:function(e){
 				console.log('error'+e);

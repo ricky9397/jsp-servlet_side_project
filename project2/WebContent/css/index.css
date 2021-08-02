@@ -21,7 +21,7 @@ header{
 
 .nav1{
     display: flex;
-    margin-left: 50px;
+    margin-left: 150px;
     list-style: none;
 }
 .nav1 a {
@@ -43,19 +43,16 @@ header{
     margin-bottom: 30px;
 }
 
-.serch{
-    float: right;
-    margin-right: 100px;
-    text-decoration: none;
-}
 .serch2{
     text-decoration: none;
     float: right;
-    margin-top: -5px;
-    margin-right: 5px;
+    margin-top: -20px;
+    margin-right: 300px;
+    
 }
 .serch2 img{
     width: 25px;
+    margin-bottom: 30px;
 }
 
 .serch_li{

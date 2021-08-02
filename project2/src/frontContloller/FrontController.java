@@ -16,7 +16,6 @@ import bbsController.Action;
 import bbsController.BbsContent;
 import bbsController.BbsDelete;
 import bbsController.BbsMain;
-import bbsController.BbsMyPageList;
 import bbsController.BbsSerch;
 import bbsController.BbsUpdate;
 import bbsController.BbsUpdateForm;
@@ -61,7 +60,7 @@ public class FrontController extends HttpServlet {
 		String conPath = request.getContextPath();
 		String com = uri.substring(conPath.length());
 
-		String viewPage = null;
+		String viewPage = "index.jsp";
 		Action action = null;
 
 		if (com.equals("/memberShip.do")) {
@@ -103,13 +102,12 @@ public class FrontController extends HttpServlet {
 			action = new BbsSerch();
 			action.execute(request, response);
 			viewPage = "bbs.jsp";
-		}
-		
-		else if (com.equals("/content.do")) {
+			
+		} else if (com.equals("/content.do")) {
 			action = new BbsContent();
 			action.execute(request, response);
 			viewPage = "content.jsp";
-
+		
 		} else if (com.equals("/delete.do")) {
 			action = new BbsDelete();
 			action.execute(request, response);
@@ -170,7 +168,7 @@ public class FrontController extends HttpServlet {
 				viewPage = "login.jsp";
 			}
 		
-		// 주문 리스트
+			//주문리스트
 		} else if (com.equals("/orderList.do")) {
 			if (id != null) {
 				action = new OrderList();
@@ -179,14 +177,13 @@ public class FrontController extends HttpServlet {
 			} else {
 				viewPage = "login.jsp";
 			}
+			
+			//주문취소
 		} else if (com.equals("/orderDelete.do")) {
 			action = new OrderDelete();
 			action.execute(request, response);
-			viewPage = "orderList.jsp";
-		} else if (com.equals("/myBord.do")) {
-			action = new BbsMyPageList();
-			action.execute(request, response);
-			viewPage = "myBordpage";
+			viewPage = "orderList.do";
+			
 		}
 
 

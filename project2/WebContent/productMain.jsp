@@ -63,26 +63,18 @@
 	                    <p>-${ProductContent.content2}</p>
 	                    <p>-${ProductContent.content3}</p>
 	
-	                    <p><span>FITTING</span></p>
-	                    <p>OHMYSHOP[185/76] - charcoal fitting</p>
-	                    <p><span>SIZE</span></p>
-	                    <p><span>FREE</span></p>
 	                </div>
 	                <div class="main_a font_sizes">
-	                    <h3>${ProductContent.iPrice}원</h3>
-	                </div>
-	                <div class="main_b">
-	                    <select class="select_size">
-	                        <option>color</option>
-	                        <option>white</option>
-	                        <option>black</option>
-	                    </select>
-	                    <p class="fonts">[필수]옵션을 선택해주세요.</p>
+	                    <h3>${ProductContent.iPrice} 원</h3>
 	                </div>
 	                <div class="main_b">
 	                    <select class="select_size">
 	                        <option>size</option>
-	                        <option>free</option>
+	                        <option>250</option>
+	                        <option>260</option>
+	                        <option>270</option>
+	                        <option>280</option>
+	                        <option>290</option>
 	                    </select>
 	                    <p class="fonts">[필수]옵션을 선택해주세요.</p>
 	                </div>

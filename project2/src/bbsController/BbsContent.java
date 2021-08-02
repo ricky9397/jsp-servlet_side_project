@@ -15,12 +15,8 @@ public class BbsContent implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		
-		
 		BbsDao dao = BbsDao.getInstance();
-		
 		String bbsNum = request.getParameter("bbsNum");
-		
 		// 조회수
 		dao.hitUp(bbsNum);
 		

@@ -24,9 +24,6 @@
 
 	
 		<!-- 센터 -->
-		<div class="top_main">
-            <img src="./img/main1.png">
-        </div>
         <div class="center_a">
         <c:forEach items="${productList}" var="list">
             <div class="center_b">
@@ -42,7 +39,11 @@
                         </a>
                     </li>
                     <li><span class="text_in">${list.iPrice}</span></li>
-                    <li><span>(3color)</span></li>
+                    <li><span>(${list.content1})</span></li>
+                    <c:set var="adminID" value="test"/>
+                    <c:if test="${adminID eq id}">
+                    <li><input type="button" value="수정"> <input type="button" value="삭제"></li>
+                    </c:if>
                 </ul>
             </div>
         </c:forEach>

@@ -37,11 +37,6 @@
                     <p class="a_size"><a href="">고객님꼐서 주문하신 상품의 주문내역을 확인하실 수 있습니다.<br>
                        	 비회원의 경우, 주문하신 상품의 주문내역을 조회하실 수 없습니다.</a></p>
                 </div>
-                <div class="center_b">
-                    <a href="myBord.do"><strong>BOARD</strong> 게시물관리</a>
-                    <p class="a_size"><a href="">고객님께서 작성하신 게시물을 관리하는 공간입니다.<br>
-                    고객님께서 작성하신 글을 한눈에 관리하실 수 있습니다.</a></p>
-                </div>
             </div>
         </div>
 		<!-- 센터끝 -->
