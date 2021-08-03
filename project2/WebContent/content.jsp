@@ -205,7 +205,9 @@ function commentUpdate(num, content){
                             <input type="button" value="MODIFY" class="con_dm">
                         </a>
                     </c:if>
-                        	<input type="button" value="LIST"  class="con_dm con_dm3" onclick="history.back(-1)">
+                    	<a href="bbsList.do">
+                        	<input type="button" value="LIST"  class="con_dm con_dm3">
+                    	</a>
                     </div> 
                     <%-- <input type="text" name="cBbsNum" value="${num.cBbsNum}"> --%>
                     <!-- 댓글 리스트 -->

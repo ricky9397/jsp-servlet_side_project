@@ -24,7 +24,7 @@ public class MemberDao {
 		ResultSet rs = null;
 
 		try {
-			String sql = "select pw from members where id=?";
+			String sql = "select pw from member where id=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -51,7 +51,7 @@ public class MemberDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into members values(?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into member values(?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			conn = DBconn.getConnection();
@@ -80,7 +80,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from members where id=?";
+		String sql = "select * from member where id=?";
 		
 		try {
 			conn = DBconn.getConnection();
@@ -109,7 +109,7 @@ public class MemberDao {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		String sql = "select * from members";
+		String sql = "select * from member";
 		
 		try {
 			conn = DBconn.getConnection();
@@ -139,7 +139,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from members where id=?";
+		String sql = "select * from member where id=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -174,7 +174,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update members set pw=?, name=?, post=?, address=?, addresss=?, phonenum=?, email=? where id=?";
+		String sql = "update member set pw=?, name=?, post=?, address=?, addresss=?, phonenum=?, email=? where id=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -201,7 +201,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "delete from members where id=?";
+		String sql = "delete from member where id=?";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);

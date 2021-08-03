@@ -54,7 +54,7 @@ public class CommentDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into project.comments (CBBSNUM, COMMENTID ,COMMENTCONTENT) values (?, ?, ?)";
+		String sql = "insert into comments values (comment_dix_seq.nextval,?, ?, sysdate,?)";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);

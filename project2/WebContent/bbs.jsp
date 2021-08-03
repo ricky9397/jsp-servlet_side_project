@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
 
 
 		<!-- 센터 -->
-		<form action="bbsSerch.do" method="post">
+		<form action="bbsList.do" method="get">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>게시판</h2>
@@ -94,12 +95,12 @@
                 	<!-- jstl을 사용해 page 숫자를 적용한다. -->
                 	<!-- param.p == null인경우에는 1 아닌경우에는 param.p -->
                 	<!-- page가 나눈값이 -1을 해줘야 1~10 11~20 나온다 -->
-                	<c:set var="page" value="${(param.p == null)?1:param.p}" />
+                	<c:set var="page" value="${(empty param.p)?1:param.p}" />
                 	<c:set var="startNum" value="${page-(page-1)%10}" />
                 	<!-- page 넘길때 쓰는 변수선언 -->
-                	<c:set var="lastNum" value="23" />
+                	<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10), '.')}" />
                     <div class="bbs_page_num1">
-                    
+                    	<div>${listNum}</div>
                     	<c:if test="${startNum > 1}">
                        		<a href="?p=${startNum-1}"><</a>
                     	</c:if>
@@ -107,7 +108,7 @@
                         	<a onclick="alert('이전 페이지가 없습니다.')"><</a>
                     	</c:if>
                         
-                    	<c:forEach var="i" begin="0" end="9">
+                    	<c:forEach var="i" begin="0" end="1">
                         <a href="?p=${startNum+i}&f=${param.f}&q=${param.q}" class="bbs_page_num2">${startNum+i}</a>
                     	</c:forEach>
                     	
@@ -122,8 +123,8 @@
                     </div>
                     <div class="bbs_serch">
                         <select name="f">
-                            <option value="bbstitle">제목</option>
-                            <option value="id">작성자</option>
+                            <option ${(param.f == "bbstitle")?"selected":""} value="bbstitle">제목</option>
+                            <option ${(param.f == "id")?"selected":""} value="id">작성자</option>
                         </select>
                         <input type="text" name="q" value="${param.q}">
                         <input type="submit" value="FIND">

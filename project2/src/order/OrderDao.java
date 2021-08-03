@@ -23,7 +23,7 @@ public class OrderDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into iorder (icode, id, oname, oprice, ophoto, count) values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert into iorder * values(iorder_oidx_seq.nextval, ?, ?, ?, ?, ?, sysdate,?)";
 
 		try {
 			conn = DBconn.getConnection();

@@ -2,13 +2,12 @@ drop table iorder;
 drop table member;
 drop table product;
 update member set pw='1234', name='홍길순', post=3030, address='서울 신촌', addresss='먹자골목', phonenum='01056789088', email='bbb@bbb.com' where id='test';
-insert into member values(member_idx_seq.nextval, 'test2', '1111', '홍길동', 330, '신촌', '로데오', '01055550000', 'asd@asd.com');
+insert into member values('test2', '1111', '홍길동', 330, '신촌', '로데오', '01055550000', 'asd@asd.com');
 select * from member;
 delete from member where pw='1234';
 -- member 테이블
 CREATE TABLE  MEMBER (
-                                IDX NUMBER CONSTRAINT MEMBER_IDX_PK PRIMARY KEY,
-                                ID VARCHAR2(40) CONSTRAINT MEMBER_ID_NN NOT NULL,
+                                ID VARCHAR2(40) CONSTRAINT MEMBER_ID_PK PRIMARY KEY,
                                 PW VARCHAR2(20)CONSTRAINT MEMBER_PW_NN NOT NULL,
                                 NAME  VARCHAR2(20)CONSTRAINT MEMBER_NAME_NN NOT NULL ,
                                 POST NUMBER CONSTRAINT MEMBER_POST_NN NOT NULL,
@@ -40,7 +39,7 @@ select * from product where category='상의';
                               
 CREATE TABLE IORDER (           oidx NUMBER(6) CONSTRAINT ORDER_OCODE_PK PRIMARY KEY,
                                 ICODE NUMBER(6) CONSTRAINT ORDER_ICODE_FK REFERENCES PRODUCT(ICODE) NOT NULL,
-                                ID VARCHAR2(40) CONSTRAINT ORDER_ID_NN NOT NULL,
+                                ID VARCHAR2(40) CONSTRAINT ORDER_ID_NN REFERENCES MEMBER(ID) NOT NULL,
                                 ONAME  VARCHAR2(50)CONSTRAINT ORDER_NAME_NN NOT NULL ,
                                 OPRICE  INTEGER ,
                                 OPHOTO VARCHAR2(50) DEFAULT 'photo.png',
@@ -86,14 +85,16 @@ select id from member order by id desc;
 -- 게시판 테이블
 CREATE TABLE BBS(
     BBSNUM NUMBER PRIMARY KEY,
-    BBSTITLE VARCHAR2(50),
-    ID VARCHAR2(20),
+    BBSTITLE VARCHAR2(50) NOT NULL,
+    ID VARCHAR2(20) NOT NULL,
     BBSDATE DATE DEFAULT SYSDATE,
     BBSHIT NUMBER,
-    BBSCONTENT VARCHAR2(2048)
+    BBSCONTENT VARCHAR2(2048) NOT NULL,
+    PHOTO VARCHAR2(50) DEFAULT 'photo.png'
 );
 -- 페이징
-select * from(select rownum num, bbs.* from bbs where id like 'test' order by bbsnum desc)where num between 1 and 10;
+select * from(select rownum num, n.* from(select * from bbs where bbstitle like '%ㄴ%' order by bbsdate desc)n)where num between 1 and 10;
+select count(bbsnum) count from(select rownum num, n.* from(select * from bbs where bbstitle like '%s%' order by bbsdate desc)n);
 select * from bbs where bbstitle='ㅁㄴㅇㅁㄴㅇ' and id='test' order by bbsnum desc;
 select * from bbs;
 select count(*) from bbs
@@ -110,10 +111,9 @@ select bbsnum, bbstitle, id, bbsdate, bbshit from bbs order by bbsgroup, bbsstep
 -- 댓글 테이블
 CREATE TABLE COMMENTS(
     CNUM NUMBER PRIMARY KEY,
-    CBBSNUM NUMBER,
-    COMMENTID VARCHAR2(20),
+    CBBSNUM NUMBER REFERENCES BBS(BBSNUM) NOT NULL,
+    COMMENTID VARCHAR2(20) NOT NULL,
     COMMENTDATE DATE DEFAULT SYSDATE,
-    COMMENTPARENT NUMBER,
     COMMENTCONTENT VARCHAR2(2048)
 );
 

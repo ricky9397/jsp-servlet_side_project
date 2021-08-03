@@ -52,7 +52,7 @@ public class BbsDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into bbs (BBSNUM, BBSTITLE, ID, BBSHIT, BBSCONTENT, PHOTO) values(?, ?, ?, 0, ?, ?)";
+			String sql = "insert into bbs values(?, ?, ?, sysdate, 0, ?, ?)";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dto.getBbsNum());
@@ -71,76 +71,48 @@ public class BbsDao {
 	}
 
 	// 전체 게시물의 개수
-	public int selectAllCount(Connection conn) throws SQLException {
+	public int selectAllCount(String title, String bid) {
 		int totalCount = 0;
-		Statement stmt = null;
-		ResultSet rs = null;
-		String sql = "select count(*) from bbs";
-		try {
-			conn = DBconn.getConnection();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			if (rs.next()) {
-				totalCount = rs.getInt(1);
-			}
-		} finally {
-			DBClose.dbClose(rs);
-			DBClose.dbClose(stmt);
-		}
-		return totalCount;
-	}
-
-	// 페이지 이용한 리스트
-	public List<BbsDto> getBbsList(int firstRow, int messageCountPerPage) {
-
-		List<BbsDto> list = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from bbs order by bbsdate desc limit ?, ?";
-
+		String sql = "select count(bbsnum) count from"
+				+ "(select rownum num, n.* from"
+				+ "(select * from bbs where "+title+" like ? order by bbsdate desc)n);";
 		try {
+			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, firstRow);
-			pstmt.setInt(1, messageCountPerPage);
-
+			pstmt.setString(1, "%"+bid+"%");
 			rs = pstmt.executeQuery();
-
-			list = new ArrayList<BbsDto>();
-			while (rs.next()) {
-				int bbsNum = rs.getInt("bbsNum");
-				String bbsTitle = rs.getString("bbsTitle");
-				String id = rs.getString("id");
-				String bbsDate = rs.getString("bbsDate");
-				int bbsHit = rs.getInt("bbsHit");
-				String bbsContent = rs.getString("bbsContent");
-				String photo = rs.getString("photo");
-
-				BbsDto bDto = new BbsDto(bbsNum, bbsTitle, id, bbsDate, bbsHit, bbsContent, photo);
-				list.add(bDto);
+			if (rs.next()) {
+				totalCount = rs.getInt("count");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DBClose.dbClose(pstmt);
+			DBClose.dbClose(conn);
 			DBClose.dbClose(rs);
+			DBClose.dbClose(pstmt);
 		}
-
-		return list;
+		return totalCount;
 	}
 
 	// 검색 한것만 전체 리스트
-	public ArrayList<BbsDto> getList(String title, String bid) {
+	public ArrayList<BbsDto> getList(String title, String bid, int page) {
 		ArrayList<BbsDto> list = new ArrayList<BbsDto>();
 		PreparedStatement pstmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
-		String sql = "select * from bbs";
+		String sql = "select * from(select rownum num, n.* from"
+				+ "(select * from bbs where "+title+" like ? order by bbsdate desc)n)"
+				+ "where num between ? and ?";
 
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bid);
+			pstmt.setString(1, "%"+bid+"%");
+			pstmt.setInt(2, 1+(page-1)*10);
+			pstmt.setInt(3, page*10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int bbsNum = rs.getInt("bbsNum");
@@ -163,6 +135,34 @@ public class BbsDao {
 		}
 		return list;
 	}
+	
+	// 검색
+	public int getBbsCount(String title, String bid) {
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		int result = 0;
+		String sql = "select count(bbsnum) count from(select rownum num, n.* from"
+				+ "(select * from bbs where "+ title +" like ? order by bbsdate desc)n)";
+
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+bid+"%");
+			rs = pstmt.executeQuery();
+			
+			result = rs.getInt("count");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.dbClose(conn);
+			DBClose.dbClose(pstmt);
+			DBClose.dbClose(rs);
+		}
+		return result;
+	}
+	
 
 	// 전체 리스트
 	public ArrayList<BbsDto> getList() {
