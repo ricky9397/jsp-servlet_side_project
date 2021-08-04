@@ -11,7 +11,6 @@
  - servlet mvc2패턴, frontcontroller 사용
 
 
-<img src="https://user-images.githubusercontent.com/84554175/128147217-161d9592-bb39-451e-ae16-368792241295.mp4">
 
 
 
