@@ -9,3 +9,7 @@
 1.쇼핑몰 만들기
  - HTML,CSS,JS,JQuery,ajax,json,jsp,servlet,java,db(oracle)
  - servlet mvc2패턴, frontcontroller 사용
+
+
+https://user-images.githubusercontent.com/84554175/128146489-baefe54c-688d-4a87-b3d4-43e4e4229c7d.mp4
+
