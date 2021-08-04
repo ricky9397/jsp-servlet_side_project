@@ -84,9 +84,7 @@ $(document).ready(function(){
 			</div>
 			<div class="login_footer">
 				<ul>
-					<li><a href="idFind.jsp">아이디찾기 </a></li>
-					<li><a href="pwFind.jsp">비밀번호 찾기 </a></li>
-					<li><a href="joinIndex.jsp">회원가입</a></li>
+					<li><a href="joincheck">회원가입</a></li>
 				</ul>
 			</div>
 		</form>

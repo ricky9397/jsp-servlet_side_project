@@ -35,7 +35,7 @@
 
 
 		<!-- 센터 -->
-		<form action="join" method="get" id="form_check">
+		<form action="join" method="post" id="form_check">
 			<div>
 				<h3 class="all_check">전체동의</h3>
 			</div>

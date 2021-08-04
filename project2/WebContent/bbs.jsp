@@ -50,7 +50,7 @@
 
 
 		<!-- 센터 -->
-		<form action="bbsList.do" method="get">
+		<form action="bbsList.do" method="post">
             <div class="center_wrap">
                 <div class="center_font">
                     <h2>게시판</h2>
@@ -92,15 +92,16 @@
                     </div>
                 	</div>
                 	<div>
-                	<!-- jstl을 사용해 page 숫자를 적용한다. -->
+                	
+                	
+                	
                 	<!-- param.p == null인경우에는 1 아닌경우에는 param.p -->
-                	<!-- page가 나눈값이 -1을 해줘야 1~10 11~20 나온다 -->
                 	<c:set var="page" value="${(empty param.p)?1:param.p}" />
+                	<!-- page가 나눈값이 -1을 해줘야 1~10 11~20 나온다 -->
                 	<c:set var="startNum" value="${page-(page-1)%10}" />
                 	<!-- page 넘길때 쓰는 변수선언 -->
                 	<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10), '.')}" />
                     <div class="bbs_page_num1">
-                    	<div>${listNum}</div>
                     	<c:if test="${startNum > 1}">
                        		<a href="?p=${startNum-1}"><</a>
                     	</c:if>
@@ -108,16 +109,19 @@
                         	<a onclick="alert('이전 페이지가 없습니다.')"><</a>
                     	</c:if>
                         
-                    	<c:forEach var="i" begin="0" end="1">
-                        <a href="?p=${startNum+i}&f=${param.f}&q=${param.q}" class="bbs_page_num2">${startNum+i}</a>
+                        
+                    	<c:forEach var="i" begin="0" end="4">
+                    	<c:if test="${(startNum+i) <= lastNum}">
+                        <a href="bbsList.do?p=${startNum+i}&f=${param.f}&q=${param.q}" class="bbs_page_num2"><span class="${(page==(startNum+i))?'font_color':''}">${startNum+i}</span></a>
+                    	</c:if>
                     	</c:forEach>
                     	
                     	<!-- 다음페이지 넘길때 -->
+                    	<c:if test="${startNum+5 <= lastNum}">
                     	<!-- 0~9니깐 다음페이지인 10을 넣어준다. -->
-                    	<c:if test="${startNum+10 < lastNum}">
                         	<a href="?p=${startNum+10}">></a>
                     	</c:if>
-                    	<c:if test="${startNum+10 >= lastNum}">
+                    	<c:if test="${startNum+5 >= lastNum}">
                         	<a onclick="alert('다음 페이지가 없습니다.')">></a>
                     	</c:if>
                     </div>

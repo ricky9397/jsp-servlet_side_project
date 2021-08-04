@@ -84,12 +84,12 @@ public class JoinController extends HttpServlet {
 			session.setAttribute("id", id);
 			session.setAttribute("name", name);
 			session.setAttribute("email", email);
-			RequestDispatcher rd = request.getRequestDispatcher("/joinEnd.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("joinEnd.jsp");
 			rd.forward(request, response);
 		}
 
 		if (result == 0) {
-			RequestDispatcher rd = request.getRequestDispatcher("/joinMain.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("joinMain.jsp");
 			rd.forward(request, response);
 		}
 		

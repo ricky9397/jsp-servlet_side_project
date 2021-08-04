@@ -1,19 +1,20 @@
 package bbsPage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bbs.BbsDto;
 
 public class BbsPage {
-	private List<BbsDto> messageList; // 게시물 Message 객체 3개
-	private int messageTotalCount; // 전체 게시물의 개수
-	private int currentPagenumber; // 현재 페이지 번호
-	private int pageTotalCount; // 페이지의 개수
-	private int messageCountPerpage; // 한 페이지에 표현할 메시지의 개수
-	private int firstRow; // DB 게시물의 시작 위치
-	private int endRow; // 마지막 위치
+	private ArrayList<BbsDto> messageList; 	// 게시물 Message 객체 3개
+	private int messageTotalCount; 		// 전체 게시물의 개수
+	private int currentPagenumber; 		// 현재 페이지 번호
+	private int pageTotalCount; 		// 페이지의 개수
+	private int messageCountPerpage; 	// 한 페이지에 표현할 메시지의 개수
+	private int firstRow; 				// DB 게시물의 시작 위치
+	private int endRow; 				// 마지막 위치
 
-	public BbsPage(List<BbsDto> messageList, int messageTotalCount, int currentPagenumber,
+	public BbsPage(ArrayList<BbsDto> messageList, int messageTotalCount, int currentPagenumber,
 			int messageCountPerpage, int firstRow, int endRow) {
 		this.messageList = messageList;
 		this.messageTotalCount = messageTotalCount;
@@ -25,19 +26,19 @@ public class BbsPage {
 	}
 
 	private void calpageTotalCount() {
-
-		if (this.messageTotalCount == 0) {
+		
+		if(this.messageTotalCount == 0) {
 			this.pageTotalCount = 0;
 		} else {
-			// 10 / 3 -> 3 10%3 >0 -> 3+1
+			// 10 / 3 -> 3    10%3 >0 -> 3+1
 			this.pageTotalCount = this.messageTotalCount / this.messageCountPerpage;
-			if (this.messageTotalCount % this.messageCountPerpage > 0) {
+			if(this.messageTotalCount % this.messageCountPerpage > 0) {
 				this.pageTotalCount++;
 			}
 		}
 	}
 
-	public List<BbsDto> getMessageList() {
+	public ArrayList<BbsDto> getMessageList() {
 		return messageList;
 	}
 
@@ -47,6 +48,10 @@ public class BbsPage {
 
 	public int getCurrentPagenumber() {
 		return currentPagenumber;
+	}
+
+	public int getPageTotalCount() {
+		return pageTotalCount;
 	}
 
 	public int getMessageCountPerpage() {
@@ -63,7 +68,7 @@ public class BbsPage {
 
 	@Override
 	public String toString() {
-		return "BbsPage [messageList=" + messageList + ", messageTotalCount=" + messageTotalCount
+		return "MessageListView [messageList=" + messageList + ", messageTotalCount=" + messageTotalCount
 				+ ", currentPagenumber=" + currentPagenumber + ", pageTotalCount=" + pageTotalCount
 				+ ", messageCountPerpage=" + messageCountPerpage + ", firstRow=" + firstRow + ", endRow=" + endRow
 				+ "]";

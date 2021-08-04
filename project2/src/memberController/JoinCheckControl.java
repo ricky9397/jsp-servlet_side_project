@@ -14,13 +14,11 @@ public class JoinCheckControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String[] check = request.getParameterValues("check");
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/joinIndex.jsp");
-		rd.forward(request, response);
-		
-	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
+		String[] check = request.getParameterValues("check");
+		RequestDispatcher rd = request.getRequestDispatcher("joinIndex.jsp");
+		rd.forward(request, response);
+	}
 }

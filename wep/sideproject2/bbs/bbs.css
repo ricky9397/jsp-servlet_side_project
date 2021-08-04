@@ -142,6 +142,9 @@ li:hover{
 .bbs_page_num1{
     margin-bottom: 20px;
 }
+.font_color{
+    color: greenyellow;
+}
 
 .bbs_serch select{
     border: 1px solid #bbb;

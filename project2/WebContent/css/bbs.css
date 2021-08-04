@@ -147,6 +147,10 @@ li:hover{
     font-size: 0.8em;
 }
 
+.font_color{
+    color: greenyellow;
+}
+
 .bbs_page_num2:hover{
     text-decoration: underline;
 }

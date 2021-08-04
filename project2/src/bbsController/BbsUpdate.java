@@ -18,7 +18,7 @@ public class BbsUpdate implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		ServletContext context = request.getServletContext();
 		String realpath = context.getRealPath("/upload");
@@ -41,5 +41,5 @@ public class BbsUpdate implements Action {
 		dto.setPhoto(img);
 		dao.update(dto);
 	}
-	
+
 }

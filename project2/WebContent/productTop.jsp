@@ -7,6 +7,16 @@
 <meta charset="UTF-8">
 <title>OHMYSHOP</title>
 <link rel="stylesheet" href="./css/top.css">
+<script type="text/javascript">
+function confirmDel(){
+	var result = confirm('상품 삭제하시겠습니까?');
+	if(result == true){
+		alert('삭제되었습니다.');
+	} else {
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -40,9 +50,9 @@
                     </li>
                     <li><span class="text_in">${list.iPrice}</span></li>
                     <li><span>(${list.content1})</span></li>
-                    <c:set var="adminID" value="test"/>
+                    <c:set var="adminID" value="admin"/>
                     <c:if test="${adminID eq id}">
-                    <li><input type="button" value="수정"> <input type="button" value="삭제"></li>
+                    <li><a href="productDelete.do?iCode=${list.iCode}" onclick="confirmDel()"><input type="button" value="삭제"></a></li>
                     </c:if>
                 </ul>
             </div>

@@ -65,7 +65,6 @@ $(document).ready(function(){
 					htmlStr += "			<p style='color:#aaa; font-size:5px'>" + val.commentDate ;
 					if(val.commentId == '${sessionScope.id}'){
 						htmlStr += "				<span>";
-						htmlStr += "					<a href='javascript:commentUpdate("+val.cNum+","+val.commentContent+")' id='cWrite' style='color:royalblue; padding-left: 3px;'>수정</a>";
 						htmlStr += "					<a href='javascript:commentDel("+val.cNum+")' onclick='confirmDel()' style='color:royalblue; padding-left: 3px;'>삭제</a>";
 						htmlStr += "				</span>";
 					} else {
@@ -131,21 +130,6 @@ function commentUpdate(num, content){
 
 </script>
 
-<!--  // 댓글 수정
- function commentUpdate(num){
- 	$.ajax({
- 		type: "POST",
- 		url: "CommentUpdate",
- 		data : {
- 			cNum : num,
- 			cContent : $('#cWrite').val()
- 		},
- 		success : function(data){
- 			alert('성공');
- 		}
- 	});
- };  -->
-
 </head>
 
 <body>
@@ -209,7 +193,6 @@ function commentUpdate(num, content){
                         	<input type="button" value="LIST"  class="con_dm con_dm3">
                     	</a>
                     </div> 
-                    <%-- <input type="text" name="cBbsNum" value="${num.cBbsNum}"> --%>
                     <!-- 댓글 리스트 -->
                     <div id="comentList">
 					</div>

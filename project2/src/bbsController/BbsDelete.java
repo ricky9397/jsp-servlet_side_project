@@ -15,8 +15,7 @@ public class BbsDelete implements Action {
 		System.out.println("삭제시작");
 		request.setCharacterEncoding("UTF-8");
 		BbsDao dao = BbsDao.getInstance();
-		String bbsNum = request.getParameter("bbsNum"); 
-		System.out.println(bbsNum);
+		int bbsNum = Integer.parseInt(request.getParameter("bbsNum")); 
 		dao.delete(bbsNum);
 		System.out.println("삭제끝");
 	}

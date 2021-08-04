@@ -76,13 +76,12 @@ public class BbsDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select count(bbsnum) count from"
-				+ "(select rownum num, n.* from"
-				+ "(select * from bbs where "+title+" like ? order by bbsdate desc)n);";
+		String sql = "select count(bbsnum) count from" + "(select rownum num, n.* from" + "(select * from bbs where "
+				+ title + " like ? order by bbsdate desc)n)";
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+bid+"%");
+			pstmt.setString(1, "%" + bid + "%");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				totalCount = rs.getInt("count");
@@ -103,16 +102,15 @@ public class BbsDao {
 		PreparedStatement pstmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
-		String sql = "select * from(select rownum num, n.* from"
-				+ "(select * from bbs where "+title+" like ? order by bbsdate desc)n)"
-				+ "where num between ? and ?";
+		String sql = "select * from(select rownum num, n.* from" + "(select * from bbs where " + title
+				+ " like ? order by bbsdate desc)n)" + "where num between ? and ?";
 
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+bid+"%");
-			pstmt.setInt(2, 1+(page-1)*10);
-			pstmt.setInt(3, page*10);
+			pstmt.setString(1, "%" + bid + "%");
+			pstmt.setInt(2, 1 + (page - 1) * 10);
+			pstmt.setInt(3, page * 10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int bbsNum = rs.getInt("bbsNum");
@@ -135,24 +133,24 @@ public class BbsDao {
 		}
 		return list;
 	}
-	
+
 	// 검색
 	public int getBbsCount(String title, String bid) {
 		PreparedStatement pstmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
 		int result = 0;
-		String sql = "select count(bbsnum) count from(select rownum num, n.* from"
-				+ "(select * from bbs where "+ title +" like ? order by bbsdate desc)n)";
+		String sql = "select count(bbsnum) count from(select rownum num, n.* from" + "(select * from bbs where " + title
+				+ " like ? order by bbsdate desc)n)";
 
 		try {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+bid+"%");
+			pstmt.setString(1, "%" + bid + "%");
 			rs = pstmt.executeQuery();
-			
+
 			result = rs.getInt("count");
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -162,7 +160,6 @@ public class BbsDao {
 		}
 		return result;
 	}
-	
 
 	// 전체 리스트
 	public ArrayList<BbsDto> getList() {
@@ -276,7 +273,7 @@ public class BbsDao {
 	}
 
 	// 게시판글 삭제
-	public int delete(String num) {
+	public int delete(int bbsNum) {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -284,7 +281,7 @@ public class BbsDao {
 			String sql = "delete from bbs where bbsnum=?";
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, Integer.parseInt(num));
+			pstmt.setInt(1, bbsNum);
 
 			return pstmt.executeUpdate(); // 삭제
 

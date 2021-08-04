@@ -31,7 +31,7 @@ public class JoinEndController extends HttpServlet {
 		
 		MemberDao dao = MemberDao.getInstance();
 		
-		PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter();	
 		List list = dao.getMemberList();
 		
 	}

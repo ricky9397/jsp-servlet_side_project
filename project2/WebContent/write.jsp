@@ -34,7 +34,7 @@
 		<form action="./bbswrite.do" method="post" id="bbs_writer" enctype="multipart/form-data">
 			<div class="center_wrap">
 				<div class="center_font">
-					<h2>Q & A</h2>
+					<h2>게시판</h2>
 				</div>
 				<div>
 					<h2>COMMUNITY</h2>

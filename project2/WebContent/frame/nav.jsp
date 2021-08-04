@@ -27,7 +27,7 @@
 		</ul>
 	</div>
 	<ul class="nav2">
-		<c:set var="adminID" value="test" />
+		<c:set var="adminID" value="admin" />
 		<c:if test="${adminID ne id}">
 			<li><a href="*.do">MAIN</a></li>
 			<li><a href="productList.do">SHOP</a></li>
@@ -36,7 +36,6 @@
 		<c:if test="${adminID eq id}">
 			<li><a href="<c:url value="/admin/product.jsp"/>">PRODUCT</a></li>
 			<li><a href="<c:url value="/productList.do"/>">PRODUCTLIST</a></li>
-			<li><a href="#">ORDERLIST</a></li>
 		</c:if>
 	</ul>
 </nav>

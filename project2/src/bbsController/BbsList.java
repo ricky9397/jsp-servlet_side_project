@@ -15,6 +15,7 @@ public class BbsList implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+			
 		String title_ = request.getParameter("f");
 		String bid_ = request.getParameter("q");
 		String page_ = request.getParameter("p");
@@ -35,7 +36,7 @@ public class BbsList implements Action {
 		}
 		
 		BbsDao dao = BbsDao.getInstance();
-
+		
 		ArrayList<BbsDto> list = dao.getList(title, bid, page);
 		int count = dao.selectAllCount(title, bid);
 		request.setAttribute("BbsList", list);

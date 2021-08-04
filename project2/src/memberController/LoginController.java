@@ -43,16 +43,16 @@ public class LoginController extends HttpServlet {
 		if (result == 1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
-			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/*.do");
 			rd.forward(request, response);
 
 		} else if (result == 0) {
-			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 			System.out.println("비밀번호 땡"); // 서버오류체크용
 
 		} else if (result == -1) {
-			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 			System.out.println("아이디 없음"); // 서버오류체크용
 

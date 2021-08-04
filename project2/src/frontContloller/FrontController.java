@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ProductController.ProductContent;
+import ProductController.ProductDelete;
 import ProductController.ProductList;
 import bbsController.Action;
 import bbsController.BbsContent;
@@ -97,7 +98,7 @@ public class FrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "bbs.jsp";
 
-		}  else if (com.equals("/content.do")) {
+		} else if (com.equals("/content.do")) {
 			action = new BbsContent();
 			action.execute(request, response);
 			viewPage = "content.jsp";
@@ -122,6 +123,11 @@ public class FrontController extends HttpServlet {
 			action.execute(request, response);
 			viewPage = "productList.do";
 
+		} else if (com.equals("/productDelete.do")) {
+			action = new ProductDelete();
+			action.execute(request, response);
+			viewPage = "productList.do";
+			
 		} else if (com.equals("/productList.do")) {
 			action = new ProductList();
 			action.execute(request, response);

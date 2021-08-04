@@ -14,13 +14,16 @@ import comment.CommentDto;
 import member.MemberDto;
 
 public class ProductDao {
-	
-	private ProductDao() {}
+
+	private ProductDao() {
+	}
+
 	static private ProductDao dao = new ProductDao();
+
 	public static ProductDao getInstance() {
 		return dao;
 	}
-	
+
 	// 상품번호 증가
 	public int getNext() {
 		int result = 0;
@@ -32,8 +35,8 @@ public class ProductDao {
 			conn = DBconn.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				result = rs.getInt("max(icode)");
 			}
 		} catch (SQLException e) {
@@ -45,7 +48,7 @@ public class ProductDao {
 		}
 		return result;
 	}
-	
+
 	// 상품 등록
 	public int productInsert(ProductDto dto) {
 		int result = 0;
@@ -72,34 +75,25 @@ public class ProductDao {
 		}
 		return result;
 	}
-	
-	
+
 	// 상품 리스트
-	public ArrayList<ProductDto> getProductList(){
+	public ArrayList<ProductDto> getProductList() {
 		ArrayList<ProductDto> list = null;
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		String sql = "select * from product";
-		
+
 		try {
 			conn = DBconn.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			
+
 			list = new ArrayList<>();
-			
-			while(rs.next()) {
-				list.add(new ProductDto(
-						rs.getInt(1), 
-						rs.getString(2), 
-						rs.getInt(3),
-						rs.getInt(4),
-						rs.getString(5),
-						rs.getString(6),
-						rs.getString(7),
-						rs.getString(8)
-						));
+
+			while (rs.next()) {
+				list.add(new ProductDto(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -110,9 +104,8 @@ public class ProductDao {
 		}
 		return list;
 	}
-	
-	
-	// 상품클릭 후 상세보기 
+
+	// 상품클릭 후 상세보기
 	public ProductDto selectIcode(int iCode) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -144,6 +137,21 @@ public class ProductDao {
 		}
 		return null;
 	}
-	
-	
+
+	// 주문 삭제
+	public int productDelete(int iCode) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from product where iCode=?";
+		try {
+			conn = DBconn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, iCode);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

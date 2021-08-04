@@ -117,7 +117,9 @@ function confirmDel(){
                     </table>
                 </div>
                 <div class="button_footer">
+                <c:if test="${cartList ne null and not empty cartList}">
                     <input type="submit" value="ALL BUY">
+                </c:if>
                     <a href="index.jsp">
                         <input type="button" value="GO SHOPPING">
                     </a>
