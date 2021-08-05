@@ -45,7 +45,7 @@
 	                </div>
 	                <div class="button_size">
 	                   <input type="submit" value="상품등록">
-	                   <input type="button" value="취소" onclick="hitory.back(-1)">
+	                   <input type="button" value="취소" onclick="history.back(-1)">
 	                </div>
 	            </div>
 	        </div>
