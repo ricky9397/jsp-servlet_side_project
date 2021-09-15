@@ -162,7 +162,6 @@ public class FrontController extends HttpServlet {
 				viewPage = "login.jsp";
 			}
 		
-			//주문리스트
 		} else if (com.equals("/orderList.do")) {
 			if (id != null) {
 				action = new OrderList();
@@ -172,7 +171,6 @@ public class FrontController extends HttpServlet {
 				viewPage = "login.jsp";
 			}
 			
-			//주문취소
 		} else if (com.equals("/orderDelete.do")) {
 			action = new OrderDelete();
 			action.execute(request, response);

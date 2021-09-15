@@ -12,11 +12,9 @@ public class BbsDelete implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("삭제시작");
 		request.setCharacterEncoding("UTF-8");
 		BbsDao dao = BbsDao.getInstance();
 		int bbsNum = Integer.parseInt(request.getParameter("bbsNum")); 
 		dao.delete(bbsNum);
-		System.out.println("삭제끝");
 	}
 }

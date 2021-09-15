@@ -99,7 +99,6 @@ public class MemberDao {
 			DBClose.dbClose(pstmt);
 			DBClose.dbClose(rs);
 		}
-		
 		return -1; // 오류
 	}
 	
