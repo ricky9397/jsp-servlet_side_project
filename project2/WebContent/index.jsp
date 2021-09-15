@@ -7,16 +7,22 @@
 <meta charset="UTF-8">
 <title>OHMYSHOP</title>
 <link rel="stylesheet" href="./css/index.css">
-<link rel="stylesheet"
-	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"
 		integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
 		crossorigin="anonymous">
 	</script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<!-- js -->
 	<script src="./js/index.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>+
+    <script>
+    $(document).ready(function(){
+      $('.slider').bxSlider();
+    });
+  </script>
 </head>
 
 <body>
@@ -37,7 +43,7 @@
 
 		<!-- 센터 -->
 		<div class="swiper-container mySwiper1">
-			<div class="swiper-wrapper">
+			<div class="slider">
 				<div class="swiper-slide">
 					<img src="./img/main7.png" alt="">
 				</div>
@@ -55,7 +61,7 @@
 			<div class="swiper-button-prev"></div>
 		</div>
 		<div class="swiper-container mySwiper2">
-			<div class="swiper-wrapper">
+			<div class="slider">
 				<div class="swiper-slide">
 					<a href=""> <img src="./img/item1.jpg" alt="">
 					</a>
