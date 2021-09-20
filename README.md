@@ -43,5 +43,38 @@
 
 ![회원가입 완료](https://user-images.githubusercontent.com/84554175/134035175-c4e6f991-ec68-4b56-8a08-99c0257acb6b.png)
 
+<h2>my페이지</h2>
+
+![my페이지](https://user-images.githubusercontent.com/84554175/134036459-33152a10-bf44-4851-94de-62ebfc8917dc.png)
+
+<h2>회원정보 수정</h2>
+
+![회원정보수정](https://user-images.githubusercontent.com/84554175/134036387-5aaf441f-27e6-4b4c-bba3-761759b50d93.png)
+
 <h2>로그인</h2>
+
+![로그인](https://user-images.githubusercontent.com/84554175/134035996-9959185f-6f40-4e37-93eb-44fdfb96f64b.png)
+
+<h2>상품상세페이지</h2>
+
+![상품상세페이지](https://user-images.githubusercontent.com/84554175/134036061-c8f20044-0e73-4544-9ffa-4c1daa92a217.png)
+
+<h2>상품장바구니</h2>
+
+![장바구니](https://user-images.githubusercontent.com/84554175/134036124-3b9ab9b6-1ca3-4355-8b1b-9c7403b2c9f0.png)
+
+<h2>상품주문</h2>
+
+![주문내역](https://user-images.githubusercontent.com/84554175/134036197-f905dc21-c842-442c-9966-1632c735dd5f.png)
+
+<h2>상품주문내역</h2>
+
+![주문내역1](https://user-images.githubusercontent.com/84554175/134036235-344a8423-3c47-45f3-aa4a-b324664f56b5.png)
+
+<h2>주문완료</h2>
+
+![주문완료](https://user-images.githubusercontent.com/84554175/134036270-06d67d74-4960-481c-b440-408dffcdc5f7.png)
+
+
+
 
