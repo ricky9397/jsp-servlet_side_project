@@ -5,7 +5,8 @@
  - HTML,CSS,JS,JQuery,ajax,json,jsp,servlet,java,db(oracle)
  - servlet mvc2패턴, frontcontroller 사용
 
-![jsp1](https://user-images.githubusercontent.com/84554175/134033565-485dd765-6cd3-4771-a247-773def79b8cf.png)
-![jsp css js](https://user-images.githubusercontent.com/84554175/134033599-fb262df4-b130-4e91-9464-e6a587eb0bc5.png)
-![화면 캡처 2021-08-04 173201](https://user-images.githubusercontent.com/84554175/134033609-a3d78162-60b0-4cdd-8eaa-38178404f1ff.png)
-![패키지2](https://user-images.githubusercontent.com/84554175/134033614-3fe539b0-f11e-4354-ab36-bbe85ed0d724.png)
+
+![패키지2](https://user-images.githubusercontent.com/84554175/134033693-a7f65bc0-38c5-4751-860f-bc75c7b117ba.png)
+![화면 캡처 2021-08-04 173201](https://user-images.githubusercontent.com/84554175/134033696-e13c1e64-0c99-49d3-b85b-fabf540f98b9.png)
+![jsp1](https://user-images.githubusercontent.com/84554175/134033701-abbc9454-73f1-45e1-9573-9c35a29a00fd.png)
+![jsp css js](https://user-images.githubusercontent.com/84554175/134033706-346268bd-d725-45f9-84e9-5d05cf208c6e.png)
