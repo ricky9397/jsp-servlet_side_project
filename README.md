@@ -75,6 +75,26 @@
 
 ![주문완료](https://user-images.githubusercontent.com/84554175/134036270-06d67d74-4960-481c-b440-408dffcdc5f7.png)
 
+<h2>페이징 및 게시판 메인</h2>
+
+![페이징](https://user-images.githubusercontent.com/84554175/134036698-53e4c094-5715-45d8-92ef-f4a2f2e970b6.png)
+
+<h2>게시글 검색</h2>
+
+![게시글 검색](https://user-images.githubusercontent.com/84554175/134036740-b67937f9-9da7-4858-81df-6395fd48aae5.png)
+
+<h2>게시판 글작성</h2>
+
+![게시판 글쓰기](https://user-images.githubusercontent.com/84554175/134036796-c9ce54b2-91b0-44a1-a2b1-e312795c049c.png)
+
+<h2>게시글 보기</h2>
+
+![게시판글 보기](https://user-images.githubusercontent.com/84554175/134036852-0a640838-12e0-433b-b1a8-1d04d6d561f0.png)
+
+<h2>댓글</h2>
+
+![댓글](https://user-images.githubusercontent.com/84554175/134036898-8ffe0081-2f6f-4023-b9a0-1513f45de9d2.png)
+
 
 
 
