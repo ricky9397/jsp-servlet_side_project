@@ -32,7 +32,8 @@
 
 <h4>회원가입 메인</h4>
 
-[회원가입2](https://user-images.githubusercontent.com/84554175/134035071-86f07bef-fb27-4507-b093-acdd9d8e3cd4.png)
+![회원가입2](https://user-images.githubusercontent.com/84554175/134035939-8f053678-8792-4d41-864e-761e8d10e9f3.png)
+
 
 <h4>우편등록 다음 api</h4>
 
