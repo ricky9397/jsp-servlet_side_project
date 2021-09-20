@@ -18,21 +18,30 @@
 <h2>기능 구현</h2>
 -관리자페이지
 
-<h2>상품등록</h2>
+<h4>상품등록</h4>
+
 ![관리자 등록 1](https://user-images.githubusercontent.com/84554175/134034863-ce5689e9-3d10-43dc-a491-fe0b75c5aeaf.png)
 
-<h2>상품관리</h2>
+<h4>상품관리</h4>
+
 ![상품등록완료](https://user-images.githubusercontent.com/84554175/134034937-26ef1afb-99a4-49e9-91f6-385147aff5a7.png)
 
--회원가입
-<h2>회원가입</h2>
+<h4>회원가입</h4>
+
 ![회원가입1](https://user-images.githubusercontent.com/84554175/134035009-d7aeadac-5a2a-4da1-b978-e7681add537a.png)
 회원가입!
-<h2>회원가입 메인</h2>
+
+<h4>회원가입 메인</h4>
+
 [회원가입2](https://user-images.githubusercontent.com/84554175/134035071-86f07bef-fb27-4507-b093-acdd9d8e3cd4.png)
-<h2>우편등록 다음 api</h2>
+
+<h4>우편등록 다음 api</h4>
+
 ![회원가입4](https://user-images.githubusercontent.com/84554175/134035115-6d68f3ee-b4c1-4ba3-a40b-06dc4066f85e.png)
-<h2>가입완료</h2>
+
+<h4>가입완료</h4>
+
 ![회원가입 완료](https://user-images.githubusercontent.com/84554175/134035175-c4e6f991-ec68-4b56-8a08-99c0257acb6b.png)
+
 <h2>로그인</h2>
 
