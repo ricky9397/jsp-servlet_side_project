@@ -39,8 +39,6 @@
 
 ![관리자 등록 1](https://user-images.githubusercontent.com/84554175/134034863-ce5689e9-3d10-43dc-a491-fe0b75c5aeaf.png){: width="100" height="100"}
 
-*asd
-
 <br>
 <hr>
 <h4>상품관리</h4>
