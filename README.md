@@ -1,5 +1,7 @@
 # side_project
 개인 프로젝트
+깃허브블로그(시현영상을 볼수 있습니다.) : https://ricky9397.github.io/Portfolio_bolg/ 
+
 2021/7/13
 <h2>개발 환경 및 기술</h2>
  - eclipse <br>
