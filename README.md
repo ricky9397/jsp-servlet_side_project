@@ -41,6 +41,7 @@
  - 관리자 로그인을 통해 관리자로 접속한뒤 관리자만 상품을 등록할 수 있다.
  - 아이디 : admin 비밀번호 : 1234
  <br>
+ 
 ![관리자 등록 1](https://user-images.githubusercontent.com/84554175/134034863-ce5689e9-3d10-43dc-a491-fe0b75c5aeaf.png)
 
 <br>
@@ -49,6 +50,7 @@
 <h4>상품관리</h4>
  - 관리자는 상품등록 및 삭제를 할 수 있다.
  <br>
+ 
 ![상품등록완료](https://user-images.githubusercontent.com/84554175/134034937-26ef1afb-99a4-49e9-91f6-385147aff5a7.png)
 <br>
 <hr>
@@ -56,6 +58,7 @@
 <h4>회원가입 이용약관</h4> 
  - 이용약관 모두 동의 해야지만 회원가입 가능하다.
  <br>
+ 
 ![회원가입1](https://user-images.githubusercontent.com/84554175/134035009-d7aeadac-5a2a-4da1-b978-e7681add537a.png)
 <br>
 <hr>
