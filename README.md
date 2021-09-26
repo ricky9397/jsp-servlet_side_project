@@ -20,7 +20,9 @@
 신발 쇼핑몰 만들기
 <br>
 <h2>2. EXERD</h2>
+
 ![화면 캡처 2021-09-25 231700](https://user-images.githubusercontent.com/84554175/134811358-28007b67-8bea-4f3c-a9d9-5edfcfb7e3c7.png)
+
 <br>
 <h2>3. 기능 구현</h2>
 -회원가입, 로그인, 회원정보수정, 회원탈퇴<br>
