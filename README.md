@@ -1,7 +1,13 @@
 # side_project
 개인 프로젝트
 2021/7/13
- - HTML,CSS,JS,JQuery,ajax,json,jsp,servlet,java,db(oracle)
+<h2>개발 환경 및 기술</h2>
+ - eclipse
+ - HTML,CSS,JS,JQuery,json,ajax
+ - jsp,servlet,java
+ - EL,JSTL
+ - DB(oracle)
+ - apache-tomcat-8.5
  - servlet mvc2패턴, frontcontroller 사용
 
 
@@ -13,9 +19,10 @@
 <h2>1. 주제</h2>
 신발 쇼핑몰 만들기
 
-<h2>2. 클래스다이어그램</h2>
+<h2>2. EXERD</h2>
+![화면 캡처 2021-09-25 231700](https://user-images.githubusercontent.com/84554175/134811358-28007b67-8bea-4f3c-a9d9-5edfcfb7e3c7.png)
 
-<h3>3.기능 구현</h3>
+<h2>3. 기능 구현</h2>
 -회원가입, 로그인, 회원정보수정, 회원탈퇴<br>
 -게시글 입력, 수정, 삭제<br>
 -페이징 처리<br>
